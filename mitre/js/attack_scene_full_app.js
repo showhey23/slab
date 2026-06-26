@@ -254,6 +254,7 @@ function card(tech, tac, subs, parent){
     <div class="dgmwrap">${svg}</div>
     ${note?`<p class="scap"><b>この攻撃がなすこと：</b>${note}</p>`:''}
     <p class="adesc">${linkify(tech.desc)}</p>
+    <div class="xjumprow"><button class="xjump toMap" onclick="XLINK.go('map','${tech.id}')">🗺 マップで詳細</button><button class="xjump toStory" onclick="XLINK.go('td','${tac.id}')">🛰 ストーリーで戦術を見る</button></div>
     <div class="cols">${mitCol(tech)}${defCol(tech)}</div></article>`;
 }
 function legendHTML(){ return LEGEND.map(([k,n])=>`<span><i style="background:${KIND[k].f};box-shadow:inset 0 0 0 1.4px ${KIND[k].s}"></i>${KIND[k].ic} ${esc(n)}</span>`).join('')+`<span style="color:var(--rose)">⌖ 標的コンポーネント</span><span style="color:var(--sky)">━ 探索</span><span style="color:var(--rose)">━ 攻撃</span><span style="color:#5C6B7F">━ データ</span><span style="color:var(--emerald)">━ 防御</span>`; }
@@ -292,5 +293,7 @@ function init(){ let total=0; const uniq=new Set(); TACTICS.forEach(tc=>tc.techs
   si.addEventListener('keydown',e=>{ if(e.key==='Escape'){ si.value=''; runSearch(''); } });
   window.addEventListener('message',e=>{ const d=e.data||{}; if(d.type==='scrollTo'&&d.id) jumpToId(d.id); });
   if(location.hash) jumpToId(location.hash.slice(1));
+  window.__gotoId=function(id){ for(let i=0;i<TACTICS.length;i++){ if(TACTICS[i].id===id){ openTactic(i); return; } } jumpToId(id); };
+  if(window.XLINK) XLINK.ready();
 }
 if(document.readyState!=='loading') init(); else document.addEventListener('DOMContentLoaded',init);

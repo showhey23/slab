@@ -149,7 +149,7 @@ function renderMatrix(){
 function renderTactic(idx, focusId){
   const tc = TACTICS[idx]; const ph=phaseOf(tc); const tops=groupTechs(tc); const st=tacStats(tc);
   const nav = tops.map(({tech,subs})=>`<a href="#" data-tech="${esc(tech.id)}"><span class="n">${esc(tech.id)}</span><span>${esc(tech.name)}</span></a>`).join('');
-  const cards = tops.map(({tech,subs})=>techCard(tech,subs,ph)).join('');
+  const cards = tops.map(({tech,subs})=>techCard(tech,subs,ph,tc.id)).join('');
   $('#view-tactic').innerHTML = `
   <div class="shell" style="--accent:${ph.c}">
     <aside class="rail">
@@ -182,12 +182,12 @@ function cssEsc(s){ return (window.CSS&&CSS.escape)?CSS.escape(s):s.replace(/\./
 function markRail(id){ $('#view-tactic').querySelectorAll('.rnav a').forEach(a=>a.classList.toggle('active', a.dataset.tech===id)); }
 function platChips(tech){ if(!tech.platforms) return '';
   return String(tech.platforms).split(/[,、]/).map(p=>p.trim()).filter(Boolean).map(p=>`<span class="chip in">${esc(p)}</span>`).join(''); }
-function techCard(tech, subs, ph){
+function techCard(tech, subs, ph, tacId){
   const subBadge = subs.length? `<span class="chip sub">+${subs.length} sub</span>`:'';
   const mitBadge = tech.mits.length? `<span class="chip em">緩和 ${tech.mits.length}</span>`:'';
   const d3Badge = tech.d3.length? `<span class="chip in">D3FEND ${tech.d3.length}</span>`:'';
   const mitBlock = renderMits(tech.mits); const d3Block = renderD3(tech.d3);
-  const subBlock = subs.length? `<div class="subwrap"><div class="sublbl">サブテクニック</div>${subs.map(s=>subItem(s)).join('')}</div>`:'';
+  const subBlock = subs.length? `<div class="subwrap"><div class="sublbl">サブテクニック</div>${subs.map(s=>subItem(s,tacId)).join('')}</div>`:'';
   return `<details class="tech" data-tech="${esc(tech.id)}" data-name="${esc(tech.name)}">
     <summary>
       <span class="tk-id">${esc(tech.id)}</span>
@@ -200,14 +200,15 @@ function techCard(tech, subs, ph){
     </summary>
     <div class="tk-body">
       <div class="tk-def">${linkify(tech.desc)}</div>
+      <div class="xjumprow"><button class="xjump toModel" onclick="XLINK.go('models','${tech.id}')">🖼 攻撃モデル図</button><button class="xjump toStory" onclick="XLINK.go('td','${tacId}')">🛰 ストーリーで戦術を見る</button></div>
       ${subBlock}${mitBlock}${d3Block}
     </div>
   </details>`;
 }
-function subItem(s){ const mit = s.mits.length? renderMits(s.mits):''; const d3 = s.d3.length? renderD3(s.d3):'';
+function subItem(s, tacId){ const mit = s.mits.length? renderMits(s.mits):''; const d3 = s.d3.length? renderD3(s.d3):'';
   return `<details class="subitem" data-tech="${esc(s.id)}" data-name="${esc(s.name)}">
     <summary><span class="sn">${esc(s.id)}</span><span class="snm">${esc(s.name)}</span><span class="sx">＋</span></summary>
-    <div class="sbody">${linkify(s.desc)}${mit}${d3}</div></details>`; }
+    <div class="sbody">${linkify(s.desc)}<div class="xjumprow"><button class="xjump toModel" onclick="XLINK.go('models','${s.id}')">🖼 攻撃モデル図</button></div>${mit}${d3}</div></details>`; }
 function renderMits(mits){
   if(!mits||!mits.length) return `<div class="nomit"><span class="ni">i</span><div>このテクニックには個別の緩和策（Mitigation）が紐づいていません。上位の予防的統制（最小権限・多層防御・入力検証・監視・パッチ適用）で対応します。</div></div>`;
   const rows = mits.map(m=>`<div class="mitrow">
@@ -268,5 +269,7 @@ function init(){ buildStrip(); renderHome(); renderMatrix(); renderDefense();
   si.addEventListener('input',()=>{ clearTimeout(tmr); tmr=setTimeout(()=>runSearch(si.value),180); });
   si.addEventListener('keydown',e=>{ if(e.key==='Escape'){ si.value=''; showView(currentView); } });
   window.addEventListener('message',e=>{ const d=e.data||{}; if(d.type==='scrollTo'&&d.id){ for(let i=0;i<TACTICS.length;i++){ if(TACTICS[i].techs.some(t=>t.id===d.id)){ openTactic(i,d.id); break; } } } });
+  window.__gotoId=function(id){ for(let i=0;i<TACTICS.length;i++){ if(TACTICS[i].id===id){ openTactic(i); return; } if(TACTICS[i].techs.some(t=>t.id===id)){ openTactic(i,id); return; } } };
+  if(window.XLINK) XLINK.ready();
 }
 if(document.readyState!=='loading') init(); else document.addEventListener('DOMContentLoaded',init);

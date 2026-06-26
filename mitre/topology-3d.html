@@ -1,78 +1,69 @@
 <!DOCTYPE html><html lang="ja"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MITRE ATT&CK v19 3D攻撃トポロジー</title>
+<title>MITRE ATT&CK v19 攻撃ストーリー（2.5D俯瞰）</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <link rel="icon" href="../favicon/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="../favicon/favicon.ico" sizes="any">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<link rel="stylesheet" href="css/topology.css">
+<link rel="stylesheet" href="css/story.css">
+<link rel="stylesheet" href="css/xlink.css">
+<script src="js/xlink.js"></script>
 </head>
 <body>
-<canvas id="scene"></canvas>
-
-<div id="topbar">
-  <div class="title">
-    <div class="bt"><b>MITRE ATT&amp;CK</b> Enterprise v19 · 3D攻撃トポロジー</div>
-    <div class="bs">Edge → Endpoint → Internal → Identity(AD) → Crown Jewels</div>
-    <div class="lead">外部の攻撃面・侵入口から、エンドポイント・内部ネットワーク・認証基盤（AD/DC/IdP）を経て、最奥のクラウンジュエル（業務データ）へ——エンタープライズ攻撃の道筋（キルチェーン）を立体で追う。</div>
+<header id="sbar">
+  <div class="brand"><div class="ub"><b>MITRE ATT&amp;CK</b> v19 · 攻撃ストーリー</div><div class="us">ATTACK PATH · 2.5D OVERHEAD</div></div>
+  <div class="xswitch" data-cur="td"></div>
+  <div class="btns">
+    <button class="sbtn kill" id="btnKill">⚡ クラウンジュエルへの最短路</button>
+    <button class="sbtn three" id="btn3D">🧊 3D自由視点</button>
   </div>
-  <div class="right">
-    <button class="btn kill" id="btnKill">⚡ クラウンジュエルへの最短路</button>
-    <button class="btn" id="btnDefense">🛡 防御を表示</button>
-    <button class="btn on" id="btnTree">🌳 階層ツリー ON</button>
-    <button class="btn" id="btnReset">⟲ 視点リセット</button>
-  </div>
+</header>
+
+<div id="slayout">
+  <main id="scanvas">
+    <div id="slegend">
+      <span><i style="background:#E8788C"></i>攻撃パス：侵害済み</span>
+      <span><i style="background:#E8788C;height:5px"></i>現在地（点滅）</span>
+      <span><i style="background:#5C6B7F;height:2px"></i>未到達</span>
+      <span><i class="dot" style="background:#3FBF8F"></i>防御ゲート 堅牢</span>
+      <span><i class="dot" style="background:#D8A65A"></i>手薄</span>
+      <span><i class="dot" style="background:#E8788C"></i>弱点</span>
+      <span>⌖ 現在地 ／ ピン＝戦術</span>
+    </div>
+  </main>
+  <aside id="spane"></aside>
 </div>
 
-<div id="legend" class="">
-  <div class="lh" id="legendToggle">凡例 / LEGEND<span class="tw">▾</span></div>
-  <div class="lrow" style="color:#E8788C"><span class="pd"></span><span style="color:var(--ink2)">脅威・侵害（攻撃者）</span></div>
-  <div class="lrow" style="color:#34C9C0"><span class="pd"></span><span style="color:var(--ink2)">攻撃面・侵入口・進行</span></div>
-  <div class="lrow" style="color:#8A8FF0"><span class="pd"></span><span style="color:var(--ink2)">AI構成・内部ホスト</span></div>
-  <div class="lrow" style="color:#D8A65A"><span class="pd"></span><span style="color:var(--ink2)">高価値（AD・データ）</span></div>
-  <div class="lrow" style="color:#3FBF8F"><span class="pd"></span><span style="color:var(--ink2)">防御・緩和（シールド）</span></div>
-  <div class="lrow" style="color:#8A8FF0;border-top:1px solid var(--line);margin-top:6px;padding-top:8px"><span class="pd" style="border-radius:50%"></span><span style="color:var(--ink2)">戦術ピンをクリック→階層ツリー展開</span></div>
-</div>
-<div class="hint">ドラッグ＝回転 ／ ホイール＝ズーム ／ クリック＝戦術の階層ツリー＋詳細 ／ ←→＝ステップ ／ Space＝再生</div>
+<div id="stimeline"></div>
 
-<div id="narration">
-  <div class="nh"><span class="ntac" id="narTac"></span><span class="ntech" id="narTech"></span></div>
-  <h3 class="nt" id="narTitle"></h3>
-  <p id="narBody"></p>
+<div id="sxport">
+  <button class="pbtn" id="btnBack" title="前のステップ">⏮</button>
+  <button class="pbtn play" id="btnPlay" title="再生/一時停止">▶</button>
+  <button class="pbtn" id="btnFwd" title="次のステップ">⏭</button>
+  <button class="pbtn" id="btnRewind" title="最初へ">⟲</button>
+  <div id="snow"></div>
+  <div class="seg"><button data-s="0.5">0.5×</button><button data-s="1" class="on">1×</button><button data-s="2">2×</button></div>
 </div>
 
-<div id="playbar">
-  <div id="timeline"></div>
-  <div id="controls">
-    <button class="pbtn" id="btnStepBack" title="前のステップ">⏮</button>
-    <button class="pbtn play" id="btnPlay" title="再生/一時停止">▶</button>
-    <button class="pbtn" id="btnStepFwd" title="次のステップ">⏭</button>
-    <button class="pbtn" id="btnRewind" title="最初へ">⟲</button>
-    <div id="nowtac"><span class="ph">READY</span> <b>再生ボタンで攻撃シナリオを開始</b></div>
-    <div class="seg" id="speedSeg"><button data-s="0.5">0.5×</button><button data-s="1" class="on">1×</button><button data-s="2">2×</button></div>
-  </div>
+<div id="free3d">
+  <div class="fh">🧊 3D自由視点（WebGL・副次機能）<button class="sbtn" id="free3dClose">✕ 閉じてストーリーへ戻る</button></div>
+  <iframe id="free3dFrame" title="3D自由視点（WebGL）" loading="lazy"></iframe>
 </div>
 
-<div id="panel">
-  <div class="ph">
-    <button class="pclose" id="panelClose">✕</button>
-    <div class="pe" id="pnEyebrow"></div>
-    <h3 id="pnTitle"></h3>
-    <div class="psub" id="pnSub"></div>
-  </div>
-  <div class="pbody" id="pnBody"></div>
+<div id="dataerr">
+  <div style="font-size:34px">⚠</div>
+  <div style="font-weight:700;font-size:16px;color:#EEF2F8">データを読み込めませんでした</div>
+  <div class="m" style="max-width:560px;font-size:13px;line-height:1.7;color:#8A97AD"></div>
 </div>
 
-<div id="tip"><span class="ti" id="tipId"></span><span id="tipName"></span></div>
-
-<div id="loading"><div class="ring"></div><div class="lt">BUILDING TOPOLOGY…</div></div>
-<div id="fallback"><div class="fb">
-  <h2>3D表示を初期化できませんでした</h2>
-  <p>お使いの環境では WebGL 3D が利用できない可能性があります。同じ内容は2D版「ATTACK_v19_攻撃手法・防御ガイド.html」でご覧いただけます。最新の正式情報は <a href="https://attack.mitre.org/" target="_blank" rel="noopener">MITRE ATT&amp;CK 公式サイト</a> をご確認ください。</p>
-</div></div>
-<div id="dataerr" style="position:fixed;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:#070B16;color:#C5D0E0;font-family:'Noto Sans JP',sans-serif;text-align:center;padding:32px;z-index:9999"><div style="font-size:34px">⚠</div><div style="font-weight:700;font-size:16px;color:#EEF2F8">データを読み込めませんでした</div><div class="m" style="max-width:560px;font-size:13px;line-height:1.7;color:#8A97AD"></div></div>
-<script>(function(){var FAIL=function(msg){var e=document.getElementById("dataerr");if(e){e.style.display="flex";e.querySelector(".m").textContent=msg;}};fetch("data/attack_v19_data.json",{cache:"force-cache"}).then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json();}).then(function(d){window.__ATTACK_DATA__=d;var s=document.createElement("script");s.src="js/attack3d_app.js";s.onerror=function(){FAIL("アプリ(js/attack3d_app.js)の読み込みに失敗しました。");};document.body.appendChild(s);}).catch(function(err){FAIL("データ(data/attack_v19_data.json)の取得に失敗しました："+err.message+" ／ file:// では動作しません。GitHub Pages 等の HTTP 配信でご利用ください。");});})();</script>
+<script>(function(){
+  var FAIL=function(msg){var e=document.getElementById("dataerr");if(e){e.style.display="flex";e.querySelector(".m").textContent=msg;}};
+  fetch("data/attack_v19_data.json",{cache:"force-cache"})
+   .then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json();})
+   .then(function(d){window.__ATTACK_DATA__=d;var s=document.createElement("script");s.src="js/attack_story_app.js";
+     s.onerror=function(){FAIL("アプリ(js/attack_story_app.js)の読み込みに失敗しました。");};document.body.appendChild(s);})
+   .catch(function(err){FAIL("データ(data/attack_v19_data.json)の取得に失敗しました："+err.message+" ／ file:// では動作しません。GitHub Pages 等の HTTP 配信でご利用ください。");});
+})();</script>
 </body></html>

@@ -14,14 +14,14 @@
   <div class="brand"><div class="ub"><b>MITRE ATT&amp;CK</b> Enterprise v19 統合ビューア</div><div class="us">2D MAP · 3D TOPOLOGY · TECHNIQUE MODELS</div></div>
   <div id="utabs">
     <button data-v="map" class="on"><span class="tn">A</span>全体マップ (2D)</button>
-    <button data-v="td"><span class="tn">B</span>3Dトポロジー &amp; ツリー</button>
+    <button data-v="td"><span class="tn">B</span>攻撃ストーリー (2.5D)</button>
     <button data-v="models"><span class="tn">C</span>攻撃モデル図 (全586・アーキ)</button>
   </div>
-  <div id="uhint">3Dのテクニック詳細 → <b>🖼 攻撃モデル図を見る</b> で横断ジャンプ</div>
+  <div id="uhint">攻撃ストーリーで侵入→到達を追い、<b>攻撃モデル図(C)</b>へ横断ジャンプ</div>
 </header>
 <main id="ustage">
   <iframe id="if-map" class="on" title="全体マップ (2D)"></iframe>
-  <iframe id="if-td" title="3Dトポロジー &amp; 階層ツリー"></iframe>
+  <iframe id="if-td" title="攻撃ストーリー (2.5D)"></iframe>
   <iframe id="if-models" title="攻撃モデル図"></iframe>
   <div id="uload"><div class="r"></div><div>LOADING…</div></div>
 </main>
@@ -29,21 +29,24 @@
 (function(){
   var SRC={map:"map.html",td:"topology-3d.html",models:"scenes.html"};
   var frames={map:document.getElementById("if-map"),td:document.getElementById("if-td"),models:document.getElementById("if-models")};
-  var loaded={}, pending=null, current="map";
+  var loaded={}, current="map", pendView=null, pendId=null;
   var loadEl=document.getElementById("uload");
-  function flush(v){ if(v==="models" && pending){ try{ frames.models.contentWindow.postMessage({type:"scrollTo",id:pending},"*"); }catch(e){} pending=null; } }
+  function deliver(v){ if(pendView===v && pendId!=null){ try{ frames[v].contentWindow.postMessage({type:"gotoId",id:pendId},"*"); }catch(e){} pendId=null; pendView=null; } }
   function ensure(v){ if(loaded[v]) return; var f=frames[v];
-    f.addEventListener("load",function(){ f.dataset.ready="1"; if(v===current) loadEl.style.display="none"; flush(v); });
+    f.addEventListener("load",function(){ f.dataset.ready="1"; if(v===current) loadEl.style.display="none"; deliver(v); });
     f.src=SRC[v]; loaded[v]=true; }
-  function show(v){ ensure(v); current=v;
+  function show(v,id){ if(!SRC[v]) return; if(id!=null){ pendView=v; pendId=id; }
+    ensure(v); current=v;
     for(var k in frames){ frames[k].classList.toggle("on",k===v); }
     document.querySelectorAll("#utabs button").forEach(function(b){ b.classList.toggle("on",b.dataset.v===v); });
     loadEl.style.display = frames[v].dataset.ready ? "none" : "flex";
+    if(frames[v].dataset.ready) deliver(v);
   }
   document.querySelectorAll("#utabs button").forEach(function(b){ b.onclick=function(){ show(b.dataset.v); }; });
   ensure("map");
   window.addEventListener("message",function(e){ var d=e.data||{};
-    if(d.type==="goModel" && d.id){ pending=d.id; show("models"); if(frames.models.dataset.ready){ flush("models"); } }
+    if(d.type==="goView" && d.view){ show(d.view, d.id!=null?d.id:undefined); }
+    else if(d.type==="goModel" && d.id){ show("models", d.id); }   /* 後方互換（3D自由視点→モデル図） */
   });
 })();
 </script>
