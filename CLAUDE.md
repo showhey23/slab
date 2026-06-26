@@ -4,14 +4,16 @@
 
 GitHub Pages で公開するサイバーセキュリティ学習プラットフォーム。
 フレームワーク不使用のバニラ HTML/CSS/JavaScript のみで構成される。
+1リポジトリ＝1サイトのため、複数の学習教材を1つのサイトに統合し、
+トップのランディングで **資格用** と **学習用** の2カテゴリに大別して入口を分ける構成。
 
-**公開 URL**: `https://showhey23.github.io/slab/`（予定）
+**公開 URL**: `https://showhey23.github.io/slab/`
 
 コンテンツは4系統：
-- **aaism** — AI Security Management 資格学習（テキスト + 199問クイズ）
-- **ccaf** — CCA-F 資格学習（テキスト + 120問クイズ）
-- **cissp** — CISSP 資格学習（テキスト + 400問クイズ）
-- **mitre** — MITRE ATT&CK 可視化学習（2D/2.5D/3D/586テクニック図解）
+- **aaism** — AI Security Management 資格学習（AIガバナンス・リスク・セキュリティ、テキスト + 199問クイズ）
+- **ccaf** — CCA-F 資格学習（Claude Certified Architect – Foundations、テキスト + 120問クイズ）
+- **cissp** — CISSP 資格学習（(ISC)² CBK 全8ドメイン、テキスト + 400問クイズ）
+- **mitre** — MITRE ATT&CK 可視化学習（Enterprise v19、2D/2.5D/3D/586テクニック図解）
 
 ---
 
@@ -19,34 +21,91 @@ GitHub Pages で公開するサイバーセキュリティ学習プラットフ�
 
 ```
 slab/
-├── index.html                 # ポータルトップ（GitHub Pages の入口）
-├── assets/
-│   ├── base.css               # ★全ページ共通デザイントークン（単一ソース）
-│   ├── portal.css             # ポータルトップ専用スタイル
-│   └── responsive.css         # 全ページ共通モバイル対応
-├── favicon/                   # ブランドアイコン一式
-├── aaism/
+├── index.html                   # トップ：資格用／学習用の2カテゴリで各トラックの入口を並べるポータル
+├── .nojekyll                    # GitHub Pages の Jekyll 処理をスキップ
+│
+├── assets/                      # ★ 全ページ共通の土台（デザイン統合の核）
+│   ├── base.css                 #   共有デザイントークン（Deep Aurora :root）＋リセット ＝単一ソース
+│   ├── portal.css               #   トップページ専用スタイル（カテゴリ見出し含む）
+│   └── responsive.css           #   共有レスポンシブ層（全ページが base/各CSSの後に読込）
+│
+├── favicon/                     # 共有ファビコン一式（.ico / .svg / PNG各サイズ / webmanifest）
+│
+│── 資格用（Certification）──
+├── aaism/                       # AAISM 学習サイト
 │   ├── index.html / textbook.html / quiz.html
-│   ├── css/ js/
-│   └── data/AAISM_Question_Bank.csv
-├── ccaf/
+│   ├── css/  site.css · textbook.css · quiz.css   （:root は base.css へ集約済み）
+│   ├── js/   textbook.js · quiz.js
+│   └── data/ AAISM_Question_Bank.csv              （268KB、199問）
+│
+├── ccaf/                        # CCA-F 学習サイト
 │   ├── index.html / textbook.html / quiz.html
-│   └── css/ js/
-├── cissp/
+│   ├── css/  index.css · textbook.css · quiz.css  （インラインから分離・:root 集約済み）
+│   └── js/   textbook.js · quiz.js                （インラインから分離。budoux は CDN）
+│
+├── cissp/                       # CISSP 学習サイト
 │   ├── index.html / textbook.html / quiz.html
-│   └── css/ js/
-└── mitre/
-    ├── index.html             # MITREセクション入口
-    ├── viewer.html            # 統合ビューア（iframe 3画面制御）
-    ├── map.html               # 2D 攻撃マトリクス
-    ├── scenes.html            # 全586テクニック図解
-    ├── topology-3d.html       # 2.5D キルチェーン
-    ├── topology-3d-free.html  # WebGL 3D フリービュー（Three.js r128）
-    ├── ARCHITECTURE.md        # MITRE サブシステム設計詳細
-    ├── css/                   # ビュー別スタイル（7ファイル）
-    ├── js/                    # ビュー別ロジック（5ファイル）
-    └── data/attack_v19_data.json  # ATT&CK v19 完全データ（8.1MB）
+│   ├── css/  index.css · textbook.css · quiz.css  （インラインから分離・:root 集約済み）
+│   └── js/   textbook.js · quiz.js                （インラインから分離・CDN なし）
+│
+│── 学習用（Learning）──
+└── mitre/                       # MITRE ATT&CK 学習ノート
+    ├── index.html               #   ランディング（← ポータル／2枚のカード）
+    ├── viewer.html              #   統合ビューア（iframe 3画面制御）
+    ├── map.html                 #   2D 攻撃マトリクス
+    ├── scenes.html              #   全 586 テクニック図解（SVG 手続き生成）
+    ├── topology-3d.html         #   2.5D キルチェーン（6層）
+    ├── topology-3d-free.html    #   WebGL 3D フリービュー（Three.js r128 CDN）
+    ├── ARCHITECTURE.md          #   MITRE サブシステム設計詳細
+    ├── css/                     #   ビュー別スタイル（7ファイル）
+    ├── js/                      #   ビュー別ロジック（5ファイル）
+    │   └── xlink.js             #   iframe 間 postMessage ナビゲーション制御
+    └── data/
+        └── attack_v19_data.json #   ATT&CK v19 完全データ（8.1MB）
 ```
+
+---
+
+## デザイン統合の仕組み
+
+- **デザイントークンの単一ソース化**：全サイトが共有する `:root` 変数（色・影・モーション・
+  フォント＝Deep Aurora）を `assets/base.css` に一本化。各ページの CSS から重複定義を撤去し、
+  全ページが `base.css` を参照する。**`base.css` を編集すると全サイトのデザインが一括で変わる。**
+
+- **CSS/JS の外部ファイル分離**：インラインだった `<style>`／`<script>` をすべて
+  各コースの `css/`・`js/` ディレクトリの外部ファイルへ分離し、コース間で構成を統一。
+
+- **レイアウト変数はローカル保持**：`--rail`／`--appbar` などページ依存の変数や
+  メディアクエリ内の上書きは各 CSS 側に残している。
+
+- **レスポンシブ共通層**：`assets/responsive.css` を全ページが base.css・各ページ CSS の
+  「後」に読み込み、スマホ最適化を一括管理。すべて `max-width` メディアクエリ内のため
+  PC 表示（≥761px）は不変。主な内容は (1) textbook ヘッダーのドメインタブを狭幅で
+  全幅・横スクロール（端フェード＋スナップ）化、(2) カード/グリッドの確実な1列化、
+  (3) クイズのボタン/選択肢のタップ領域拡大・主ボタン全幅化。
+  `:has(.dtabs)` で textbook と quiz のヘッダーを判別している。
+
+---
+
+## ナビゲーション
+
+- トップ `index.html` → 資格用（AAISM / CCA-F / CISSP）・学習用（MITRE）の各入口へ
+- 各サイトのランディング上部「← 学習サイト ポータル」でトップへ戻る
+- 資格用サイト内：Textbook ⇄ Quiz ⇄ Home を相互リンク
+- 学習用（MITRE）：ランディング → 統合ビューア / 3D トポロジー
+- すべて相対パスのため、リポジトリ名やサブパスが変わってもそのまま動作する
+
+---
+
+## GitHub Pages 公開手順
+
+1. 新規リポジトリを作成。
+2. このフォルダの**中身すべて**（`index.html`・`assets/`・`favicon/`・
+   `aaism/`・`ccaf/`・`cissp/`・`mitre/`・`.nojekyll`）をリポジトリ直下にコピーして push。
+3. **Settings → Pages** で Source を `Deploy from a branch`、Branch を `main / (root)` に設定。
+4. 数十秒後 `https://<ユーザー名>.github.io/<リポジトリ名>/` で公開（入口は `index.html`）。
+
+> `/docs` 配下で公開する場合は中身を `docs/` に入れ、Branch を `main / docs` に設定。
 
 ---
 
@@ -190,3 +249,16 @@ npx serve .
 - **Three.js**: `topology-3d-free.html` は CDN から r128 をロード。CDN 障害時はこのページのみ影響を受ける
 - **`file://` 非対応**: `fetch()` を使う全 MITRE ページはローカルサーバー必須
 - **ブラウザキャッシュ**: データ更新後に表示が変わらない場合は `Ctrl+Shift+R` で強制リロード
+- **iframe データ重複**: `viewer.html` 内の3 iframe が `attack_v19_data.json` をそれぞれ個別に fetch する。2回目以降はブラウザキャッシュで解消されるが、初回は帯域消費が3倍になる
+
+---
+
+## 出典・ライセンス
+
+教育・学習用の教材。
+- **AAISM**: 公開動画および NIST AI RMF 等の公開情報に基づく
+- **CCA-F**: Anthropic 公式試験ガイドと公開技術ドキュメントに基づく
+- **CISSP**: (ISC)² CBK（全8ドメイン）の公開情報に基づく
+- **MITRE ATT&CK**: ATT&CK Enterprise v19 の公開情報に基づく。ATT&CK® は The MITRE Corporation の登録商標
+
+規格名・法令名・固有名詞は各発行体に帰属する。最新の仕様・受験要項は各公式情報で最終確認すること。
