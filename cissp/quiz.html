@@ -1,0 +1,113 @@
+<!DOCTYPE html><html lang="ja"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CISSP クイズ｜全8ドメイン演習</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/base.css">
+<link rel="stylesheet" href="css/quiz.css">
+<!-- favicon / brand icon (merged) -->
+<link rel="icon" href="../favicon/favicon.ico" sizes="any">
+<link rel="icon" href="../favicon/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../favicon/apple-touch-icon.png">
+<link rel="manifest" href="../favicon/site.webmanifest">
+<meta name="theme-color" content="#0B0C0E">
+</head>
+<body>
+<div id="bar"></div>
+<header class="appbar">
+  <div class="brand"><span class="bt"><b>CISSP</b> 演習クイズ</span><span class="bs">Question Bank · 8 Domains</span></div>
+  <div class="right"><a class="xlink" href="textbook.html">📖 Textbook</a><a class="xlink alt" href="index.html">Home</a><button class="ghostbtn" id="toSetup">設定に戻る</button></div>
+</header>
+
+<div class="wrap">
+
+  <!-- ===== SETUP ===== -->
+  <section class="screen active" id="setup">
+    <div class="eyebrow">PRACTICE / EXAM</div>
+    <h1 class="h1">出題条件を選んで開始<span class="en">SELECT DOMAIN · DIFFICULTY · MODE</span></h1>
+    <p class="lead">公式問題集ベースの演習。ドメインと難易度、出題数、モードを選んでスタートしてください。途中で離れても進行は自動保存され、次回そのまま再開できます。</p>
+
+    <div class="notice">
+      <span class="nic">!</span>
+      <div class="ntxt"><b>ブラウザで開いてご利用ください。</b>Teams／SharePoint内のプレビュー表示ではクイズが動作しない場合があります。ファイルを<b>「ブラウザーで開く」またはダウンロード</b>して、Chrome・Edge などで開くと正しく動作し、進行も各自の端末に保存されます。</div>
+    </div>
+
+    <div class="setbox">
+      <div class="fieldlbl">ドメイン（複数選択可）</div>
+      <div class="opts-row" id="domOpts"></div>
+
+      <div class="fieldlbl">難易度</div>
+      <div class="opts-row" id="diffOpts"></div>
+
+      <div class="fieldlbl">出題数</div>
+      <div class="seg" id="countSeg"></div>
+
+      <div class="fieldlbl">モード</div>
+      <div class="seg mode" id="modeSeg">
+        <button data-mode="practice" class="on">練習 ・ 即時解説</button>
+        <button data-mode="exam">試験 ・ 最後に採点</button>
+      </div>
+      <p class="modehint" id="modeHint">練習モード：1問ごとに正誤と解説をその場で確認できます。</p>
+
+      <div class="startbar">
+        <button class="startbtn" id="startBtn">演習を開始</button>
+        <div class="startmeta" id="startMeta"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== QUIZ ===== -->
+  <section class="screen" id="quiz">
+    <div class="qhead">
+      <div class="qcount"><b id="qNum">1</b> <span id="qTotal">/ 10</span></div>
+      <div class="qtrack"><i id="qProg"></i></div>
+      <div class="qcount mono" id="qScore"></div>
+    </div>
+    <div class="qcard">
+      <div class="qmeta" id="qMeta"></div>
+      <p class="stem" id="qStem"></p>
+      <div class="choices" id="qChoices"></div>
+      <div class="reveal" id="qReveal"></div>
+    </div>
+    <div class="navbar">
+      <button class="navbtn" id="prevBtn">← 前へ</button>
+      <span class="examnote" id="examNote"></span>
+      <span class="navspacer"></span>
+      <button class="navbtn primary" id="nextBtn">次へ →</button>
+      <button class="navbtn submit" id="submitBtn" style="display:none">採点する</button>
+    </div>
+  </section>
+
+  <!-- ===== RESULT ===== -->
+  <section class="screen" id="result">
+    <div class="eyebrow">RESULT</div>
+    <h1 class="h1" style="margin-bottom:24px">演習結果</h1>
+    <div class="scorewrap">
+      <div class="ring" id="ring"><div class="rc"><div class="rp" id="ringPct">0%</div><div class="rl">SCORE</div></div></div>
+      <div class="scoremeta">
+        <h2 id="resHead">お疲れさまでした</h2>
+        <p>正解 <span class="frac" id="resFrac">0 / 0</span> 問　・　<span id="resMode"></span></p>
+        <p id="resTip" style="margin-top:8px;color:var(--ink3)"></p>
+      </div>
+    </div>
+
+    <div class="subhead">ドメイン別の正答率</div>
+    <div class="dombreak" id="domBreak"></div>
+
+    <div class="subhead">解答の見直し</div>
+    <div class="review" id="reviewList"></div>
+
+    <div class="resbtns">
+      <button class="navbtn submit" id="retryBtn">同じ条件でもう一度</button>
+      <button class="navbtn" id="wrongBtn">間違えた問題だけ復習</button>
+      <button class="navbtn" id="backBtn">設定に戻る</button>
+    </div>
+  </section>
+
+</div>
+<footer>CISSP 演習クイズ ・ 学習用サンプル ／ 解説は学習目的の再構成です。最新のCBKと各種規制・標準を必ずご確認ください。</footer>
+
+<script src="js/quiz.js"></script>
+</body></html>

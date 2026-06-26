@@ -1,6 +1,6 @@
-# 学習サイト ポータル（AAISM ＆ CCA-F）— GitHub Pages 統合版
+# 学習サイト ポータル（AAISM・CCA-F・CISSP）— GitHub Pages 統合版
 
-GitHub Pages は 1 リポジトリ＝1 サイトのため、**AAISM** と **CCA-F** の2つの学習サイトを
+GitHub Pages は 1 リポジトリ＝1 サイトのため、**AAISM**・**CCA-F**・**CISSP** の3つの学習サイトを
 1つのサイトに統合し、トップのランディングで入口を分けた構成です。
 さらに、**デザイン（CSS/JS）を体系的に分離・統合**しています。
 
@@ -8,7 +8,7 @@ GitHub Pages は 1 リポジトリ＝1 サイトのため、**AAISM** と **CCA-
 
 ```
 .
-├── index.html              # トップ：AAISM / CCA-F の入口を選ぶポータル
+├── index.html              # トップ：AAISM / CCA-F / CISSP の入口を選ぶポータル
 ├── .nojekyll / README.md
 │
 ├── assets/                 # ★ 全ページ共通の土台（デザイン統合の核）
@@ -23,10 +23,15 @@ GitHub Pages は 1 リポジトリ＝1 サイトのため、**AAISM** と **CCA-
 │   ├── js/   textbook.js · quiz.js
 │   └── data/ AAISM_Question_Bank.csv
 │
-└── ccaf/                   # CCA-F 学習サイト（Claude Certified Architect – Foundations）
+├── ccaf/                   # CCA-F 学習サイト（Claude Certified Architect – Foundations）
+│   ├── index.html / textbook.html / quiz.html
+│   ├── css/  index.css · textbook.css · quiz.css  （インラインから分離・:root集約済み）
+│   └── js/   textbook.js · quiz.js                （インラインから分離。budouxはCDN）
+│
+└── cissp/                  # CISSP 学習サイト（(ISC)² CBK 全8ドメイン）
     ├── index.html / textbook.html / quiz.html
     ├── css/  index.css · textbook.css · quiz.css  （インラインから分離・:root集約済み）
-    └── js/   textbook.js · quiz.js                （インラインから分離。budouxはCDN）
+    └── js/   textbook.js · quiz.js                （インラインから分離・CDNなし）
 ```
 
 ## デザイン統合の仕組み
@@ -52,7 +57,7 @@ GitHub Pages は 1 リポジトリ＝1 サイトのため、**AAISM** と **CCA-
 
 1. 新規リポジトリを作成。
 2. この `site_unified` フォルダの **中身すべて**（`index.html`・`assets/`・`favicon/`・
-   `aaism/`・`ccaf/`・`.nojekyll`）をリポジトリ直下にコピーして push。
+   `aaism/`・`ccaf/`・`cissp/`・`.nojekyll`）をリポジトリ直下にコピーして push。
 3. **Settings → Pages** で Source を `Deploy from a branch`、Branch を `main / (root)` に設定。
 4. 数十秒後 `https://<ユーザー名>.github.io/<リポジトリ名>/` で公開（入口は `index.html`）。
 
@@ -61,5 +66,5 @@ GitHub Pages は 1 リポジトリ＝1 サイトのため、**AAISM** と **CCA-
 ## 出典・ライセンス
 
 教育・学習用の教材です。AAISM は公開動画および NIST AI RMF 等、CCA-F は Anthropic 公式試験ガイドと
-公開技術ドキュメントに基づきます。規格名・法令名・固有名詞は各発行体に帰属します。
-最新の仕様・受験要項は各公式情報で最終確認してください。
+公開技術ドキュメント、CISSP は (ISC)² CBK（全8ドメイン）と公開情報に基づきます。
+規格名・法令名・固有名詞は各発行体に帰属します。最新の仕様・受験要項は各公式情報で最終確認してください。
