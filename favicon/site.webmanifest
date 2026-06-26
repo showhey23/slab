@@ -1,0 +1,21 @@
+{
+  "name": "学習サイト ポータル（AAISM & CCA-F）",
+  "short_name": "学習ポータル",
+  "description": "AAISM ＆ CCA-F 学習サイト（Textbook & 演習クイズ）",
+  "start_url": "../",
+  "display": "standalone",
+  "background_color": "#070809",
+  "theme_color": "#0B0C0E",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

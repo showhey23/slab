@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title>SLab favicon 7-8</title>
+  <desc>Black geometric S and L monogram in a circle on a white background.</desc>
+  <rect width="512" height="512" rx="92" fill="#ffffff"/>
+  <g fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round">
+    <!-- circular frame -->
+    <circle cx="256" cy="256" r="172" stroke-width="24"/>
+    <!-- tech S: rounded, minimal, suitable at small favicon sizes -->
+    <path d="M314 154H212C178 154 156 176 156 205C156 236 181 250 221 250H276C314 250 338 272 338 304C338 337 312 358 272 358H161" stroke-width="31"/>
+    <!-- integrated L stem and foot -->
+    <path d="M315 171V358H384" stroke-width="31"/>
+    <!-- small precision cut to evoke the 7-8 advanced-tech variant -->
+    <path d="M268 251L318 299" stroke-width="18"/>
+  </g>
+</svg>

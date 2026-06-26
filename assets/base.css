@@ -1,0 +1,63 @@
+/* ============================================================
+   base.css — 共有デザイントークン（Deep Aurora）
+   AAISM / CCA-F / ポータル 全ページ共通の単一ソース。
+   ※ここを変更すると両サイトのデザインが一括で変わります。
+   ============================================================ */
+
+:root{
+  /* —— surfaces (Deep Aurora) —— */
+  --bg:#070809;
+  --bg2:#0B0C0E;
+  --card:#121316;
+  --card2:#191B1F;
+  --raise:#1F2126;
+
+  /* —— lines —— */
+  --line:rgba(200,205,215,.14);
+  --line2:rgba(200,205,215,.26);
+
+  /* —— ink (text) —— */
+  --ink:#E7E8EA;
+  --ink2:#AEB1B6;
+  --ink3:#7C8088;
+  --ink4:#565A60;
+
+  /* —— accents —— */
+  --sky:#5FB7C0;
+  --emerald:#4FB07C;
+  --amber:#C2A86B;
+  --rose:#DE6678;
+  --indigo:#8A90A0;
+
+  /* —— accent tints —— */
+  --sky-d:rgba(95,183,192,.13);
+  --emerald-d:rgba(79,176,124,.14);
+  --amber-d:rgba(194,168,107,.13);
+  --rose-d:rgba(222,102,120,.13);
+  --indigo-d:rgba(138,144,160,.12);
+
+  /* —— elevation / shadows —— */
+  --sh-1:0 1px 2px rgba(0,0,0,.30);
+  --sh-2:0 6px 20px -8px rgba(0,0,0,.45);
+  --sh-3:0 18px 48px -16px rgba(0,0,0,.55);
+  --glow-sky:0 0 0 1px rgba(95,183,192,.30), 0 8px 28px -10px rgba(95,183,192,.35);
+  --hl-top:inset 0 1px 0 rgba(255,255,255,.04);
+
+  /* —— motion —— */
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --t-fast:140ms;
+  --t:200ms;
+  --t-slow:300ms;
+
+  /* —— typography —— */
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:"Noto Sans JP",-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",sans-serif;
+
+  /* —— layout defaults (rail / appbar) —— */
+  --rail:256px;
+  --appbar:64px;
+
+}
+
+/* shared reset (全ページ共通) */
+*{box-sizing:border-box}
