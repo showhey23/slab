@@ -1,0 +1,104 @@
+/* ============================================================
+   responsive.css — 共有レスポンシブ最適化レイヤー
+   base.css と各ページCSSの「後」に読み込み、共有コンポーネント
+   （appbar / domain tabs / cards・grid / quiz UI）をスマホ最適化する。
+   デザイントークンは base.css が単一ソース。ここはレイアウトのみ。
+   ============================================================ */
+
+/* ============================================================
+   1) TEXTBOOK ヘッダーのドメインタブ（.dtabs）
+   8〜12個のタブが横に詰まって見にくい問題を解消。
+   狭い画面ではブランド行とタブ行を分け、タブは全幅で横スクロール。
+   端のフェード（mask）とスナップでスクロール可能なことを明示。
+   :has(.dtabs) で textbook の appbar だけを対象にする。
+   ============================================================ */
+@media (max-width: 760px){
+  .appbar:has(.dtabs){
+    height:auto;
+    min-height:var(--appbar);
+    flex-wrap:wrap;
+    align-items:center;
+    padding:8px 12px;
+    gap:6px 10px;
+  }
+  .appbar:has(.dtabs) .brand{
+    flex:1 1 auto;
+    flex-direction:row;
+    align-items:baseline;
+    gap:8px;
+    border-right:none;
+    padding-right:0;
+  }
+  .appbar:has(.dtabs) .brand .bs{margin-top:0}
+  .appbar:has(.dtabs) .dtabs{
+    order:5;
+    flex-basis:100%;
+    width:100%;
+    min-width:0;
+    padding-bottom:2px;
+    scroll-snap-type:x proximity;
+    -webkit-mask:linear-gradient(90deg,transparent 0,#000 16px,#000 calc(100% - 16px),transparent 100%);
+            mask:linear-gradient(90deg,transparent 0,#000 16px,#000 calc(100% - 16px),transparent 100%);
+  }
+  .appbar:has(.dtabs) .dtab{scroll-snap-align:center}
+  .appbar:has(.dtabs) .dtab .dle{display:none}
+  /* 二段ヘッダー分、アンカー位置を下げてセクション見出しが隠れないように */
+  .shell section{scroll-margin-top:118px}
+}
+
+/* 極小幅：ブランド副題を省きタブをさらにコンパクトに */
+@media (max-width: 420px){
+  .appbar:has(.dtabs) .brand .bs{display:none}
+  .appbar:has(.dtabs) .dtab{padding:7px 10px}
+  .appbar:has(.dtabs) .dtab .dlj{font-size:12.5px}
+}
+
+/* ============================================================
+   2) QUIZ ヘッダー（.dtabs を持たない appbar）
+   ブランド＋ナビ＋ボタンが詰まるので、狭い画面では折り返し可に。
+   ============================================================ */
+@media (max-width: 640px){
+  .appbar:not(:has(.dtabs)){
+    height:auto;
+    min-height:var(--appbar);
+    flex-wrap:wrap;
+    align-items:center;
+    gap:6px 8px;
+    padding:8px 12px;
+  }
+  .appbar:not(:has(.dtabs)) .right{margin-left:auto;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+}
+@media (max-width: 380px){
+  .appbar:not(:has(.dtabs)) .brand .bs{display:none}
+}
+
+/* ============================================================
+   3) カード / グリッドの段組み
+   ポータルは 3→2→1（portal.css 済）。ランディングは 2→1（各 index.css 済）。
+   ここでは極小幅で確実に 1 列へ落とす保険のみ。
+   ============================================================ */
+@media (max-width: 480px){
+  .cards{grid-template-columns:1fr;gap:14px}
+}
+
+/* ============================================================
+   4) QUIZ 操作性：タップ領域・1列化・主ボタンの全幅化
+   .startbtn/.navbtn/.resbtns/.startbar/.seg/.choice は全 track 共通クラス。
+   ============================================================ */
+@media (max-width: 640px){
+  /* 主要ボタンは親指で押しやすい高さに */
+  .startbtn,.navbtn,.resbtns > *{min-height:46px}
+  /* 開始ボタン・送信ボタンは全幅で中央寄せ */
+  .startbtn,.navbtn.submit{width:100%;justify-content:center}
+  /* 結果画面のボタン群は縦積み・全幅 */
+  .resbtns{display:flex;flex-direction:column;gap:10px}
+  .resbtns > *{width:100%;justify-content:center}
+  /* 設定行・開始バーは縦積みで余白確保 */
+  .startbar{flex-direction:column;align-items:stretch;gap:12px}
+  .opts-row{gap:8px}
+  /* セグメント（範囲・モード切替）は折り返し可、内部ボタンもタップしやすく */
+  .seg{flex-wrap:wrap}
+  .seg > *{min-height:38px}
+  /* 選択肢は十分な高さで誤タップ防止 */
+  .choice{min-height:46px;align-items:center}
+}
