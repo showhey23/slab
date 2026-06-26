@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="ja"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MITRE ATT&CK v19 全テクニック アーキ攻撃モデル図(全586)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="icon" href="../favicon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon/favicon.ico" sizes="any">
+<link rel="stylesheet" href="css/scenes.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <marker id="ar-rose" markerWidth="11" markerHeight="11" refX="7.5" refY="3" orient="auto"><path d="M0,0 L7.5,3 L0,6 Z" fill="#E8788C"/></marker>
+  <marker id="ar-gray" markerWidth="11" markerHeight="11" refX="7.5" refY="3" orient="auto"><path d="M0,0 L7.5,3 L0,6 Z" fill="#5C6B7F"/></marker>
+  <marker id="ar-amber" markerWidth="11" markerHeight="11" refX="7.5" refY="3" orient="auto"><path d="M0,0 L7.5,3 L0,6 Z" fill="#D8A65A"/></marker>
+  <marker id="ar-em" markerWidth="11" markerHeight="11" refX="7.5" refY="3" orient="auto"><path d="M0,0 L7.5,3 L0,6 Z" fill="#3FBF8F"/></marker>
+  <marker id="ar-sky" markerWidth="11" markerHeight="11" refX="7.5" refY="3" orient="auto"><path d="M0,0 L7.5,3 L0,6 Z" fill="#34C9C0"/></marker>
+</defs></svg>
+
+<header class="appbar">
+  <div class="brand"><span class="bt"><b>MITRE ATT&amp;CK</b> Enterprise v19 · アーキテクチャ攻撃モデル図</span><span class="bs">全テクニック+サブ · Architecture Scenes · 586</span></div>
+  <label class="searchwrap"><span class="sic">⌕</span><input id="search" type="search" placeholder="テクニック・防御策を検索…" autocomplete="off"></label>
+  <span class="cnt" id="cnt"></span>
+</header>
+<nav class="tacstrip" id="tacstrip"></nav>
+
+<div class="wrap"><main>
+  <section id="stage"></section>
+  <section id="searchview" style="display:none"></section>
+</main>
+<footer>
+  <div class="warn"><span class="wi">!</span><div>各図は MITRE ATT&amp;CK® Enterprise v19 の公式テクニック定義（説明文）に基づき、戦術別の標準レイアウト上にテクニックごと個別構成した教育・参照用の概念図です。コンポーネント構成は典型例であり実環境・実装の詳細を規定しません。ATT&amp;CK® は The MITRE Corporation の商標。</div></div>
+  <div>出典：<a href="https://attack.mitre.org/" target="_blank" rel="noopener">MITRE ATT&amp;CK (v19)</a> ／ <a href="https://d3fend.mitre.org/" target="_blank" rel="noopener">MITRE D3FEND</a>。デザイン：Deep Aurora。</div>
+</footer>
+</div>
+
+<div id="bespoke" hidden></div>
+<div id="dataerr" style="position:fixed;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:#070B16;color:#C5D0E0;font-family:'Noto Sans JP',sans-serif;text-align:center;padding:32px;z-index:9999"><div style="font-size:34px">⚠</div><div style="font-weight:700;font-size:16px;color:#EEF2F8">データを読み込めませんでした</div><div class="m" style="max-width:560px;font-size:13px;line-height:1.7;color:#8A97AD"></div></div>
+<script>(function(){var FAIL=function(msg){var e=document.getElementById("dataerr");if(e){e.style.display="flex";e.querySelector(".m").textContent=msg;}};fetch("data/attack_v19_data.json",{cache:"force-cache"}).then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json();}).then(function(d){window.__ATTACK_DATA__=d;var s=document.createElement("script");s.src="js/attack_scene_full_app.js";s.onerror=function(){FAIL("アプリ(js/attack_scene_full_app.js)の読み込みに失敗しました。");};document.body.appendChild(s);}).catch(function(err){FAIL("データ(data/attack_v19_data.json)の取得に失敗しました："+err.message+" ／ file:// では動作しません。GitHub Pages 等の HTTP 配信でご利用ください。");});})();</script>
+</body></html>

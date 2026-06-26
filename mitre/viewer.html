@@ -1,0 +1,50 @@
+<!DOCTYPE html><html lang="ja"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MITRE ATT&CK Enterprise v19 統合ビューア｜Deep Aurora</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="icon" href="../favicon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon/favicon.ico" sizes="any">
+<link rel="stylesheet" href="css/viewer.css">
+</head>
+<body>
+<header id="unav">
+  <div class="brand"><div class="ub"><b>MITRE ATT&amp;CK</b> Enterprise v19 統合ビューア</div><div class="us">2D MAP · 3D TOPOLOGY · TECHNIQUE MODELS</div></div>
+  <div id="utabs">
+    <button data-v="map" class="on"><span class="tn">A</span>全体マップ (2D)</button>
+    <button data-v="td"><span class="tn">B</span>3Dトポロジー &amp; ツリー</button>
+    <button data-v="models"><span class="tn">C</span>攻撃モデル図 (全586・アーキ)</button>
+  </div>
+  <div id="uhint">3Dのテクニック詳細 → <b>🖼 攻撃モデル図を見る</b> で横断ジャンプ</div>
+</header>
+<main id="ustage">
+  <iframe id="if-map" class="on" title="全体マップ (2D)"></iframe>
+  <iframe id="if-td" title="3Dトポロジー &amp; 階層ツリー"></iframe>
+  <iframe id="if-models" title="攻撃モデル図"></iframe>
+  <div id="uload"><div class="r"></div><div>LOADING…</div></div>
+</main>
+<script>
+(function(){
+  var SRC={map:"map.html",td:"topology-3d.html",models:"scenes.html"};
+  var frames={map:document.getElementById("if-map"),td:document.getElementById("if-td"),models:document.getElementById("if-models")};
+  var loaded={}, pending=null, current="map";
+  var loadEl=document.getElementById("uload");
+  function flush(v){ if(v==="models" && pending){ try{ frames.models.contentWindow.postMessage({type:"scrollTo",id:pending},"*"); }catch(e){} pending=null; } }
+  function ensure(v){ if(loaded[v]) return; var f=frames[v];
+    f.addEventListener("load",function(){ f.dataset.ready="1"; if(v===current) loadEl.style.display="none"; flush(v); });
+    f.src=SRC[v]; loaded[v]=true; }
+  function show(v){ ensure(v); current=v;
+    for(var k in frames){ frames[k].classList.toggle("on",k===v); }
+    document.querySelectorAll("#utabs button").forEach(function(b){ b.classList.toggle("on",b.dataset.v===v); });
+    loadEl.style.display = frames[v].dataset.ready ? "none" : "flex";
+  }
+  document.querySelectorAll("#utabs button").forEach(function(b){ b.onclick=function(){ show(b.dataset.v); }; });
+  ensure("map");
+  window.addEventListener("message",function(e){ var d=e.data||{};
+    if(d.type==="goModel" && d.id){ pending=d.id; show("models"); if(frames.models.dataset.ready){ flush("models"); } }
+  });
+})();
+</script>
+</body></html>

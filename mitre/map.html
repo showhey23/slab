@@ -1,0 +1,40 @@
+<!DOCTYPE html><html lang="ja"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MITRE ATT&CK v19 全体マップ(2D)｜攻撃手法・防御ガイド</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="icon" href="../favicon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon/favicon.ico" sizes="any">
+<link rel="stylesheet" href="css/map.css">
+</head>
+<body>
+<header class="appbar">
+  <div class="brand"><span class="bt"><b>MITRE ATT&amp;CK</b> Enterprise v19 · 攻撃手法・防御ガイド</span><span class="bs">Adversarial Tactics, Techniques &amp; Common Knowledge</span></div>
+  <label class="searchwrap"><span class="sic">⌕</span><input id="search" type="search" placeholder="テクニック・防御策を検索…" autocomplete="off"></label>
+  <div class="viewtabs" role="tablist">
+    <button data-view="home" class="on">概要</button>
+    <button data-view="matrix">マトリクス</button>
+    <button data-view="tactic">戦術別</button>
+    <button data-view="defense">防御マッピング</button>
+  </div>
+</header>
+<nav class="tacstrip" id="tacstrip"></nav>
+
+<div class="wrap"><main>
+  <section class="view on" id="view-home"></section>
+  <section class="view" id="view-matrix"></section>
+  <section class="view" id="view-tactic"></section>
+  <section class="view" id="view-defense"></section>
+  <section class="view" id="view-search"></section>
+</main>
+
+<footer>
+  <div class="warn"><span class="wi">!</span><div>本資料は MITRE ATT&amp;CK® Enterprise v19 の公開知識ベース（戦術・テクニック・緩和策）と MITRE D3FEND を日本語で再構成した教育・参照用ドキュメントです。最新の正式情報は必ず公式サイトをご確認ください。ATT&amp;CK® は The MITRE Corporation の商標です。</div></div>
+  <div>出典：<a href="https://attack.mitre.org/" target="_blank" rel="noopener">MITRE ATT&amp;CK（attack.mitre.org・v19）</a> ／ 防御マッピングは <a href="https://d3fend.mitre.org/" target="_blank" rel="noopener">MITRE D3FEND</a> を参照。デザイントークン：Deep Aurora。</div>
+</footer>
+</div>
+<div id="dataerr" style="position:fixed;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:#070B16;color:#C5D0E0;font-family:'Noto Sans JP',sans-serif;text-align:center;padding:32px;z-index:9999"><div style="font-size:34px">⚠</div><div style="font-weight:700;font-size:16px;color:#EEF2F8">データを読み込めませんでした</div><div class="m" style="max-width:560px;font-size:13px;line-height:1.7;color:#8A97AD"></div></div>
+<script>(function(){var FAIL=function(msg){var e=document.getElementById("dataerr");if(e){e.style.display="flex";e.querySelector(".m").textContent=msg;}};fetch("data/attack_v19_data.json",{cache:"force-cache"}).then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json();}).then(function(d){window.__ATTACK_DATA__=d;var s=document.createElement("script");s.src="js/attack_app.js";s.onerror=function(){FAIL("アプリ(js/attack_app.js)の読み込みに失敗しました。");};document.body.appendChild(s);}).catch(function(err){FAIL("データ(data/attack_v19_data.json)の取得に失敗しました："+err.message+" ／ file:// では動作しません。GitHub Pages 等の HTTP 配信でご利用ください。");});})();</script>
+</body></html>
