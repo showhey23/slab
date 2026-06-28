@@ -52,10 +52,54 @@ mitre/
 各ページは `<script>` ブートストラップで `data/attack_v19_data.json` を `fetch`（`cache:"force-cache"`）し、`window.__ATTACK_DATA__` に格納してから対応する `js/*.js` を動的読込。失敗時は `#dataerr` オーバーレイで案内。
 `viewer.html` は3ページを iframe `src=` で遅延ロードし、同一オリジンの `postMessage`（`goModel`／`scrollTo`）で「3D→攻撃モデル図」へ横断ジャンプ。
 
+## 攻撃モデル図の描画方式（scenes.html）
+
+`attack_scene_full_app.js` はテクニックカードを3段階の優先順位で描画する。
+
+```
+1. BESPOKE[id]   … 手動で差し込んだ完全なHTMLブロック（最優先）
+2. CURATED[id]   … 精緻な静的SVGシーン（scene2() で生成）
+3. autoScene()   … 戦術別汎用レイアウト（フォールバック）
+```
+
+### インタラクティブ図解（lateral-movement テンプレート）
+
+横展開系テクニック（T1021・T1021.002・T1550.002・T1570）は `BESPOKE` に
+インタラクティブHTMLを注入している。静的なSVGとの最大の違いは以下。
+
+| 機能 | 静的SVG（CURATED） | インタラクティブ（BESPOKE） |
+|---|---|---|
+| ノード構成 | 2〜4ノード | ホスト/プロセス/認証素材/ネットワーク/検知の多層 |
+| アニメーション | ダッシュ流 | ステップ毎に dim/active を切替 |
+| レイヤー制御 | なし | 攻撃フロー/プロセス/認証素材/ネットワーク/検知を個別ON/OFF |
+| ステップ再生 | なし | 7ステップを2.2秒間隔で自動再生（▶/⏮/⏭/⟲） |
+| 詳細パネル | note 1行 | 各ステップの説明文＋検知EVT番号＋緩和策ID |
+
+**実装の場所**：`attack_scene_full_app.js` 末尾の IIFE ブロック（`LATERAL_DATA` → `buildLateralHTML()` → `BESPOKE` 注入 → `MutationObserver`）。
+
+**新テクニックを追加する手順**：
+1. `LATERAL_DATA` に `modelType:'lateral-movement'` のエントリを追加（nodes / edges / steps / lay を定義）
+2. 末尾の `['T1021', ...]` 配列にIDを追加するだけで自動的に `BESPOKE` へ注入される
+
+### modelType 分類（今後の拡張方針）
+
+| modelType | 対象テクニック例 | 実装状態 |
+|---|---|---|
+| `lateral-movement` | T1021系・T1550系・T1570 | ✅ 実装済み |
+| `credential-material` | T1003・T1558・T1539 | 未実装（CURATED で対応中） |
+| `process-memory` | T1055・T1134・T1574 | 未実装 |
+| `persistence-autostart` | T1053・T1543・T1547 | 未実装 |
+| `defense-evasion` | T1562・T1070・T1036 | 未実装 |
+| `discovery-enumeration` | T1018・T1087・T1069 | 未実装 |
+| `collection-exfiltration` | T1005・T1041・T1048 | 未実装 |
+| `cloud-identity` | T1078・T1136・T1530 | 未実装 |
+
 ## 改修の入口（どこを直すか）
 
 - データ更新（テクニック追加・記述変更）→ `data/attack_v19_data.json` を差し替えるだけ。全ページに反映。
 - 図のレイアウト／注記ロジック → `js/attack_scene_full_app.js`（戦術別レイアウト・note生成）。
+- インタラクティブ図解のステップ・ノード・検知情報 → 同ファイル末尾の `LATERAL_DATA[id]` を編集。
+- インタラクティブ図解のスタイル → `css/scenes.css` 末尾の `.lm-*` セレクタ群。
 - 2Dの構成・文言 → `js/attack_app.js`。3Dゾーン・ナレーション → `js/attack3d_app.js`。
 - 配色・タイポ（Deep Aurora）→ 各 `css/*.css` の `:root` ／ 該当セレクタ。
 
