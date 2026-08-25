@@ -65,3 +65,8 @@ border:1px solid rgba(95,183,192,.32);border-radius:4px;padding:1px 5px;margin-l
 .foot{margin-top:46px;font-size:12px;color:var(--ink4);border-top:1px solid var(--line);padding-top:20px;line-height:1.75}
 .foot a{color:var(--ink3)}
 @media(max-width:700px){.tracks{grid-template-columns:1fr}.wrap{padding:44px 16px 80px}}
+
+/* —— 出典リンク —— */
+.cmp .sub a,.foot a{color:var(--sky);text-decoration:none;border-bottom:1px solid rgba(95,183,192,.32)}
+.cmp .sub a:hover,.foot a:hover{color:#9BD8DE;border-bottom-color:var(--sky)}
+.cmp .sub a::after,.foot a::after{content:"↗";font-size:9px;margin-left:2px;opacity:.6}

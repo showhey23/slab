@@ -64,10 +64,10 @@
 </section>
 
 <div class="keymsg">
-  <div class="km"><span class="kn">01</span><p><b>プロンプトを書く前に、成功基準を決める。</b>公式のプロンプトエンジニアリングガイドは、着手前の前提として「明確な成功基準の定義」と「それを実証的に検証する手段」を挙げている<span class="src pd">P-DOC-06</span>。何をもって良い出力とするかが決まっていなければ、反復しても改善したかどうか判定できない。</p></div>
-  <div class="km"><span class="kn">02</span><p><b>「明確かつ直接的に」が最初の一手。</b>公式ガイドの一般原則は、明確さ → 文脈の付与 → 例示 → XML タグによる構造化 → ロールの付与、という順で並ぶ<span class="src pd">P-DOC-05</span>。凝った技法より、まず曖昧語を消すほうが効く。</p></div>
+  <div class="km"><span class="kn">01</span><p><b>プロンプトを書く前に、成功基準を決める。</b>公式のプロンプトエンジニアリングガイドは、着手前の前提として「明確な成功基準の定義」と「それを実証的に検証する手段」を挙げている<a class="src pd" href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview" target="_blank" rel="noopener noreferrer" title="Prompt engineering overview — Claude Platform Docs">P-DOC-06</a>。何をもって良い出力とするかが決まっていなければ、反復しても改善したかどうか判定できない。</p></div>
+  <div class="km"><span class="kn">02</span><p><b>「明確かつ直接的に」が最初の一手。</b>公式ガイドの一般原則は、明確さ → 文脈の付与 → 例示 → XML タグによる構造化 → ロールの付与、という順で並ぶ<a class="src pd" href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices" target="_blank" rel="noopener noreferrer" title="Prompting best practices — Claude Platform Docs">P-DOC-05</a>。凝った技法より、まず曖昧語を消すほうが効く。</p></div>
   <div class="km"><span class="kn">03</span><p><b>指示を足しても直らないときは、例を見せる。</b>散文で説明しても解釈がぶれる変換規則は、入力と出力の具体例を2〜3組示すほうが確実に伝わる。これは Architect 試験でも同じ原理が繰り返し問われる中核パターン。</p></div>
-  <div class="km"><span class="kn">04</span><p><b>分解は「検証できる単位」で切る。</b>試験ガイドは複雑な依頼を構造化するタスク分解を明示的な出題対象としている<span class="src pe">P-EXAM-01 D1</span>。良い分解の基準は「小ささ」ではなく、各ステップの出力を人が単独で正誤判定できること。</p></div>
+  <div class="km"><span class="kn">04</span><p><b>分解は「検証できる単位」で切る。</b>試験ガイドは複雑な依頼を構造化するタスク分解を明示的な出題対象としている<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 D1</a>。良い分解の基準は「小ささ」ではなく、各ステップの出力を人が単独で正誤判定できること。</p></div>
 </div>
 
 <section id="d1-b1">
@@ -75,7 +75,7 @@
 
   <div class="card concept">
     <h4>プロンプトの5要素</h4>
-    <p class="def">Claude への依頼は、次の5つが揃っているかを点検すると安定する。公式の「一般原則」に対応している<span class="src pd">P-DOC-05</span>。</p>
+    <p class="def">Claude への依頼は、次の5つが揃っているかを点検すると安定する。公式の「一般原則」に対応している<a class="src pd" href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices" target="_blank" rel="noopener noreferrer" title="Prompting best practices — Claude Platform Docs">P-DOC-05</a>。</p>
     <div class="crow"><span class="ck">役割</span><span class="cv"><b>誰として答えるか。</b>「経験10年の内部監査人として」のように立場を与えると、語彙・注目点・前提知識が揃う。システムプロンプト／プロジェクト指示に置くと全チャットへ効く。</span></div>
     <div class="crow"><span class="ck">文脈</span><span class="cv"><b>なぜこれが必要か、誰が読むか。</b>公式ガイドは「Add context to improve performance」を独立した節として扱う。読者（経営層か現場か）と用途（意思決定資料か下書きか）は出力を大きく変える。</span></div>
     <div class="crow"><span class="ck">タスク</span><span class="cv"><b>動詞を具体化する。</b>「まとめて」ではなく「3つの論点に整理し、各論点に反対意見を1つ添えて」。</span></div>
@@ -101,7 +101,7 @@
 
   <div class="card" style="margin-top:18px">
     <h4>XML タグで入力と指示を分ける</h4>
-    <p class="def">長い資料を貼り付けると、どこまでが素材でどこからが指示か曖昧になる。公式ガイドは XML タグによる構造化を一般原則の一つとして挙げている<span class="src pd">P-DOC-05</span>。タグ名は自由で、閉じていれば十分機能する。</p>
+    <p class="def">長い資料を貼り付けると、どこまでが素材でどこからが指示か曖昧になる。公式ガイドは XML タグによる構造化を一般原則の一つとして挙げている<a class="src pd" href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices" target="_blank" rel="noopener noreferrer" title="Prompting best practices — Claude Platform Docs">P-DOC-05</a>。タグ名は自由で、閉じていれば十分機能する。</p>
     <div class="mono" style="margin-top:12px">&lt;議事録&gt;<br>（ここに原文を貼る）<br>&lt;/議事録&gt;<br><br>上の &lt;議事録&gt; だけを根拠に、決定事項を箇条書きで抽出してください。<br>議事録に書かれていない内容は推測せず「記載なし」としてください。</div>
     <p class="def" style="margin-top:12px">最後の1文が効く。<b>根拠の範囲を明示的に閉じる</b>指示は、後述するハルシネーション対策（D2）の最も安価な予防策でもある。</p>
   </div>
@@ -124,7 +124,7 @@
 
   <div class="card" style="margin-top:18px">
     <h4>分解が甘いと何が起きるか</h4>
-    <p class="def">「創造産業への AI の影響を調べて」を、視覚芸術（デジタルアート・グラフィックデザイン・写真）だけに割ってしまうと、音楽・執筆・映画が丸ごと抜け落ちる。各ステップは正しく実行されているのに、<b>割り当ての段階で範囲が欠けている</b>ため、成果物は不完全になる。これは Architect 試験の公式サンプル問題でもそのまま出題されている論点で<span class="src pe">P-EXAM-02 Q7</span>、Associate でも「調査の抜け漏れをどう防ぐか」の形で応用が問われうる。</p>
+    <p class="def">「創造産業への AI の影響を調べて」を、視覚芸術（デジタルアート・グラフィックデザイン・写真）だけに割ってしまうと、音楽・執筆・映画が丸ごと抜け落ちる。各ステップは正しく実行されているのに、<b>割り当ての段階で範囲が欠けている</b>ため、成果物は不完全になる。これは Architect 試験の公式サンプル問題でもそのまま出題されている論点で<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Architect – Foundations Exam Guide (PDF, Version 0.2 / 2026-06-30) — Anthropic Partner Academy からダウンロード">P-EXAM-02 Q7</a>、Associate でも「調査の抜け漏れをどう防ぐか」の形で応用が問われうる。</p>
     <div class="crow"><span class="ck">対処</span><span class="cv">分解した直後に「この分け方で<b>漏れている領域はないか</b>」を一度問う。分解そのものをレビュー対象にする。</span></div>
   </div>
 </section>
@@ -143,14 +143,14 @@
 
   <div class="card" style="margin-top:18px">
     <h4>相互に絡む問題は、まとめて1回で伝える</h4>
-    <p class="def">修正点が互いに影響し合う場合（トーンを直すと構成も変わる、など）は、1通のメッセージにまとめて具体的に伝えるほうが早い。逆に、互いに独立した問題は1つずつ順に直したほうが、原因と結果の対応が保たれる。この使い分けは Architect 試験でも明示的な出題対象になっている<span class="src pe">P-EXAM-02 TS 3.5</span>。</p>
+    <p class="def">修正点が互いに影響し合う場合（トーンを直すと構成も変わる、など）は、1通のメッセージにまとめて具体的に伝えるほうが早い。逆に、互いに独立した問題は1つずつ順に直したほうが、原因と結果の対応が保たれる。この使い分けは Architect 試験でも明示的な出題対象になっている<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Architect – Foundations Exam Guide (PDF, Version 0.2 / 2026-06-30) — Anthropic Partner Academy からダウンロード">P-EXAM-02 TS 3.5</a>。</p>
   </div>
 </section>
 
 <section id="d1-b4">
   <div class="sec-kicker"><span class="num">5</span><div><span class="lbl">OBJECTIVE 1.4</span><h2>タスク種別ごとに戦略を変える<span class="jp">Adapt prompting strategies based on task type</span></h2></div></div>
 
-  <p class="def">試験ガイドは<b>分析・調査・起草・発想</b>の4種別を名指ししている<span class="src pe">P-EXAM-01 D1</span>。それぞれ「良い出力」の定義が違うため、寄せるべき指示も違う。</p>
+  <p class="def">試験ガイドは<b>分析・調査・起草・発想</b>の4種別を名指ししている<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 D1</a>。それぞれ「良い出力」の定義が違うため、寄せるべき指示も違う。</p>
 
   <div class="tablewrap" style="margin-top:16px"><table class="t">
     <thead><tr><th>種別</th><th>良い出力とは</th><th>効く指示</th><th>やりがちな失敗</th></tr></thead>
@@ -255,16 +255,16 @@
 </section>
 
 <div class="keymsg">
-  <div class="km"><span class="kn">01</span><p><b>自己申告の確信度は精度の指標にならない。</b>公式サンプル問題の解説が明示している：「Self-reported confidence is not a reliable accuracy signal」<span class="src pe">P-EXAM-01 §8</span>。「Claude に自信度を聞いて高ければ送る」という選択肢は、Associate でも Architect でも一貫して<b>誤答</b>である。</p></div>
-  <div class="km"><span class="kn">02</span><p><b>もっともらしい細部ほど疑う。</b>言語モデルは条番号・引用番号・統計値のような<b>具体的に見える細部を捏造しうる</b>。公式解説の表現では「Language models can fabricate specific-looking details such as citation numbers」<span class="src pe">P-EXAM-01 §8</span>。数字と固有名詞と出典は、常に一次資料に当たる。</p></div>
-  <div class="km"><span class="kn">03</span><p><b>高リスク領域では人間のレビューが「必須要件」。</b>Anthropic の利用ポリシーは、法解釈・医療・保険引受・金融適格性・雇用・住宅・学術試験などの高リスク用途について、<b>その分野の有資格専門家による事前レビュー</b>と<b>AI 利用の開示</b>を要求している<span class="src pd">P-DOC-40</span>。これは「望ましい運用」ではなくポリシー上の要件。</p></div>
+  <div class="km"><span class="kn">01</span><p><b>自己申告の確信度は精度の指標にならない。</b>公式サンプル問題の解説が明示している：「Self-reported confidence is not a reliable accuracy signal」<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 §8</a>。「Claude に自信度を聞いて高ければ送る」という選択肢は、Associate でも Architect でも一貫して<b>誤答</b>である。</p></div>
+  <div class="km"><span class="kn">02</span><p><b>もっともらしい細部ほど疑う。</b>言語モデルは条番号・引用番号・統計値のような<b>具体的に見える細部を捏造しうる</b>。公式解説の表現では「Language models can fabricate specific-looking details such as citation numbers」<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 §8</a>。数字と固有名詞と出典は、常に一次資料に当たる。</p></div>
+  <div class="km"><span class="kn">03</span><p><b>高リスク領域では人間のレビューが「必須要件」。</b>Anthropic の利用ポリシーは、法解釈・医療・保険引受・金融適格性・雇用・住宅・学術試験などの高リスク用途について、<b>その分野の有資格専門家による事前レビュー</b>と<b>AI 利用の開示</b>を要求している<a class="src pd" href="https://www.anthropic.com/legal/aup" target="_blank" rel="noopener noreferrer" title="Usage Policy — Anthropic">P-DOC-40</a>。これは「望ましい運用」ではなくポリシー上の要件。</p></div>
   <div class="km"><span class="kn">04</span><p><b>体裁を整えることは、正しさの検証ではない。</b>文章を formal に書き直しても事実誤認は消えない。設問には必ずこの種の「作業はしているが問題は解決していない」選択肢が置かれる。</p></div>
 </div>
 
 <section id="d2-b1">
   <div class="sec-kicker"><span class="num">2</span><div><span class="lbl">OBJECTIVE 2.1</span><h2>正確性と網羅性を評価する<span class="jp">Evaluate Claude-generated outputs for accuracy and completeness</span></h2></div></div>
 
-  <p class="def">評価は「読んで違和感がないか」ではなく、<b>観点を決めて機械的に走査する</b>。試験ガイドは正確性（accuracy）と網羅性（completeness）を並べて挙げており<span class="src pe">P-EXAM-01 D2</span>、両者は別の失敗である。</p>
+  <p class="def">評価は「読んで違和感がないか」ではなく、<b>観点を決めて機械的に走査する</b>。試験ガイドは正確性（accuracy）と網羅性（completeness）を並べて挙げており<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 D2</a>、両者は別の失敗である。</p>
 
   <div class="tablewrap" style="margin-top:16px"><table class="t">
     <caption>2種類の失敗と、その見つけ方</caption>
@@ -307,7 +307,7 @@
 
   <div class="card" style="margin-top:18px">
     <h4>矛盾は「長さ」と相関する</h4>
-    <p class="def">長い入力では、モデルは冒頭と末尾を安定して扱う一方、<b>中間部分の情報を落としやすい</b>（lost-in-the-middle）。この性質は Architect 試験でも明示的な出題対象になっている<span class="src pe">P-EXAM-02 TS 5.1</span>。Associate の実務上は、長い資料を1回で処理させず、章ごとに分けて処理してから統合するほうが、抜けも矛盾も減る。</p>
+    <p class="def">長い入力では、モデルは冒頭と末尾を安定して扱う一方、<b>中間部分の情報を落としやすい</b>（lost-in-the-middle）。この性質は Architect 試験でも明示的な出題対象になっている<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Architect – Foundations Exam Guide (PDF, Version 0.2 / 2026-06-30) — Anthropic Partner Academy からダウンロード">P-EXAM-02 TS 5.1</a>。Associate の実務上は、長い資料を1回で処理させず、章ごとに分けて処理してから統合するほうが、抜けも矛盾も減る。</p>
   </div>
 
   <div class="card" style="margin-top:18px">
@@ -321,16 +321,16 @@
 
   <div class="axis" style="margin-top:16px">
     <div class="a"><div class="an">1</div><div><b>検証対象を先に切り出す。</b>出力全体を疑うのではなく、<b>数値・固有名詞・引用・日付・因果の主張</b>だけを列挙する。列挙自体を Claude にやらせてもよい（「この文書中の検証すべき事実主張を箇条書きで抽出して」）。</div></div>
-    <div class="a"><div class="an">2</div><div><b>権威ある出典に当たる。</b>Claude に「合っている？」と聞き返すのは検証ではない。<b>元の規程・公式サイト・一次資料</b>を開く。公式サンプル問題の正解はまさにこれ：「Verify the cited subsection against the official regulation text before sharing」<span class="src pe">P-EXAM-01 §8</span>。</div></div>
+    <div class="a"><div class="an">2</div><div><b>権威ある出典に当たる。</b>Claude に「合っている？」と聞き返すのは検証ではない。<b>元の規程・公式サイト・一次資料</b>を開く。公式サンプル問題の正解はまさにこれ：「Verify the cited subsection against the official regulation text before sharing」<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 §8</a>。</div></div>
     <div class="a"><div class="an">3</div><div><b>根拠の範囲を最初から閉じておく。</b>「与えた資料だけを根拠にし、書かれていないことは『記載なし』とする」と指示しておけば、検証すべき主張の数そのものが減る。事後の検証より事前の制約のほうが安い。</div></div>
-    <div class="a"><div class="an">4</div><div><b>独立したインスタンスで見直す。</b>同じ会話の続きでレビューさせると、モデルは自分の推論の文脈を保持しているため、自らの判断を疑いにくい。<b>新しい会話で、生成過程を知らない状態でレビューさせる</b>ほうが問題を見つけやすい。この原則は Architect 試験で明示されている<span class="src pe">P-EXAM-02 TS 4.6</span>。</div></div>
+    <div class="a"><div class="an">4</div><div><b>独立したインスタンスで見直す。</b>同じ会話の続きでレビューさせると、モデルは自分の推論の文脈を保持しているため、自らの判断を疑いにくい。<b>新しい会話で、生成過程を知らない状態でレビューさせる</b>ほうが問題を見つけやすい。この原則は Architect 試験で明示されている<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Architect – Foundations Exam Guide (PDF, Version 0.2 / 2026-06-30) — Anthropic Partner Academy からダウンロード">P-EXAM-02 TS 4.6</a>。</div></div>
   </div>
 
   <div class="diff">
     <div class="dh"><span class="tag">よくある誤解</span>「Claude に確認させれば検証になる」</div>
     <dl>
       <dt>誤解</dt><dd>同じ会話の中で「この内容は正確ですか？」と聞き、「はい、正確です」と返ってきたので送信した。</dd>
-      <dt>なぜ誤り</dt><dd>自己申告の確信度は精度の信頼できる指標ではない<span class="src pe">P-EXAM-01 §8</span>。加えて、同一セッションのモデルは自分の生成時の推論を保持しており、自らの判断を疑いにくい<span class="src pe">P-EXAM-02 TS 4.6</span>。</dd>
+      <dt>なぜ誤り</dt><dd>自己申告の確信度は精度の信頼できる指標ではない<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 §8</a>。加えて、同一セッションのモデルは自分の生成時の推論を保持しており、自らの判断を疑いにくい<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Architect – Foundations Exam Guide (PDF, Version 0.2 / 2026-06-30) — Anthropic Partner Academy からダウンロード">P-EXAM-02 TS 4.6</a>。</dd>
       <dt>正しい手</dt><dd>一次資料に当たる。どうしてもモデルを使うなら、<b>生成過程を共有していない別セッション</b>に、資料と出力だけを渡して照合させる。</dd>
     </dl>
     <div class="verdict"><b>試験での出方：</b>「Claude に自信度をスコアで出させ、閾値未満だけ人間に回す」という選択肢は、Associate・Architect の双方で誤答として登場する。</div>
@@ -346,24 +346,24 @@
     <caption>人間のレビューを必須とすべき条件</caption>
     <thead><tr><th>条件</th><th>理由</th><th>根拠</th></tr></thead>
     <tbody>
-      <tr><td><b>高リスク領域に該当する</b><br>法解釈・医療・保険引受・金融適格性・雇用・住宅・学術試験・報道</td><td>Anthropic 利用ポリシーが「その分野の有資格専門家による、公開・確定前のレビュー」を要求している</td><td><span class="src pd">P-DOC-40</span></td></tr>
+      <tr><td><b>高リスク領域に該当する</b><br>法解釈・医療・保険引受・金融適格性・雇用・住宅・学術試験・報道</td><td>Anthropic 利用ポリシーが「その分野の有資格専門家による、公開・確定前のレビュー」を要求している</td><td><a class="src pd" href="https://www.anthropic.com/legal/aup" target="_blank" rel="noopener noreferrer" title="Usage Policy — Anthropic">P-DOC-40</a></td></tr>
       <tr><td><b>外部に出る、または記録に残る</b></td><td>訂正コストが跳ね上がる。社内メモと顧客提出文書では要求水準が違う</td><td>実務判断</td></tr>
-      <tr><td><b>検証できない主張を含む</b></td><td>出典に当たれない数値・引用が残っている時点で、送り手が責任を負えない</td><td><span class="src pe">P-EXAM-01 D2</span></td></tr>
-      <tr><td><b>規制対象データ・個人データが絡む</b></td><td>ドメイン6の論点と重なる。データ側の適法性と出力側の正確性は別々に確認が要る</td><td><span class="src pe">P-EXAM-01 D6</span></td></tr>
-      <tr><td><b>自分の専門外である</b></td><td>誤りを検出できない領域では、レビューしても検証にならない。試験ガイドはアソシエイトの職務として「より複雑・技術的な作業を Architect / Developer へエスカレーションすること」を明記している</td><td><span class="src pe">P-EXAM-01 §1</span></td></tr>
+      <tr><td><b>検証できない主張を含む</b></td><td>出典に当たれない数値・引用が残っている時点で、送り手が責任を負えない</td><td><a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 D2</a></td></tr>
+      <tr><td><b>規制対象データ・個人データが絡む</b></td><td>ドメイン6の論点と重なる。データ側の適法性と出力側の正確性は別々に確認が要る</td><td><a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 D6</a></td></tr>
+      <tr><td><b>自分の専門外である</b></td><td>誤りを検出できない領域では、レビューしても検証にならない。試験ガイドはアソシエイトの職務として「より複雑・技術的な作業を Architect / Developer へエスカレーションすること」を明記している</td><td><a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 §1</a></td></tr>
     </tbody>
   </table></div>
 
   <div class="card" style="margin-top:18px">
     <h4>AI 利用の開示義務</h4>
-    <p class="def">高リスク領域では、レビューに加えて<b>開示</b>も要件になる。利用ポリシーの文言は「You must disclose to them that you are using AI to help produce your advice, decisions, or recommendations」<span class="src pd">P-DOC-40</span>。また消費者向けのチャットボットは、<b>各チャットセッションの冒頭で</b>最低限 AI であることを開示する必要がある。「AI が作ったと分かると信頼されないので伏せる」はポリシー違反にあたる。</p>
+    <p class="def">高リスク領域では、レビューに加えて<b>開示</b>も要件になる。利用ポリシーの文言は「You must disclose to them that you are using AI to help produce your advice, decisions, or recommendations」<a class="src pd" href="https://www.anthropic.com/legal/aup" target="_blank" rel="noopener noreferrer" title="Usage Policy — Anthropic">P-DOC-40</a>。また消費者向けのチャットボットは、<b>各チャットセッションの冒頭で</b>最低限 AI であることを開示する必要がある。「AI が作ったと分かると信頼されないので伏せる」はポリシー違反にあたる。</p>
   </div>
 </section>
 
 <section id="d2-b5">
   <div class="sec-kicker"><span class="num">6</span><div><span class="lbl">OBJECTIVE 2.5</span><h2>読者に合わせて編集・比較する<span class="jp">Edit, adapt, refine, and compare outputs for the intended audience</span></h2></div></div>
 
-  <p class="def">同じ事実でも、経営会議・現場担当・社外顧客では必要な粒度と語彙が違う。試験ガイドは「edit, adapt, refine, and <b>compare</b>」と並べており、<b>複数案を比較する</b>行為まで含まれている点に注意<span class="src pe">P-EXAM-01 D2</span>。</p>
+  <p class="def">同じ事実でも、経営会議・現場担当・社外顧客では必要な粒度と語彙が違う。試験ガイドは「edit, adapt, refine, and <b>compare</b>」と並べており、<b>複数案を比較する</b>行為まで含まれている点に注意<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 D2</a>。</p>
 
   <div class="grid g2" style="margin-top:16px">
     <div class="minibox"><h5>読者を変えると何が変わるか</h5><ul>
@@ -384,22 +384,22 @@
 <section id="d2-b6">
   <div class="sec-kicker"><span class="num">7</span><div><span class="lbl">OBJECTIVE 2.6</span><h2>情報を整理し、出力形式を選ぶ<span class="jp">Organize and curate information and select appropriate output formats</span></h2></div></div>
 
-  <p class="def">試験ガイドは形式の選択肢として <b>artifacts / inline / structured data</b> を名指ししている<span class="src pe">P-EXAM-01 D2</span>。それぞれ適する場面が異なる。</p>
+  <p class="def">試験ガイドは形式の選択肢として <b>artifacts / inline / structured data</b> を名指ししている<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 D2</a>。それぞれ適する場面が異なる。</p>
 
   <div class="tablewrap" style="margin-top:16px"><table class="t">
     <caption>出力形式の選び分け</caption>
     <thead><tr><th>形式</th><th>適する場面</th><th>公式仕様</th></tr></thead>
     <tbody>
       <tr><td><b>インライン</b><br>チャット本文</td><td>短い回答、判断の相談、その場限りの確認</td><td>—</td></tr>
-      <tr><td><b>Artifacts</b></td><td>あとで<b>編集・反復・再利用</b>する自己完結したコンテンツ。ドキュメント、コード、HTML、SVG、図表、React コンポーネント</td><td>「significant and self-contained, typically over 15 lines」の内容で自動生成される<span class="src pd">P-DOC-31</span></td></tr>
+      <tr><td><b>Artifacts</b></td><td>あとで<b>編集・反復・再利用</b>する自己完結したコンテンツ。ドキュメント、コード、HTML、SVG、図表、React コンポーネント</td><td>「significant and self-contained, typically over 15 lines」の内容で自動生成される<a class="src pd" href="https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them" target="_blank" rel="noopener noreferrer" title="What are artifacts and how do I use them? — Anthropic Help Center">P-DOC-31</a></td></tr>
       <tr><td><b>構造化データ</b><br>表・JSON・CSV</td><td>他システムへ渡す、集計する、機械的に突合する</td><td>—</td></tr>
     </tbody>
   </table></div>
 
   <div class="card concept" style="margin-top:18px">
     <h4>Artifacts の実務上の注意</h4>
-    <div class="crow"><span class="ck">保存</span><span class="cv">会話中の Artifact は自動ではサイドバーに残らない。残すには <b>Publish</b> が必要<span class="src pd">P-DOC-31</span>。</span></div>
-    <div class="crow"><span class="ck">前提</span><span class="cv">設定で「Code execution and file creation」が有効になっている必要がある<span class="src pd">P-DOC-31</span>。</span></div>
+    <div class="crow"><span class="ck">保存</span><span class="cv">会話中の Artifact は自動ではサイドバーに残らない。残すには <b>Publish</b> が必要<a class="src pd" href="https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them" target="_blank" rel="noopener noreferrer" title="What are artifacts and how do I use them? — Anthropic Help Center">P-DOC-31</a>。</span></div>
+    <div class="crow"><span class="ck">前提</span><span class="cv">設定で「Code execution and file creation」が有効になっている必要がある<a class="src pd" href="https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them" target="_blank" rel="noopener noreferrer" title="What are artifacts and how do I use them? — Anthropic Help Center">P-DOC-31</a>。</span></div>
     <div class="crow"><span class="ck">共有</span><span class="cv">公開した Artifact は公開共有や Web への埋め込みが可能。<b>共有は外部への配布</b>であることを、機微情報を含む場合は必ず意識する（D6 と接続）。</span></div>
     <div class="crow exam"><span class="ck">試験</span><span class="cv">判断軸は「<b>反復・再利用するか</b>」。1往復で終わる短い回答を Artifact にする選択肢、逆に何度も直す長文をチャット本文に置き続ける選択肢は、いずれも誤答になりやすい。</span></div>
   </div>
@@ -411,9 +411,9 @@
     <div class="eh">◆ 最大配点ドメインの正解パターン</div>
     <div class="axis">
       <div class="a"><div class="an">A</div><div><b>「権威ある出典に当たる」が正解になる。</b>モデルへの再質問、自己申告の確信度、体裁の修正はいずれも誤答。とくに<b>引用・条番号・統計値</b>が絡む設問はこのパターン。</div></div>
-      <div class="a"><div class="an">B</div><div><b>「作業を放棄する」も誤答。</b>公式サンプル問題の解説は、匿名化すれば分析を進められる場面で分析自体を諦める選択肢を「abandoning the task (D) is unnecessary」と明確に否定している<span class="src pe">P-EXAM-01 §8</span>。<b>リスクを消したうえで前に進む</b>のが正解の形。</div></div>
+      <div class="a"><div class="an">B</div><div><b>「作業を放棄する」も誤答。</b>公式サンプル問題の解説は、匿名化すれば分析を進められる場面で分析自体を諦める選択肢を「abandoning the task (D) is unnecessary」と明確に否定している<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 §8</a>。<b>リスクを消したうえで前に進む</b>のが正解の形。</div></div>
       <div class="a"><div class="an">C</div><div><b>網羅性は「元資料の構造」と照合する。</b>出力だけを読んで抜けを探す選択肢より、元資料の章立てと突き合わせる選択肢を選ぶ。</div></div>
-      <div class="a"><div class="an">D</div><div><b>高リスク領域は「有資格専門家のレビュー」と「AI 利用の開示」がセット。</b>片方だけの選択肢は不十分な答えになる<span class="src pd">P-DOC-40</span>。</div></div>
+      <div class="a"><div class="an">D</div><div><b>高リスク領域は「有資格専門家のレビュー」と「AI 利用の開示」がセット。</b>片方だけの選択肢は不十分な答えになる<a class="src pd" href="https://www.anthropic.com/legal/aup" target="_blank" rel="noopener noreferrer" title="Usage Policy — Anthropic">P-DOC-40</a>。</div></div>
     </div>
   </div>
 </section>
@@ -434,7 +434,7 @@
       <button class="hintbtn scn-toggle" type="button">解答・解説を見る</button>
     </div>
     <div class="reveal">
-      <div class="row"><span class="rk ok">正解</span><span class="rv"><b>B</b><span class="src pe">P-EXAM-01 §8 Sample 1</span></span></div>
+      <div class="row"><span class="rk ok">正解</span><span class="rv"><b>B</b><a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 §8 Sample 1</a></span></div>
       <div class="row"><span class="rk proc">公式解説</span><span class="rv">言語モデルは<b>引用番号のような「具体的に見える細部」を捏造しうる</b>（ハルシネーション）。事実主張、とりわけコンプライアンス部門へ向かう引用を、権威ある出典に照らして検証することが求められる注意義務である。自己申告の確信度（A・C）は<b>信頼できる精度の指標ではない</b>。体裁の修正（D）は正しさの問題に対処していない。</span></div>
       <div class="row"><span class="rk bad">頻出の罠</span><span class="rv">「モデルに確信度を聞く」は Associate・Architect の両方で一貫して誤答。理由も同一（自己申告の確信度は較正されていない）。</span></div>
     </div>
@@ -471,9 +471,9 @@
       <button class="hintbtn scn-toggle" type="button">解答・解説を見る</button>
     </div>
     <div class="reveal">
-      <div class="row"><span class="rk ok">正解</span><span class="rv"><b>A と C</b><span class="src pd">P-DOC-40</span></span></div>
+      <div class="row"><span class="rk ok">正解</span><span class="rv"><b>A と C</b><a class="src pd" href="https://www.anthropic.com/legal/aup" target="_blank" rel="noopener noreferrer" title="Usage Policy — Anthropic">P-DOC-40</a></span></div>
       <div class="row"><span class="rk proc">解説</span><span class="rv">雇用に関する判断は Anthropic 利用ポリシーの<b>高リスク用途</b>にあたり、(1) 有資格専門家による事前レビュー（human-in-the-loop）と (2) <b>AI 利用の開示</b>の両方が要件になる。B は自己申告の確信度に依存しており、精度指標として信頼できないうえ、高リスク用途のレビュー要件を満たさない。D は AI 生成物を人間が作ったものとして提示する行為で、利用ポリシーが明示的に禁じている。</span></div>
-      <div class="row"><span class="rk bad">形式</span><span class="rv">本試験には<b>複数回答</b>の設問が含まれ、各問に選択すべき数が明記される<span class="src pe">P-EXAM-01 §5</span>。選択数の指示を読み飛ばさないこと。</span></div>
+      <div class="row"><span class="rk bad">形式</span><span class="rv">本試験には<b>複数回答</b>の設問が含まれ、各問に選択すべき数が明記される<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 §5</a>。選択数の指示を読み飛ばさないこと。</span></div>
     </div>
   </div>
 
@@ -510,9 +510,9 @@
 </section>
 
 <div class="keymsg">
-  <div class="km"><span class="kn">01</span><p><b>最上位モデルの常用は誤り。</b>公式サンプル問題の解説は「Always using the top model (A) wastes the cost and latency budget」と明言する<span class="src pe">P-EXAM-01 §8</span>。単純・大量の処理には速く安いモデル、複雑な推論には最も高性能なモデルを充てる。</p></div>
-  <div class="km"><span class="kn">02</span><p><b>機能の選択はツール呼び出しの回数で決まる。</b>公式ヘルプの基準では、Web 検索は1〜2回のツール呼び出しで済む事実確認、Research は<b>5回以上のツール呼び出し</b>を伴う1〜3分の包括的調査、Extended thinking は Web データが不要な複雑推論<span class="src pd">P-DOC-36</span>。</p></div>
-  <div class="km"><span class="kn">03</span><p><b>Projects は「繰り返す仕事」に使う。</b>独立したチャット履歴とナレッジベースを持ち、カスタム指示を設定できるワークスペース<span class="src pd">P-DOC-30</span>。同じ前提を毎回貼り直しているなら、それは Project にすべき合図。</p></div>
+  <div class="km"><span class="kn">01</span><p><b>最上位モデルの常用は誤り。</b>公式サンプル問題の解説は「Always using the top model (A) wastes the cost and latency budget」と明言する<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 §8</a>。単純・大量の処理には速く安いモデル、複雑な推論には最も高性能なモデルを充てる。</p></div>
+  <div class="km"><span class="kn">02</span><p><b>機能の選択はツール呼び出しの回数で決まる。</b>公式ヘルプの基準では、Web 検索は1〜2回のツール呼び出しで済む事実確認、Research は<b>5回以上のツール呼び出し</b>を伴う1〜3分の包括的調査、Extended thinking は Web データが不要な複雑推論<a class="src pd" href="https://support.claude.com/en/articles/11095361-when-should-i-use-web-search-extended-thinking-and-research" target="_blank" rel="noopener noreferrer" title="When should I use web search, extended thinking, and research? — Anthropic Help Center">P-DOC-36</a>。</p></div>
+  <div class="km"><span class="kn">03</span><p><b>Projects は「繰り返す仕事」に使う。</b>独立したチャット履歴とナレッジベースを持ち、カスタム指示を設定できるワークスペース<a class="src pd" href="https://support.claude.com/en/articles/9517075-what-are-projects" target="_blank" rel="noopener noreferrer" title="What are Projects? — Anthropic Help Center">P-DOC-30</a>。同じ前提を毎回貼り直しているなら、それは Project にすべき合図。</p></div>
   <div class="km"><span class="kn">04</span><p><b>コンテキストは有限で、長さは品質に効く。</b>詰め込むほど良くなるわけではない。会話が長引いて挙動が不安定になったら、<b>要約を作って新しい会話を始める</b>ほうが、同じ会話を引き延ばすより確実。</p></div>
 </div>
 
@@ -524,12 +524,12 @@
     <thead><tr><th>機能</th><th>適する場面</th><th>目安</th><th>出典</th></tr></thead>
     <tbody>
       <tr><td><b>通常チャット</b></td><td>単発の質問、下書き、相談。前提を毎回渡しても負担にならない範囲</td><td>—</td><td>—</td></tr>
-      <tr><td><b>Projects</b></td><td>同じ前提・同じ資料を<b>繰り返し</b>使う業務。独立したチャット履歴とナレッジベース、カスタム指示を持つ</td><td>無料プランは最大5プロジェクト。有料プランは RAG により容量が最大10倍</td><td><span class="src pd">P-DOC-30</span></td></tr>
-      <tr><td><b>Artifacts</b></td><td>あとで編集・反復・再利用する自己完結コンテンツ</td><td>「significant and self-contained, typically over 15 lines」で自動生成</td><td><span class="src pd">P-DOC-31</span></td></tr>
-      <tr><td><b>Web 検索</b></td><td>単純な事実確認、最新情報の確認</td><td><b>1〜2回</b>のツール呼び出し</td><td><span class="src pd">P-DOC-36</span></td></tr>
-      <tr><td><b>Extended thinking</b></td><td>Web の最新データが不要な、複雑な推論・検討</td><td>複数の角度を検討させたいとき</td><td><span class="src pd">P-DOC-36</span></td></tr>
-      <tr><td><b>Research</b></td><td>複数ソースを横断して総合する調査。競合比較、社内資料と Web の突合</td><td><b>5回以上</b>のツール呼び出し、1〜3分。上位モードは最大45分。<b>有料プラン限定</b></td><td><span class="src pd">P-DOC-35</span><span class="src pd">P-DOC-36</span></td></tr>
-      <tr><td><b>コネクタ</b></td><td>Gmail・Google Drive・Calendar 等、実データに触れる作業</td><td>権限は<b>接続先サービスから継承</b>される（D5 で詳述）</td><td><span class="src pd">P-DOC-32</span></td></tr>
+      <tr><td><b>Projects</b></td><td>同じ前提・同じ資料を<b>繰り返し</b>使う業務。独立したチャット履歴とナレッジベース、カスタム指示を持つ</td><td>無料プランは最大5プロジェクト。有料プランは RAG により容量が最大10倍</td><td><a class="src pd" href="https://support.claude.com/en/articles/9517075-what-are-projects" target="_blank" rel="noopener noreferrer" title="What are Projects? — Anthropic Help Center">P-DOC-30</a></td></tr>
+      <tr><td><b>Artifacts</b></td><td>あとで編集・反復・再利用する自己完結コンテンツ</td><td>「significant and self-contained, typically over 15 lines」で自動生成</td><td><a class="src pd" href="https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them" target="_blank" rel="noopener noreferrer" title="What are artifacts and how do I use them? — Anthropic Help Center">P-DOC-31</a></td></tr>
+      <tr><td><b>Web 検索</b></td><td>単純な事実確認、最新情報の確認</td><td><b>1〜2回</b>のツール呼び出し</td><td><a class="src pd" href="https://support.claude.com/en/articles/11095361-when-should-i-use-web-search-extended-thinking-and-research" target="_blank" rel="noopener noreferrer" title="When should I use web search, extended thinking, and research? — Anthropic Help Center">P-DOC-36</a></td></tr>
+      <tr><td><b>Extended thinking</b></td><td>Web の最新データが不要な、複雑な推論・検討</td><td>複数の角度を検討させたいとき</td><td><a class="src pd" href="https://support.claude.com/en/articles/11095361-when-should-i-use-web-search-extended-thinking-and-research" target="_blank" rel="noopener noreferrer" title="When should I use web search, extended thinking, and research? — Anthropic Help Center">P-DOC-36</a></td></tr>
+      <tr><td><b>Research</b></td><td>複数ソースを横断して総合する調査。競合比較、社内資料と Web の突合</td><td><b>5回以上</b>のツール呼び出し、1〜3分。上位モードは最大45分。<b>有料プラン限定</b></td><td><a class="src pd" href="https://support.claude.com/en/articles/11088861-use-research-on-claude" target="_blank" rel="noopener noreferrer" title="Use research on Claude — Anthropic Help Center">P-DOC-35</a><a class="src pd" href="https://support.claude.com/en/articles/11095361-when-should-i-use-web-search-extended-thinking-and-research" target="_blank" rel="noopener noreferrer" title="When should I use web search, extended thinking, and research? — Anthropic Help Center">P-DOC-36</a></td></tr>
+      <tr><td><b>コネクタ</b></td><td>Gmail・Google Drive・Calendar 等、実データに触れる作業</td><td>権限は<b>接続先サービスから継承</b>される（D5 で詳述）</td><td><a class="src pd" href="https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities" target="_blank" rel="noopener noreferrer" title="Use connectors to extend Claude's capabilities — Anthropic Help Center">P-DOC-32</a></td></tr>
     </tbody>
   </table></div>
 
@@ -544,7 +544,7 @@
 <section id="d3-b2">
   <div class="sec-kicker"><span class="num">3</span><div><span class="lbl">OBJECTIVE 3.2</span><h2>モデル階層の違いを理解する<span class="jp">Differentiate between Claude model types (Haiku, Sonnet, Opus)</span></h2></div></div>
 
-  <p class="def">試験ガイドが名指しするのは <b>Haiku / Sonnet / Opus</b> の3階層である<span class="src pe">P-EXAM-01 D3</span>。試験で問われるのは個別のモデル名や価格ではなく、<b>階層ごとの役割分担の考え方</b>だと理解しておくとよい。</p>
+  <p class="def">試験ガイドが名指しするのは <b>Haiku / Sonnet / Opus</b> の3階層である<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 D3</a>。試験で問われるのは個別のモデル名や価格ではなく、<b>階層ごとの役割分担の考え方</b>だと理解しておくとよい。</p>
 
   <div class="tablewrap" style="margin-top:16px"><table class="t">
     <caption>階層の考え方（試験ガイドの枠組み）</caption>
@@ -556,13 +556,13 @@
     </tbody>
   </table></div>
 
-  <p class="def" style="margin-top:14px">公式ドキュメントのコスト最適化の指針も同じ形をとる：<b>「Choose Haiku for simple tasks, Sonnet for most production workloads, and Opus for the most complex reasoning」</b><span class="src pd">P-DOC-02</span>。</p>
+  <p class="def" style="margin-top:14px">公式ドキュメントのコスト最適化の指針も同じ形をとる：<b>「Choose Haiku for simple tasks, Sonnet for most production workloads, and Opus for the most complex reasoning」</b><a class="src pd" href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener noreferrer" title="Pricing — Claude Platform Docs">P-DOC-02</a>。</p>
 
   <div class="diff">
     <div class="dh"><span class="tag">試験ガイド vs 現行ドキュメント</span>モデルラインナップは3階層ではない</div>
     <dl>
-      <dt>試験ガイド</dt><dd>「Differentiate between Claude model types (<b>Haiku, Sonnet, Opus</b>)」の3階層のみを挙げる<span class="src pe">P-EXAM-01 D3</span>。</dd>
-      <dt>現行ドキュメント</dt><dd>2026-08-26 時点の現行ラインナップは <b>Claude Fable 5 / Claude Opus 5 / Claude Sonnet 5 / Claude Haiku 4.5</b> の4種類。Fable 5 は「長時間稼働エージェント向けの次世代の知能」と位置づけられ、Opus より上位の価格帯（入力 $10 / 出力 $50 per MTok）にある<span class="src pd">P-DOC-01</span>。</dd>
+      <dt>試験ガイド</dt><dd>「Differentiate between Claude model types (<b>Haiku, Sonnet, Opus</b>)」の3階層のみを挙げる<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 D3</a>。</dd>
+      <dt>現行ドキュメント</dt><dd>2026-08-26 時点の現行ラインナップは <b>Claude Fable 5 / Claude Opus 5 / Claude Sonnet 5 / Claude Haiku 4.5</b> の4種類。Fable 5 は「長時間稼働エージェント向けの次世代の知能」と位置づけられ、Opus より上位の価格帯（入力 $10 / 出力 $50 per MTok）にある<a class="src pd" href="https://platform.claude.com/docs/en/about-claude/models/overview" target="_blank" rel="noopener noreferrer" title="Models overview — Claude Platform Docs">P-DOC-01</a>。</dd>
       <dt>判断</dt><dd>試験の設問は「速度とコストを優先すべき場面で最上位モデルを常用していないか」という<b>考え方</b>を問う。個別のモデル名を答えさせる設問は想定しにくい。</dd>
     </dl>
     <div class="verdict"><b>試験での扱い：</b>選択肢に「Haiku / Sonnet / Opus」が出たら、上表の役割分担で判断する。<b>Fable 5 は試験ガイドの範囲外</b>であり、参考情報として押さえるにとどめてよい。</div>
@@ -579,7 +579,7 @@
         <tr><td>Claude Haiku 4.5</td><td>200K</td><td>64K</td><td>$1</td><td>$5</td><td>Fastest</td></tr>
       </tbody>
     </table></div>
-    <p class="cap-note">出典：Models overview / Pricing<span class="src pd">P-DOC-01</span><span class="src pd">P-DOC-02</span>。<b>この表は試験範囲外の参考情報であり、更新が速い。</b>実務で使う際は必ず公式ページで再確認すること。</p>
+    <p class="cap-note">出典：Models overview / Pricing<a class="src pd" href="https://platform.claude.com/docs/en/about-claude/models/overview" target="_blank" rel="noopener noreferrer" title="Models overview — Claude Platform Docs">P-DOC-01</a><a class="src pd" href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener noreferrer" title="Pricing — Claude Platform Docs">P-DOC-02</a>。<b>この表は試験範囲外の参考情報であり、更新が速い。</b>実務で使う際は必ず公式ページで再確認すること。</p>
   </div>
 </section>
 
@@ -595,14 +595,14 @@
 
   <div class="card" style="margin-top:18px">
     <h4>「機能を全部無効化してコストを下げる」は答えにならない</h4>
-    <p class="def">公式サンプル問題では、コスト削減の選択肢として「Disable all product features to reduce cost」が用意されているが、これは<b>トレードオフに対処していない</b>として誤答とされる<span class="src pe">P-EXAM-01 §8</span>。同様に「別の AI プラットフォームに乗り換える」も、問題（タスクに対する階層の不一致）を解いていない。<b>正解は常に、要件に合った階層・機能を選ぶこと</b>である。</p>
+    <p class="def">公式サンプル問題では、コスト削減の選択肢として「Disable all product features to reduce cost」が用意されているが、これは<b>トレードオフに対処していない</b>として誤答とされる<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 §8</a>。同様に「別の AI プラットフォームに乗り換える」も、問題（タスクに対する階層の不一致）を解いていない。<b>正解は常に、要件に合った階層・機能を選ぶこと</b>である。</p>
   </div>
 </section>
 
 <section id="d3-b4">
   <div class="sec-kicker"><span class="num">5</span><div><span class="lbl">OBJECTIVE 3.4</span><h2>コンテキストとメモリの限界を扱う<span class="jp">Understand and manage context limitations and memory considerations</span></h2></div></div>
 
-  <p class="def">試験ガイドは、この目的に<b>「when to restart, summarize, or persist」</b>という括弧書きを添えている<span class="src pe">P-EXAM-01 D3</span>。つまり問われるのは「コンテキストとは何か」ではなく、<b>三つの行動の選び分け</b>である。</p>
+  <p class="def">試験ガイドは、この目的に<b>「when to restart, summarize, or persist」</b>という括弧書きを添えている<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 D3</a>。つまり問われるのは「コンテキストとは何か」ではなく、<b>三つの行動の選び分け</b>である。</p>
 
   <div class="tablewrap" style="margin-top:16px"><table class="t">
     <caption>restart / summarize / persist の選び分け</caption>
@@ -616,9 +616,9 @@
 
   <div class="card concept" style="margin-top:18px">
     <h4>メモリ機能の押さえどころ</h4>
-    <div class="crow"><span class="ck">粒度</span><span class="cv">会話終了後にまとめて要約するのではなく、<b>チャット中にトピック単位で</b>保存される<span class="src pd">P-DOC-34</span>。「これを覚えておいて」と明示的に指示することもできる。</span></div>
-    <div class="crow"><span class="ck">分離</span><span class="cv"><b>各 Project は独立したメモリ空間</b>を持つ。あるプロジェクトの文脈が別のプロジェクトへ漏れない<span class="src pd">P-DOC-34</span>。</span></div>
-    <div class="crow"><span class="ck">制御</span><span class="cv">Settings &gt; Memory から過去チャット検索とメモリを<b>無効化できる</b>。過去チャット検索は有料プラン限定<span class="src pd">P-DOC-34</span>。</span></div>
+    <div class="crow"><span class="ck">粒度</span><span class="cv">会話終了後にまとめて要約するのではなく、<b>チャット中にトピック単位で</b>保存される<a class="src pd" href="https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context" target="_blank" rel="noopener noreferrer" title="Use Claude's chat search and memory — Anthropic Help Center">P-DOC-34</a>。「これを覚えておいて」と明示的に指示することもできる。</span></div>
+    <div class="crow"><span class="ck">分離</span><span class="cv"><b>各 Project は独立したメモリ空間</b>を持つ。あるプロジェクトの文脈が別のプロジェクトへ漏れない<a class="src pd" href="https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context" target="_blank" rel="noopener noreferrer" title="Use Claude's chat search and memory — Anthropic Help Center">P-DOC-34</a>。</span></div>
+    <div class="crow"><span class="ck">制御</span><span class="cv">Settings &gt; Memory から過去チャット検索とメモリを<b>無効化できる</b>。過去チャット検索は有料プラン限定<a class="src pd" href="https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context" target="_blank" rel="noopener noreferrer" title="Use Claude's chat search and memory — Anthropic Help Center">P-DOC-34</a>。</span></div>
     <div class="crow exam"><span class="ck">試験</span><span class="cv">「機微な案件を扱うのでメモリに残したくない」という設問なら、<b>設定で無効化できる</b>ことと、<b>プロジェクトごとに分離されている</b>ことの両方が判断材料になる。</span></div>
   </div>
 </section>
@@ -652,7 +652,7 @@
       <button class="hintbtn scn-toggle" type="button">解答・解説を見る</button>
     </div>
     <div class="reveal">
-      <div class="row"><span class="rk ok">正解</span><span class="rv"><b>B</b><span class="src pe">P-EXAM-01 §8 Sample 2</span></span></div>
+      <div class="row"><span class="rk ok">正解</span><span class="rv"><b>B</b><a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 §8 Sample 2</a></span></div>
       <div class="row"><span class="rk proc">公式解説</span><span class="rv">モデル選択をタスク要件に合わせるとは、<b>単純・大量の作業には高速で低コストなモデルを充て、最も高性能なモデルは複雑な推論のために取っておく</b>ことを意味する。常に最上位モデルを使うこと（A）は、コストとレイテンシの予算を浪費する。機能の無効化（C）やプラットフォームの変更（D）は、このトレードオフに対処していない。</span></div>
     </div>
   </div>
@@ -670,7 +670,7 @@
       <button class="hintbtn scn-toggle" type="button">解答・解説を見る</button>
     </div>
     <div class="reveal">
-      <div class="row"><span class="rk ok">正解</span><span class="rv"><b>B</b><span class="src pd">P-DOC-30</span></span></div>
+      <div class="row"><span class="rk ok">正解</span><span class="rv"><b>B</b><a class="src pd" href="https://support.claude.com/en/articles/9517075-what-are-projects" target="_blank" rel="noopener noreferrer" title="What are Projects? — Anthropic Help Center">P-DOC-30</a></span></div>
       <div class="row"><span class="rk proc">解説</span><span class="rv">「毎回同じものを渡している」は <b>persist</b> の合図。Project は独立したナレッジベースとカスタム指示を持ち、以後のすべてのチャットで参照される。A はコンテキスト長の問題ではないため的外れ。C は過去の会話の再開であり、恒久的な設定にはならない。D は添付の手間をわずかに減らすだけで、書式指定の再入力も、次回以降の再利用も解決しない。</span></div>
     </div>
   </div>
@@ -689,7 +689,7 @@
     </div>
     <div class="reveal">
       <div class="row"><span class="rk ok">正解</span><span class="rv"><b>B</b></span></div>
-      <div class="row"><span class="rk proc">解説</span><span class="rv">長い会話では前半の情報が埋もれる。試験ガイドが挙げる <b>summarize → restart</b> の組み合わせがこの症状の定石である<span class="src pe">P-EXAM-01 D3</span>。A は同じ状況を維持したまま指示を足すだけ。C はモデルを変えても会話の肥大という原因は残る。D は毎回の手作業が増えるうえ、恒久化するなら Project のカスタム指示に置くべきで、その場しのぎにとどまる。</span></div>
+      <div class="row"><span class="rk proc">解説</span><span class="rv">長い会話では前半の情報が埋もれる。試験ガイドが挙げる <b>summarize → restart</b> の組み合わせがこの症状の定石である<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 D3</a>。A は同じ状況を維持したまま指示を足すだけ。C はモデルを変えても会話の肥大という原因は残る。D は毎回の手作業が増えるうえ、恒久化するなら Project のカスタム指示に置くべきで、その場しのぎにとどまる。</span></div>
     </div>
   </div>
 
@@ -723,14 +723,14 @@
 <section class="hero" id="d4-goal">
   <div class="eyebrow">CCAO-F · DOMAIN 4</div>
   <h1>ワークフロー統合とソリューション設計<span class="en">WORKFLOW INTEGRATION AND SOLUTION DESIGN · 16%</span></h1>
-  <div class="scope"><span class="ic">GOAL</span><div>単発の依頼をこなす段階から一歩進み、<b>業務プロセスのどこに Claude を挿すか</b>を設計できるようになる。既存の手順を機械的に置き換えるのか、それとも手順そのものを組み替えるのかを判断し、関係者に対して<b>価値と限界の両方</b>を説明できること。試験ガイドは「Communicate Claude's value <b>and limitations</b> to stakeholders」と、限界の説明を明示的な達成項目に含めている<span class="src pe">P-EXAM-01 D4</span>。</div></div>
+  <div class="scope"><span class="ic">GOAL</span><div>単発の依頼をこなす段階から一歩進み、<b>業務プロセスのどこに Claude を挿すか</b>を設計できるようになる。既存の手順を機械的に置き換えるのか、それとも手順そのものを組み替えるのかを判断し、関係者に対して<b>価値と限界の両方</b>を説明できること。試験ガイドは「Communicate Claude's value <b>and limitations</b> to stakeholders」と、限界の説明を明示的な達成項目に含めている<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 D4</a>。</div></div>
 </section>
 
 <div class="keymsg">
-  <div class="km"><span class="kn">01</span><p><b>自動化する前に、その作業がなぜ存在するかを問う。</b>不要な手順を高速化しても、無駄が速くなるだけ。試験ガイドは「process reimagination（プロセスの再構想）」を最小限合格者像の中に置いている<span class="src pe">P-EXAM-01 §4</span>。</p></div>
+  <div class="km"><span class="kn">01</span><p><b>自動化する前に、その作業がなぜ存在するかを問う。</b>不要な手順を高速化しても、無駄が速くなるだけ。試験ガイドは「process reimagination（プロセスの再構想）」を最小限合格者像の中に置いている<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 §4</a>。</p></div>
   <div class="km"><span class="kn">02</span><p><b>効果は「頻度 × 1回あたりの時間 × 誤りのコスト」で見る。</b>頻度が低く誤りのコストが高い作業は、自動化より支援に向く。頻度が高く定型的な作業ほど投資が回収しやすい。</p></div>
   <div class="km"><span class="kn">03</span><p><b>限界を伏せた提案は、後で信頼を失う。</b>ハルシネーションの可能性、コンテキストの制約、データの機微性、高リスク領域での人間レビュー義務。これらを<b>先に</b>言うのがアソシエイトの役割。</p></div>
-  <div class="km"><span class="kn">04</span><p><b>自分の手に負えない範囲は渡す。</b>API 連携やエージェント設計は Architect / Developer の領域であり、試験ガイドはアソシエイトに<b>エスカレーションを期待している</b><span class="src pe">P-EXAM-01 §1・§3</span>。抱え込むほうが減点される。</p></div>
+  <div class="km"><span class="kn">04</span><p><b>自分の手に負えない範囲は渡す。</b>API 連携やエージェント設計は Architect / Developer の領域であり、試験ガイドはアソシエイトに<b>エスカレーションを期待している</b><a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 §1・§3</a>。抱え込むほうが減点される。</p></div>
 </div>
 
 <section id="d4-b1">
@@ -765,7 +765,7 @@
     <h4>「置き換え」と「組み替え」は別物</h4>
     <div class="crow"><span class="ck">置き換え</span><span class="cv"><b>Augment。</b>既存手順はそのままに、ある工程だけを Claude で速くする。導入が容易でリスクが低い。効果も限定的。</span></div>
     <div class="crow"><span class="ck">組み替え</span><span class="cv"><b>Redesign。</b>Claude があることを前提に手順そのものを設計し直す。効果は大きいが、関係者の合意と検証の設計が要る。</span></div>
-    <div class="crow exam"><span class="ck">試験</span><span class="cv">試験ガイドは「integrate Claude into existing workflows to <b>augment or redesign</b> them」と両方を挙げる<span class="src pe">P-EXAM-01 D4</span>。設問では、リスク許容度と関係者の数から<b>どちらが妥当か</b>を選ばせる形になりやすい。</span></div>
+    <div class="crow exam"><span class="ck">試験</span><span class="cv">試験ガイドは「integrate Claude into existing workflows to <b>augment or redesign</b> them」と両方を挙げる<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 D4</a>。設問では、リスク許容度と関係者の数から<b>どちらが妥当か</b>を選ばせる形になりやすい。</span></div>
   </div>
 </section>
 
@@ -826,7 +826,7 @@
     <div class="crow warn"><span class="ck">正確性</span><span class="cv">もっともらしい誤りを生成しうる。とくに引用・数値・固有名詞（D2）。</span></div>
     <div class="crow warn"><span class="ck">コンテキスト</span><span class="cv">1回に扱える情報量には限りがあり、長い会話では前半が薄れる（D3）。</span></div>
     <div class="crow warn"><span class="ck">データ</span><span class="cv">組織のポリシーで入れてよいデータが決まる。規制対象データは匿名化などの前処理が要る（D6）。</span></div>
-    <div class="crow warn"><span class="ck">責任</span><span class="cv">高リスク領域では有資格者のレビューと AI 利用の開示が要件<span class="src pd">P-DOC-40</span>。最終責任は人間側に残る。</span></div>
+    <div class="crow warn"><span class="ck">責任</span><span class="cv">高リスク領域では有資格者のレビューと AI 利用の開示が要件<a class="src pd" href="https://www.anthropic.com/legal/aup" target="_blank" rel="noopener noreferrer" title="Usage Policy — Anthropic">P-DOC-40</a>。最終責任は人間側に残る。</span></div>
   </div>
 </section>
 
@@ -860,7 +860,7 @@
     </div>
     <div class="reveal">
       <div class="row"><span class="rk ok">正解</span><span class="rv"><b>B</b></span></div>
-      <div class="row"><span class="rk proc">解説</span><span class="rv">B は (1) <b>人間の関門</b>を設計に含み、(2) 効果を測れる範囲で試行している。A は検証工程を消しており、外部に出る文書に対する妥当な設計ではない。C は API を用いたシステム構築であり、試験ガイドが Architect / Developer の領域として明示的にアソシエイトの範囲外としている<span class="src pe">P-EXAM-01 §3</span>。D は測定なしの全社展開で、失敗時の影響範囲が最大になる。</span></div>
+      <div class="row"><span class="rk proc">解説</span><span class="rv">B は (1) <b>人間の関門</b>を設計に含み、(2) 効果を測れる範囲で試行している。A は検証工程を消しており、外部に出る文書に対する妥当な設計ではない。C は API を用いたシステム構築であり、試験ガイドが Architect / Developer の領域として明示的にアソシエイトの範囲外としている<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 §3</a>。D は測定なしの全社展開で、失敗時の影響範囲が最大になる。</span></div>
     </div>
   </div>
 
@@ -878,7 +878,7 @@
     </div>
     <div class="reveal">
       <div class="row"><span class="rk ok">正解</span><span class="rv"><b>C</b></span></div>
-      <div class="row"><span class="rk proc">解説</span><span class="rv">試験ガイドは「価値<b>と限界</b>を関係者に伝える」ことを達成項目としている<span class="src pe">P-EXAM-01 D4</span>。A は限界を否認しており、後で信頼を失う。B は<b>自己申告の確信度</b>に依存する設計で、精度指標として信頼できない<span class="src pe">P-EXAM-01 §8</span>。D は用途を放棄する選択で、検証手順を設ければ実施できる場面まで諦めている（公式解説が繰り返し否定する「作業の放棄」パターン）。C はリスクを認めたうえで統制を示す、この試験が一貫して求める形。</span></div>
+      <div class="row"><span class="rk proc">解説</span><span class="rv">試験ガイドは「価値<b>と限界</b>を関係者に伝える」ことを達成項目としている<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 D4</a>。A は限界を否認しており、後で信頼を失う。B は<b>自己申告の確信度</b>に依存する設計で、精度指標として信頼できない<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 §8</a>。D は用途を放棄する選択で、検証手順を設ければ実施できる場面まで諦めている（公式解説が繰り返し否定する「作業の放棄」パターン）。C はリスクを認めたうえで統制を示す、この試験が一貫して求める形。</span></div>
     </div>
   </div>
 
@@ -911,13 +911,13 @@
 <section class="hero" id="d5-goal">
   <div class="eyebrow">CCAO-F · DOMAIN 5</div>
   <h1>設定とナレッジ管理<span class="en">CONFIGURATION AND KNOWLEDGE MANAGEMENT · 12%</span></h1>
-  <div class="scope"><span class="ic">GOAL</span><div>その場のプロンプトではなく、<b>恒久的な設定</b>として Claude を仕込めるようになる。Projects にカスタム指示とナレッジソースを構成し、Google Drive や Gmail のコネクタを適切な権限のもとで扱い、<b>設定が陳腐化しないよう維持・更新する</b>ところまでが範囲。試験ガイドはこの目的を「<b>Inform, maintain, and update</b> Claude configurations, knowledge sources, and instructions」と表現しており、作って終わりではないことを明示している<span class="src pe">P-EXAM-01 D5</span>。</div></div>
+  <div class="scope"><span class="ic">GOAL</span><div>その場のプロンプトではなく、<b>恒久的な設定</b>として Claude を仕込めるようになる。Projects にカスタム指示とナレッジソースを構成し、Google Drive や Gmail のコネクタを適切な権限のもとで扱い、<b>設定が陳腐化しないよう維持・更新する</b>ところまでが範囲。試験ガイドはこの目的を「<b>Inform, maintain, and update</b> Claude configurations, knowledge sources, and instructions」と表現しており、作って終わりではないことを明示している<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 D5</a>。</div></div>
 </section>
 
 <div class="keymsg">
-  <div class="km"><span class="kn">01</span><p><b>コネクタは接続先の権限を継承する。</b>公式ヘルプの文言は「Claude inherits each person's permissions from the connected service. If someone can't access a specific file, channel, or record in the source system, the connector can't reach it from Claude either.」<span class="src pd">P-DOC-32</span>。<b>コネクタを繋いでも、その人が元々見られないものは見られない。</b>逆に言えば、権限の広い人が繋げば広く見える。</p></div>
-  <div class="km"><span class="kn">02</span><p><b>Project ごとにメモリ空間が独立している。</b>各プロジェクトは専用のメモリとプロジェクトサマリを持ち、他のプロジェクトや通常チャットの文脈と混ざらない<span class="src pd">P-DOC-34</span>。案件ごとに Project を分けることが、そのまま情報分離になる。</p></div>
-  <div class="km"><span class="kn">03</span><p><b>共有は Team / Enterprise 限定。</b>Project の共有機能は Team・Enterprise プランのみで、閲覧のみ／編集可の権限を指定できる<span class="src pd">P-DOC-30</span>。無料プランは<b>最大5プロジェクト</b>。</p></div>
+  <div class="km"><span class="kn">01</span><p><b>コネクタは接続先の権限を継承する。</b>公式ヘルプの文言は「Claude inherits each person's permissions from the connected service. If someone can't access a specific file, channel, or record in the source system, the connector can't reach it from Claude either.」<a class="src pd" href="https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities" target="_blank" rel="noopener noreferrer" title="Use connectors to extend Claude's capabilities — Anthropic Help Center">P-DOC-32</a>。<b>コネクタを繋いでも、その人が元々見られないものは見られない。</b>逆に言えば、権限の広い人が繋げば広く見える。</p></div>
+  <div class="km"><span class="kn">02</span><p><b>Project ごとにメモリ空間が独立している。</b>各プロジェクトは専用のメモリとプロジェクトサマリを持ち、他のプロジェクトや通常チャットの文脈と混ざらない<a class="src pd" href="https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context" target="_blank" rel="noopener noreferrer" title="Use Claude's chat search and memory — Anthropic Help Center">P-DOC-34</a>。案件ごとに Project を分けることが、そのまま情報分離になる。</p></div>
+  <div class="km"><span class="kn">03</span><p><b>共有は Team / Enterprise 限定。</b>Project の共有機能は Team・Enterprise プランのみで、閲覧のみ／編集可の権限を指定できる<a class="src pd" href="https://support.claude.com/en/articles/9517075-what-are-projects" target="_blank" rel="noopener noreferrer" title="What are Projects? — Anthropic Help Center">P-DOC-30</a>。無料プランは<b>最大5プロジェクト</b>。</p></div>
   <div class="km"><span class="kn">04</span><p><b>古い資料を置いたままにするのが最大の事故源。</b>ナレッジベースは「入れたら終わり」ではない。改訂された規程の旧版が残っていると、Claude は自信を持って旧版に基づく回答を返す。</p></div>
 </div>
 
@@ -926,7 +926,7 @@
 
   <div class="card concept" style="margin-top:16px">
     <h4>Projects の構成要素</h4>
-    <p class="def">Projects は「独立したチャット履歴とナレッジベースを持つ自己完結したワークスペース」と定義される<span class="src pd">P-DOC-30</span>。設定する対象は2つある。</p>
+    <p class="def">Projects は「独立したチャット履歴とナレッジベースを持つ自己完結したワークスペース」と定義される<a class="src pd" href="https://support.claude.com/en/articles/9517075-what-are-projects" target="_blank" rel="noopener noreferrer" title="What are Projects? — Anthropic Help Center">P-DOC-30</a>。設定する対象は2つある。</p>
     <div class="crow"><span class="ck">カスタム指示</span><span class="cv"><b>そのプロジェクトの全チャットに常に効く指示。</b>役割、読者、書式、禁止事項、確認すべき出典の範囲。毎回貼り直している文言はここへ移す。</span></div>
     <div class="crow"><span class="ck">ナレッジベース</span><span class="cv"><b>参照される資料。</b>規程、テンプレート、用語集、過去の成果物。有料プランでは RAG により容量が最大10倍に拡張される。</span></div>
     <div class="crow"><span class="ck">制限</span><span class="cv">無料プランは<b>最大5プロジェクト</b>。共有は Team / Enterprise 限定（閲覧のみ／編集可、個別・一括・組織全体を選択可能）。</span></div>
@@ -958,7 +958,7 @@
     <tbody>
       <tr><td><b>対象</b></td><td>その時点のファイルのコピー</td><td>接続先サービスの<b>生きたデータ</b></td></tr>
       <tr><td><b>更新</b></td><td>手動で入れ替える必要がある</td><td>接続先の最新状態を参照する</td></tr>
-      <tr><td><b>権限</b></td><td>アップロードした人の判断に依存</td><td><b>接続先サービスの権限を各人ごとに継承</b><span class="src pd">P-DOC-32</span></td></tr>
+      <tr><td><b>権限</b></td><td>アップロードした人の判断に依存</td><td><b>接続先サービスの権限を各人ごとに継承</b><a class="src pd" href="https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities" target="_blank" rel="noopener noreferrer" title="Use connectors to extend Claude's capabilities — Anthropic Help Center">P-DOC-32</a></td></tr>
       <tr><td><b>向く用途</b></td><td>安定した規程・テンプレート・用語集</td><td>日々変わるメール・ファイル・予定</td></tr>
       <tr><td><b>主なリスク</b></td><td>旧版が残り、古い情報で回答される</td><td>権限の広い人が接続すると、広範囲が参照可能になる</td></tr>
     </tbody>
@@ -966,10 +966,10 @@
 
   <div class="card concept" style="margin-top:18px">
     <h4>コネクタの押さえどころ</h4>
-    <div class="crow"><span class="ck">権限継承</span><span class="cv">元のサービスで見られないものは、Claude からも見られない<span class="src pd">P-DOC-32</span>。裏を返せば<b>権限設計は接続先側の責任</b>であり、Claude 側で絞る話ではない。</span></div>
-    <div class="crow"><span class="ck">組織統制</span><span class="cv">Team / Enterprise のオーナーは、組織全体でコネクタを有効化し、<b>接続先サービスが取れるアクションを制限</b>できる（特定の読み書き操作の禁止など）<span class="src pd">P-DOC-32</span>。</span></div>
-    <div class="crow"><span class="ck">Google Workspace</span><span class="cv">Gmail・Google Drive・Google Calendar に接続できる。ヘルプセンターは<b>これらのコネクタのデータをモデルの学習に使わない</b>と明記している<span class="src pd">P-DOC-33</span>。</span></div>
-    <div class="crow"><span class="ck">認証</span><span class="cv">各ユーザーが個別に third-party サービスへ認証する。接続先は独自の規約とインフラで運用され、<b>米国外にある場合もある</b><span class="src pd">P-DOC-32</span>。</span></div>
+    <div class="crow"><span class="ck">権限継承</span><span class="cv">元のサービスで見られないものは、Claude からも見られない<a class="src pd" href="https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities" target="_blank" rel="noopener noreferrer" title="Use connectors to extend Claude's capabilities — Anthropic Help Center">P-DOC-32</a>。裏を返せば<b>権限設計は接続先側の責任</b>であり、Claude 側で絞る話ではない。</span></div>
+    <div class="crow"><span class="ck">組織統制</span><span class="cv">Team / Enterprise のオーナーは、組織全体でコネクタを有効化し、<b>接続先サービスが取れるアクションを制限</b>できる（特定の読み書き操作の禁止など）<a class="src pd" href="https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities" target="_blank" rel="noopener noreferrer" title="Use connectors to extend Claude's capabilities — Anthropic Help Center">P-DOC-32</a>。</span></div>
+    <div class="crow"><span class="ck">Google Workspace</span><span class="cv">Gmail・Google Drive・Google Calendar に接続できる。ヘルプセンターは<b>これらのコネクタのデータをモデルの学習に使わない</b>と明記している<a class="src pd" href="https://support.claude.com/en/articles/10166901-use-google-workspace-connectors" target="_blank" rel="noopener noreferrer" title="Use Google Workspace connectors — Anthropic Help Center">P-DOC-33</a>。</span></div>
+    <div class="crow"><span class="ck">認証</span><span class="cv">各ユーザーが個別に third-party サービスへ認証する。接続先は独自の規約とインフラで運用され、<b>米国外にある場合もある</b><a class="src pd" href="https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities" target="_blank" rel="noopener noreferrer" title="Use connectors to extend Claude's capabilities — Anthropic Help Center">P-DOC-32</a>。</span></div>
   </div>
 </section>
 
@@ -981,7 +981,7 @@
   <div class="axis" style="margin-top:16px">
     <div class="a"><div class="an">1</div><div><b>検証できる粒度で書く。</b>「丁寧に」ではなく「敬体、1文40字以内、専門用語は初出で括弧書き」。曖昧な形容詞は解釈の幅を残す。</div></div>
     <div class="a"><div class="an">2</div><div><b>矛盾を作らない。</b>「簡潔に」と「網羅的に」が同居していると、どちらが優先されるか予測できない。優先順位を明示する。</div></div>
-    <div class="a"><div class="an">3</div><div><b>短く保つ。</b>長い指示は守られにくくなる。これは Claude Code の CLAUDE.md についても公式が明言している性質で、目安は200行未満とされる<span class="src pd">P-DOC-10</span>。Projects のカスタム指示も同じ傾向を持つ。</div></div>
+    <div class="a"><div class="an">3</div><div><b>短く保つ。</b>長い指示は守られにくくなる。これは Claude Code の CLAUDE.md についても公式が明言している性質で、目安は200行未満とされる<a class="src pd" href="https://code.claude.com/docs/en/memory" target="_blank" rel="noopener noreferrer" title="How Claude remembers your project — Claude Code Docs">P-DOC-10</a>。Projects のカスタム指示も同じ傾向を持つ。</div></div>
     <div class="a"><div class="an">4</div><div><b>根拠の範囲を必ず入れる。</b>「ナレッジベースにある資料のみを根拠とし、記載がない事項は推測せず『記載なし』と答える」の1文が、ハルシネーション対策として最も費用対効果が高い。</div></div>
   </div>
 </section>
@@ -1015,7 +1015,7 @@
       <div class="a"><div class="an">A</div><div><b>繰り返しているなら設定へ移す。</b>「毎回貼る」「毎回同じ修正を指示する」は、いずれも Project 設定への昇格が正解。</div></div>
       <div class="a"><div class="an">B</div><div><b>コネクタの権限は接続先が決める。</b>「Claude 側で閲覧範囲を制限する」という選択肢は仕組みを取り違えている。制限するなら<b>接続先サービスの権限</b>、または組織管理者によるアクション制限。</div></div>
       <div class="a"><div class="an">C</div><div><b>資料は入れ替える。</b>新版を「追加」する選択肢より、旧版を削除して差し替える選択肢を選ぶ。</div></div>
-      <div class="a"><div class="an">D</div><div><b>案件の分離は Project の分離で行う。</b>各 Project が独立したメモリ空間を持つため、これがそのまま情報分離になる<span class="src pd">P-DOC-34</span>。</div></div>
+      <div class="a"><div class="an">D</div><div><b>案件の分離は Project の分離で行う。</b>各 Project が独立したメモリ空間を持つため、これがそのまま情報分離になる<a class="src pd" href="https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context" target="_blank" rel="noopener noreferrer" title="Use Claude's chat search and memory — Anthropic Help Center">P-DOC-34</a>。</div></div>
     </div>
   </div>
 </section>
@@ -1036,7 +1036,7 @@
       <button class="hintbtn scn-toggle" type="button">解答・解説を見る</button>
     </div>
     <div class="reveal">
-      <div class="row"><span class="rk ok">正解</span><span class="rv"><b>B</b><span class="src pd">P-DOC-32</span></span></div>
+      <div class="row"><span class="rk ok">正解</span><span class="rv"><b>B</b><a class="src pd" href="https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities" target="_blank" rel="noopener noreferrer" title="Use connectors to extend Claude's capabilities — Anthropic Help Center">P-DOC-32</a></span></div>
       <div class="row"><span class="rk proc">解説</span><span class="rv">公式ヘルプは「Claude inherits each person's permissions from the connected service」と明記している。<b>権限の境界は接続先サービス側にある。</b>A は事実誤認に基づく過剰反応。C はプロンプトによる指示であり、アクセス制御の仕組みではない（プロンプトは統制ではない、という原則は Architect 試験でも一貫している）。D の説明は仕組みを取り違えており、統制したい場合は接続先の権限設計、または Team / Enterprise オーナーによる組織全体のアクション制限を用いる。</span></div>
     </div>
   </div>
@@ -1093,16 +1093,16 @@
 </section>
 
 <div class="keymsg">
-  <div class="km"><span class="kn">01</span><p><b>匿名化して進めるのが正解。</b>公式サンプル問題の解説：「redacting or anonymizing regulated identifiers before use, so the analysis can proceed without exposing protected data」。そのままのアップロード（A）はポリシー違反、モデルへの「保持しないで」という指示（C）は<b>ポリシー統制を満たさない</b>、分析の中止（D）は匿名化で実施可能なのだから不要<span class="src pe">P-EXAM-01 §8</span>。</p></div>
+  <div class="km"><span class="kn">01</span><p><b>匿名化して進めるのが正解。</b>公式サンプル問題の解説：「redacting or anonymizing regulated identifiers before use, so the analysis can proceed without exposing protected data」。そのままのアップロード（A）はポリシー違反、モデルへの「保持しないで」という指示（C）は<b>ポリシー統制を満たさない</b>、分析の中止（D）は匿名化で実施可能なのだから不要<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 §8</a>。</p></div>
   <div class="km"><span class="kn">02</span><p><b>モデルへの指示は統制ではない。</b>「データを保持しないで」とプロンプトで頼んでも、それは組織のポリシー要件を満たす管理策にならない。この区別（<b>プロンプトによる依頼 vs 仕組みによる統制</b>）は Architect 試験でも中核論点として繰り返される。</p></div>
-  <div class="km"><span class="kn">03</span><p><b>高リスク領域には2つの義務がある。</b>有資格専門家による<b>事前レビュー</b>と、<b>AI 利用の開示</b>。対象は法解釈、医療、保険引受、金融適格性、雇用・住宅の判断、学術試験、ジャーナリズム的コンテンツ生成など<span class="src pd">P-DOC-40</span>。</p></div>
-  <div class="km"><span class="kn">04</span><p><b>「AI の出力を人間のものとして提示する」ことは禁止。</b>利用ポリシーは、人と対話する場面で結果を人間が生成したものとして提示する行為を明示的に禁じている<span class="src pd">P-DOC-40</span>。消費者向けチャットボットは<b>各セッション冒頭</b>で AI 利用を開示する。</p></div>
+  <div class="km"><span class="kn">03</span><p><b>高リスク領域には2つの義務がある。</b>有資格専門家による<b>事前レビュー</b>と、<b>AI 利用の開示</b>。対象は法解釈、医療、保険引受、金融適格性、雇用・住宅の判断、学術試験、ジャーナリズム的コンテンツ生成など<a class="src pd" href="https://www.anthropic.com/legal/aup" target="_blank" rel="noopener noreferrer" title="Usage Policy — Anthropic">P-DOC-40</a>。</p></div>
+  <div class="km"><span class="kn">04</span><p><b>「AI の出力を人間のものとして提示する」ことは禁止。</b>利用ポリシーは、人と対話する場面で結果を人間が生成したものとして提示する行為を明示的に禁じている<a class="src pd" href="https://www.anthropic.com/legal/aup" target="_blank" rel="noopener noreferrer" title="Usage Policy — Anthropic">P-DOC-40</a>。消費者向けチャットボットは<b>各セッション冒頭</b>で AI 利用を開示する。</p></div>
 </div>
 
 <section id="d6-b1">
   <div class="sec-kicker"><span class="num">2</span><div><span class="lbl">OBJECTIVE 6.1</span><h2>適切／不適切なユースケースを見分ける<span class="jp">Identify appropriate and inappropriate use cases</span></h2></div></div>
 
-  <p class="def">Anthropic の利用ポリシーは <b>Universal Usage Standards（普遍的な禁止事項）</b>、<b>High-Risk Use Case Requirements（高リスク用途の要件）</b>、<b>Additional Use Case Guidelines</b> の3層で構成される<span class="src pd">P-DOC-40</span>。アソシエイトが日常で当たるのは主に前2者である。</p>
+  <p class="def">Anthropic の利用ポリシーは <b>Universal Usage Standards（普遍的な禁止事項）</b>、<b>High-Risk Use Case Requirements（高リスク用途の要件）</b>、<b>Additional Use Case Guidelines</b> の3層で構成される<a class="src pd" href="https://www.anthropic.com/legal/aup" target="_blank" rel="noopener noreferrer" title="Usage Policy — Anthropic">P-DOC-40</a>。アソシエイトが日常で当たるのは主に前2者である。</p>
 
   <div class="tablewrap" style="margin-top:16px"><table class="t">
     <caption>禁止用途カテゴリ（利用ポリシーの区分）</caption>
@@ -1124,7 +1124,7 @@
       <tr><td>性的表現</td><td>性的行為・フェティッシュ・エロティックな描写</td></tr>
     </tbody>
   </table>
-  <p class="cap-note" style="padding:12px 16px">出典：Anthropic Usage Policy<span class="src pd">P-DOC-40</span>。<b>試験ガイドは個々のカテゴリを列挙していない</b>ため、丸暗記は不要。「業務で判断に迷ったときに参照すべき一次規範が存在する」ことを押さえるための一覧として使う。</p>
+  <p class="cap-note" style="padding:12px 16px">出典：Anthropic Usage Policy<a class="src pd" href="https://www.anthropic.com/legal/aup" target="_blank" rel="noopener noreferrer" title="Usage Policy — Anthropic">P-DOC-40</a>。<b>試験ガイドは個々のカテゴリを列挙していない</b>ため、丸暗記は不要。「業務で判断に迷ったときに参照すべき一次規範が存在する」ことを押さえるための一覧として使う。</p>
   </div>
 </section>
 
@@ -1134,7 +1134,7 @@
   <div class="axis" style="margin-top:16px">
     <div class="a"><div class="an">1</div><div><b>データを分類する。</b>公開情報／社内限り／機密／規制対象（個人データ・与信情報・医療情報など）。分類が決まれば、取れる手も決まる。</div></div>
     <div class="a"><div class="an">2</div><div><b>目的に必要な最小限へ絞る。</b>傾向分析に顧客氏名と口座番号は要らない。<b>分析に必要な列だけを残す</b>のが最初の一手。</div></div>
-    <div class="a"><div class="an">3</div><div><b>識別子を除去または匿名化する。</b>削除できないなら仮 ID に置き換える。公式サンプル問題の正解がまさにこの形<span class="src pe">P-EXAM-01 §8</span>。</div></div>
+    <div class="a"><div class="an">3</div><div><b>識別子を除去または匿名化する。</b>削除できないなら仮 ID に置き換える。公式サンプル問題の正解がまさにこの形<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 §8</a>。</div></div>
     <div class="a"><div class="an">4</div><div><b>それでも扱えないなら、扱わない判断も要る。</b>ただし試験の設問では、<b>匿名化で実施可能なのに諦める</b>選択肢は誤答として置かれる。「消せないリスク」と「消せるリスク」を区別する。</div></div>
   </div>
 
@@ -1142,10 +1142,10 @@
     <div class="dh"><span class="tag">重要な区別</span>プロンプトによる依頼は、統制ではない</div>
     <dl>
       <dt>やりがちな判断</dt><dd>個人情報を含むファイルをそのままアップロードし、「このデータは保持しないでください」と指示する。</dd>
-      <dt>なぜ不十分</dt><dd>公式解説の表現では「instructing the model not to retain data (C) does not satisfy the policy control」<span class="src pe">P-EXAM-01 §8</span>。<b>モデルへの依頼は、組織のポリシーが要求する管理策の代わりにならない。</b></dd>
+      <dt>なぜ不十分</dt><dd>公式解説の表現では「instructing the model not to retain data (C) does not satisfy the policy control」<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 §8</a>。<b>モデルへの依頼は、組織のポリシーが要求する管理策の代わりにならない。</b></dd>
       <dt>正しい手</dt><dd>アップロード<b>前に</b>識別子を除去・匿名化する。統制はデータが Claude に届く前の段階で掛ける。</dd>
     </dl>
-    <div class="verdict"><b>同じ原理が Architect 試験でも問われる：</b>決定論的な遵守が必要な業務ルールは、プロンプト指示ではなく<b>フックや前提条件ゲートなどの仕組み</b>で強制する<span class="src pe">P-EXAM-02 TS 1.4</span>。レベルは違っても、原則は同一である。</div>
+    <div class="verdict"><b>同じ原理が Architect 試験でも問われる：</b>決定論的な遵守が必要な業務ルールは、プロンプト指示ではなく<b>フックや前提条件ゲートなどの仕組み</b>で強制する<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Architect – Foundations Exam Guide (PDF, Version 0.2 / 2026-06-30) — Anthropic Partner Academy からダウンロード">P-EXAM-02 TS 1.4</a>。レベルは違っても、原則は同一である。</div>
   </div>
 </section>
 
@@ -1171,7 +1171,7 @@
 
   <div class="card" style="margin-top:18px">
     <h4>組織管理者が使える統制</h4>
-    <p class="def">Team / Enterprise のオーナーは、組織全体でコネクタを有効化し、<b>接続先サービスが取れるアクションを制限</b>できる。特定の読み取り／書き込み操作を組織全体で禁止することも、検証済みドメインのコネクタを Enterprise 内に限定することも可能<span class="src pd">P-DOC-32</span>。また Team / Enterprise では、同期されたコンテンツを含むチャットは共有できない。</p>
+    <p class="def">Team / Enterprise のオーナーは、組織全体でコネクタを有効化し、<b>接続先サービスが取れるアクションを制限</b>できる。特定の読み取り／書き込み操作を組織全体で禁止することも、検証済みドメインのコネクタを Enterprise 内に限定することも可能<a class="src pd" href="https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities" target="_blank" rel="noopener noreferrer" title="Use connectors to extend Claude's capabilities — Anthropic Help Center">P-DOC-32</a>。また Team / Enterprise では、同期されたコンテンツを含むチャットは共有できない。</p>
   </div>
 </section>
 
@@ -1181,10 +1181,10 @@
   <div class="tablewrap" style="margin-top:16px"><table class="t">
     <thead><tr><th>論点</th><th>問い</th><th>実務での扱い</th></tr></thead>
     <tbody>
-      <tr><td><b>透明性</b></td><td>受け手は AI が関与したことを知っているか</td><td>高リスク領域と消費者向けチャットボットでは<b>開示が義務</b><span class="src pd">P-DOC-40</span></td></tr>
+      <tr><td><b>透明性</b></td><td>受け手は AI が関与したことを知っているか</td><td>高リスク領域と消費者向けチャットボットでは<b>開示が義務</b><a class="src pd" href="https://www.anthropic.com/legal/aup" target="_blank" rel="noopener noreferrer" title="Usage Policy — Anthropic">P-DOC-40</a></td></tr>
       <tr><td><b>公平性</b></td><td>出力が特定の属性に不利に働いていないか</td><td>D2 のバイアス検査。とくに採用・与信・評価では必須</td></tr>
       <tr><td><b>責任の所在</b></td><td>誤りが起きたとき誰が責任を負うか</td><td>「AI が言った」は成立しない。承認者を運用に明記する（D4）</td></tr>
-      <tr><td><b>人間の判断の代替</b></td><td>人が判断すべきことを機械に委ねていないか</td><td>高リスク領域では有資格者のレビューが要件<span class="src pd">P-DOC-40</span></td></tr>
+      <tr><td><b>人間の判断の代替</b></td><td>人が判断すべきことを機械に委ねていないか</td><td>高リスク領域では有資格者のレビューが要件<a class="src pd" href="https://www.anthropic.com/legal/aup" target="_blank" rel="noopener noreferrer" title="Usage Policy — Anthropic">P-DOC-40</a></td></tr>
       <tr><td><b>データの由来</b></td><td>入力したデータを、その目的で使う正当性があるか</td><td>取得時の同意・利用目的の範囲を確認する</td></tr>
     </tbody>
   </table></div>
@@ -1219,7 +1219,7 @@
       <button class="hintbtn scn-toggle" type="button">解答・解説を見る</button>
     </div>
     <div class="reveal">
-      <div class="row"><span class="rk ok">正解</span><span class="rv"><b>B</b><span class="src pe">P-EXAM-01 §8 Sample 3</span></span></div>
+      <div class="row"><span class="rk ok">正解</span><span class="rv"><b>B</b><a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 §8 Sample 3</a></span></div>
       <div class="row"><span class="rk proc">公式解説</span><span class="rv">データの機微性とプライバシーの保護措置を適用するとは、<b>利用前に規制対象の識別子を秘匿または匿名化し、保護されたデータを露出させずに分析を進められるようにする</b>ことを意味する。そのままのアップロード（A）はポリシー違反。モデルにデータを保持しないよう指示すること（C）は<b>ポリシー上の統制を満たさない</b>。匿名化すれば実施できるのだから、作業の放棄（D）は不要である。</span></div>
       <div class="row"><span class="rk bad">構造</span><span class="rv">4つの選択肢が「違反 / 正解 / 統制の誤解 / 過剰反応」で構成されている。<b>この構造は他のガバナンス設問でも繰り返される</b>ので、選択肢を読むときに各肢がどの役回りかを当てにいくと速い。</span></div>
     </div>
@@ -1238,7 +1238,7 @@
       <button class="hintbtn scn-toggle" type="button">解答・解説を見る</button>
     </div>
     <div class="reveal">
-      <div class="row"><span class="rk ok">正解</span><span class="rv"><b>C</b><span class="src pd">P-DOC-40</span></span></div>
+      <div class="row"><span class="rk ok">正解</span><span class="rv"><b>C</b><a class="src pd" href="https://www.anthropic.com/legal/aup" target="_blank" rel="noopener noreferrer" title="Usage Policy — Anthropic">P-DOC-40</a></span></div>
       <div class="row"><span class="rk proc">解説</span><span class="rv">利用ポリシーは、人と対話する場面で<b>結果を人間が生成したものとして提示する行為</b>を禁止しており、消費者向けチャットボットについては「at a minimum at the beginning of each chat session」で AI 利用を開示することを求めている。A は裁量の問題ではなくポリシー要件。B は「各セッションの冒頭」という要件を人間名の使用で打ち消しており、なりすましの禁止にも抵触する。D は誤りで、外部向けであることはむしろ開示義務が明確に及ぶ側である。</span></div>
     </div>
   </div>
@@ -1374,7 +1374,7 @@
     </div>
     <div class="reveal">
       <div class="row"><span class="rk ok">正解</span><span class="rv"><b>B</b></span></div>
-      <div class="row"><span class="rk proc">解説</span><span class="rv">原因は<b>指示の肥大化と矛盾</b>である。長い指示ほど遵守率が下がるという性質は、Claude Code の CLAUDE.md について公式が明示しているのと同じ傾向で、対処は「足す」ではなく「整理する」<span class="src pd">P-DOC-10</span>。A と D はいずれも量を増やす方向で、症状を悪化させる。C はモデルの能力の問題ではない。</span></div>
+      <div class="row"><span class="rk proc">解説</span><span class="rv">原因は<b>指示の肥大化と矛盾</b>である。長い指示ほど遵守率が下がるという性質は、Claude Code の CLAUDE.md について公式が明示しているのと同じ傾向で、対処は「足す」ではなく「整理する」<a class="src pd" href="https://code.claude.com/docs/en/memory" target="_blank" rel="noopener noreferrer" title="How Claude remembers your project — Claude Code Docs">P-DOC-10</a>。A と D はいずれも量を増やす方向で、症状を悪化させる。C はモデルの能力の問題ではない。</span></div>
     </div>
   </div>
 
@@ -1420,6 +1420,7 @@
     <a href="#g-b7"><span class="n">8</span><span>試験ガイドと現行仕様の差分</span></a>
     <div class="navgrp">仕上げ</div>
     <a href="#g-b8"><span class="n">9</span><span>学習計画</span></a>
+    <a href="#g-b9"><span class="n">10</span><span>出典一覧</span></a>
   </nav>
   <div class="rprog"><span>読了 0%</span><div class="track"><i></i></div></div>
 </aside>
@@ -1456,7 +1457,7 @@
       <tr><td><b>試験ガイド版</b></td><td>Version 1.0 / Effective July 2026</td></tr>
     </tbody>
   </table>
-  <p class="cap-note" style="padding:12px 16px">出典<span class="src pe">P-EXAM-01 §5</span><span class="src pe">P-EXAM-04</span><span class="src pe">P-EXAM-06</span></p>
+  <p class="cap-note" style="padding:12px 16px">出典<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 §5</a><a class="src pe" href="https://www.pearsonvue.com/us/en/anthropic.html" target="_blank" rel="noopener noreferrer" title="Claude Certification Program by Anthropic — Pearson VUE">P-EXAM-04</a><a class="src pe" href="https://anthropic-partners.skilljar.com/page/faq-certifications" target="_blank" rel="noopener noreferrer" title="FAQ – Certifications — Anthropic Partner Academy">P-EXAM-06</a></p>
   </div>
 
   <div class="card" style="margin-top:18px">
@@ -1470,7 +1471,7 @@
         <tr><td>Claude Certified Architect – Professional</td><td class="mono">CCAR-P</td><td>$175</td><td>上級アーキテクト</td></tr>
       </tbody>
     </table></div>
-    <p class="cap-note">出典：Pearson VUE / Anthropic Partner Academy<span class="src pe">P-EXAM-04</span><span class="src pe">P-EXAM-05</span>。4試験とも 60問 / 120分 / 合格 720 / 有効期限12ヶ月で共通。</p>
+    <p class="cap-note">出典：Pearson VUE / Anthropic Partner Academy<a class="src pe" href="https://www.pearsonvue.com/us/en/anthropic.html" target="_blank" rel="noopener noreferrer" title="Claude Certification Program by Anthropic — Pearson VUE">P-EXAM-04</a><a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Earn your Claude certification — Anthropic Partner Academy">P-EXAM-05</a>。4試験とも 60問 / 120分 / 合格 720 / 有効期限12ヶ月で共通。</p>
   </div>
 </section>
 
@@ -1480,7 +1481,7 @@
   <div class="diff">
     <div class="dh"><span class="tag">最初に確認</span>誰でも受験できるわけではない</div>
     <dl>
-      <dt>要件</dt><dd>Anthropic Partner Academy の FAQ は「Certification is available to people at <b>Claude Partner Network organizations</b>」と記載している<span class="src pe">P-EXAM-06</span>。</dd>
+      <dt>要件</dt><dd>Anthropic Partner Academy の FAQ は「Certification is available to people at <b>Claude Partner Network organizations</b>」と記載している<a class="src pe" href="https://anthropic-partners.skilljar.com/page/faq-certifications" target="_blank" rel="noopener noreferrer" title="FAQ – Certifications — Anthropic Partner Academy">P-EXAM-06</a>。</dd>
       <dt>登録</dt><dd>認識された企業ドメインの<b>パートナーメールアドレス</b>が必要。<b>個人メールでは登録できない。</b></dd>
       <dt>年齢</dt><dd>18歳以上。チェックイン時に政府発行 ID で確認される。</dd>
     </dl>
@@ -1492,18 +1493,18 @@
     <div class="axis">
       <div class="a"><div class="an">1</div><div>Anthropic Partner Academy の当該認定ページで試験詳細を確認する。</div></div>
       <div class="a"><div class="an">2</div><div>Exam Guide をダウンロードし、<b>Certification Terms and Conditions と Certification Exam Policy を登録前に読む</b>。</div></div>
-      <div class="a"><div class="an">3</div><div>登録して決済する。表示される金額には<b>パートナー階層に応じた割引</b>が反映される（Registered は定価、Select・Preferred・Global Premier は50%オフが自動適用。Global Premier は 2026-08-31 まで100%割引）<span class="src pe">P-EXAM-06</span>。</div></div>
+      <div class="a"><div class="an">3</div><div>登録して決済する。表示される金額には<b>パートナー階層に応じた割引</b>が反映される（Registered は定価、Select・Preferred・Global Premier は50%オフが自動適用。Global Premier は 2026-08-31 まで100%割引）<a class="src pe" href="https://anthropic-partners.skilljar.com/page/faq-certifications" target="_blank" rel="noopener noreferrer" title="FAQ – Certifications — Anthropic Partner Academy">P-EXAM-06</a>。</div></div>
       <div class="a"><div class="an">4</div><div>確認メールの指示に従い <b>Pearson VUE アカウント</b>を作成し、サインインして日程を予約する。</div></div>
       <div class="a"><div class="an">5</div><div>日程と、<b>オンライン監督（OnVUE）かテストセンター</b>かを選ぶ。</div></div>
-      <div class="a"><div class="an">6</div><div>配慮申請（accommodations）が必要な場合は、<b>予約前に</b> Pearson VUE の手続きで承認を得る。FAQ は<b>10日以上前</b>の申請を推奨している<span class="src pe">P-EXAM-06</span>。</div></div>
+      <div class="a"><div class="an">6</div><div>配慮申請（accommodations）が必要な場合は、<b>予約前に</b> Pearson VUE の手続きで承認を得る。FAQ は<b>10日以上前</b>の申請を推奨している<a class="src pe" href="https://anthropic-partners.skilljar.com/page/faq-certifications" target="_blank" rel="noopener noreferrer" title="FAQ – Certifications — Anthropic Partner Academy">P-EXAM-06</a>。</div></div>
     </div>
   </div>
 
   <div class="diff">
     <div class="dh"><span class="tag">情報が食い違う点</span>キャンセル・日程変更の期限</div>
     <dl>
-      <dt>試験ガイド</dt><dd>「You may cancel or reschedule up to <b>24 hours</b> before your appointment. Changes made within 24 hours forfeit the exam fee.」<span class="src pe">P-EXAM-01 §10</span></dd>
-      <dt>Pearson VUE</dt><dd>テストセンターの予約は「rescheduled or cancelled up to <b>48 hours</b> prior to your scheduled appointment」<span class="src pe">P-EXAM-04</span></dd>
+      <dt>試験ガイド</dt><dd>「You may cancel or reschedule up to <b>24 hours</b> before your appointment. Changes made within 24 hours forfeit the exam fee.」<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 §10</a></dd>
+      <dt>Pearson VUE</dt><dd>テストセンターの予約は「rescheduled or cancelled up to <b>48 hours</b> prior to your scheduled appointment」<a class="src pe" href="https://www.pearsonvue.com/us/en/anthropic.html" target="_blank" rel="noopener noreferrer" title="Claude Certification Program by Anthropic — Pearson VUE">P-EXAM-04</a></dd>
       <dt>実務上の判断</dt><dd>両者が食い違うため、<b>安全側の48時間前</b>を基準に動くこと。予約時に自分の予約画面に表示される期限を必ず確認する。</dd>
     </dl>
   </div>
@@ -1514,16 +1515,16 @@
 
   <div class="card concept" style="margin-top:16px">
     <h4>基準準拠評価（criterion-referenced）</h4>
-    <p class="def">この試験は<b>他の受験者との比較ではなく、固定された性能基準に対して</b>評価される<span class="src pe">P-EXAM-01 §9</span>。上位何％が合格、という仕組みではない。</p>
+    <p class="def">この試験は<b>他の受験者との比較ではなく、固定された性能基準に対して</b>評価される<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 §9</a>。上位何％が合格、という仕組みではない。</p>
     <div class="crow"><span class="ck">合格点</span><span class="cv">訓練を受けた subject matter expert が「最小限合格者（MQC）に期待される水準」を判定する<b>正式な標準設定スタディ</b>によって決められている。カットスコアは <b>720</b>（範囲 100–1,000）。</span></div>
     <div class="crow"><span class="ck">スケール</span><span class="cv">スケールドスコアは、複数の試験フォーム間で難易度がわずかに異なっても比較可能にするための仕組み。<b>720 は「72%正解」という意味ではない。</b></span></div>
-    <div class="crow"><span class="ck">ドメイン別</span><span class="cv">スコアレポートにはドメインごとの正答率も表示されるが、<b>合否判定には使われない</b>。合否は総合スケールドスコアのみで決まる<span class="src pe">P-EXAM-01 §9</span>。</span></div>
-    <div class="crow"><span class="ck">異議</span><span class="cv">通知から14日以内に Pearson VUE 経由で申し立て可能。ただし<b>標準設定の結果と個々の設問内容は異議申立ての対象外</b><span class="src pe">P-EXAM-01 §15</span>。</span></div>
+    <div class="crow"><span class="ck">ドメイン別</span><span class="cv">スコアレポートにはドメインごとの正答率も表示されるが、<b>合否判定には使われない</b>。合否は総合スケールドスコアのみで決まる<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 §9</a>。</span></div>
+    <div class="crow"><span class="ck">異議</span><span class="cv">通知から14日以内に Pearson VUE 経由で申し立て可能。ただし<b>標準設定の結果と個々の設問内容は異議申立ての対象外</b><a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 §15</a>。</span></div>
   </div>
 
   <div class="card" style="margin-top:18px">
     <h4>複数回答形式への対応</h4>
-    <p class="def">Associate は Architect と異なり<b>複数回答（multiple-response）</b>の設問を含む。試験ガイドの記述は「Multiple-choice and multiple-response items; <b>each item states how many responses to select</b>」<span class="src pe">P-EXAM-01 §5</span>。設問文に「2つ選べ」「3つ選べ」と明記されるため、<b>選択数の指示を読み飛ばさないこと</b>が最も基本的な対策になる。</p>
+    <p class="def">Associate は Architect と異なり<b>複数回答（multiple-response）</b>の設問を含む。試験ガイドの記述は「Multiple-choice and multiple-response items; <b>each item states how many responses to select</b>」<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 §5</a>。設問文に「2つ選べ」「3つ選べ」と明記されるため、<b>選択数の指示を読み飛ばさないこと</b>が最も基本的な対策になる。</p>
   </div>
 </section>
 
@@ -1555,7 +1556,7 @@
 
   <div class="card" style="margin-top:18px">
     <h4>守秘義務契約（NDA）</h4>
-    <p class="def">試験開始前に守秘義務・非開示契約への同意が求められる。設問・選択肢・シナリオを含むすべての試験内容は Anthropic の機密かつ専有の財産であり、開示・複製・配布は禁止される。<b>同意しない場合、試験セッションは終了し返金はされない</b><span class="src pe">P-EXAM-01 §13</span>。</p>
+    <p class="def">試験開始前に守秘義務・非開示契約への同意が求められる。設問・選択肢・シナリオを含むすべての試験内容は Anthropic の機密かつ専有の財産であり、開示・複製・配布は禁止される。<b>同意しない場合、試験セッションは終了し返金はされない</b><a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 §13</a>。</p>
     <p class="def" style="margin-top:10px">この教材の設問が「オリジナル想定問題」である理由もここにある。<b>本試験の設問を転載した教材は、この契約に違反して作られている。</b>そうした教材を使うこと自体もリスクになる。</p>
   </div>
 </section>
@@ -1574,7 +1575,7 @@
       <tr><td><b>無断欠席・遅刻</b></td><td>受験料を失い、再登録が必要になる</td></tr>
     </tbody>
   </table>
-  <p class="cap-note" style="padding:12px 16px">出典<span class="src pe">P-EXAM-01 §11・§14</span><span class="src pe">P-EXAM-04</span><span class="src pe">P-EXAM-06</span></p>
+  <p class="cap-note" style="padding:12px 16px">出典<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 §11・§14</a><a class="src pe" href="https://www.pearsonvue.com/us/en/anthropic.html" target="_blank" rel="noopener noreferrer" title="Claude Certification Program by Anthropic — Pearson VUE">P-EXAM-04</a><a class="src pe" href="https://anthropic-partners.skilljar.com/page/faq-certifications" target="_blank" rel="noopener noreferrer" title="FAQ – Certifications — Anthropic Partner Academy">P-EXAM-06</a></p>
   </div>
 </section>
 
@@ -1594,24 +1595,24 @@
   </table></div>
 
   <div class="card" style="margin-top:18px">
-    <h4>二次情報から得られた「傾向」<span class="src s2">S-01 / S-02</span></h4>
+    <h4>二次情報から得られた「傾向」<a class="src s2" href="https://re-cinq.com/blog/claude-certified-architect-foundations-exam" target="_blank" rel="noopener noreferrer" title="【二次情報】Claude Certified Architect (Foundations) Exam: A Study Guide and How I Passed — re:cinq Blog">S-01</a> <a class="src s2" href="https://verygood.ventures/blog/passing-the-claude-certified-architect-exam/" target="_blank" rel="noopener noreferrer" title="【二次情報】Passing the Claude Certified Architect Exam: A 738 Story — Very Good Ventures">S-02</a></h4>
     <p class="def">以下は Architect 試験の合格体験記からの引用であり、<b>Anthropic の公式見解ではない</b>。Associate 試験に直接あてはまる保証もない。参考として読むにとどめること。<b>事実主張</b>と<b>筆者の意見</b>を分けて記載する。</p>
-    <div class="crow"><span class="ck">意見</span><span class="cv">「模擬試験と本番の最大の差は難易度ではなく<b>言い回し</b>だった。修飾語が長文中に埋め込まれるため、選択肢を選ぶ前に修飾語を特定するとよい」<span class="src s2">S-01</span></span></div>
-    <div class="crow"><span class="ck">意見</span><span class="cv">「読むだけでなく、実際に動かして壊す演習のほうが定着する」<span class="src s2">S-01</span></span></div>
-    <div class="crow"><span class="ck">意見</span><span class="cv">「練習ツールが問題を使い回すなら、上がっていくスコアは理解ではなく<b>その問題プールの記憶</b>を測っている」<span class="src s2">S-02</span></span></div>
-    <div class="crow"><span class="ck">事実主張</span><span class="cv">Architect 試験は<b>4ブロック × 15問</b>の構成で、各ブロックが6本のシナリオプールから抽選された1本に紐づく<span class="src s2">S-02</span>。<b>ただしこれは Architect の話で、Associate はドメイン別出題である。</b></span></div>
+    <div class="crow"><span class="ck">意見</span><span class="cv">「模擬試験と本番の最大の差は難易度ではなく<b>言い回し</b>だった。修飾語が長文中に埋め込まれるため、選択肢を選ぶ前に修飾語を特定するとよい」<a class="src s2" href="https://re-cinq.com/blog/claude-certified-architect-foundations-exam" target="_blank" rel="noopener noreferrer" title="【二次情報】Claude Certified Architect (Foundations) Exam: A Study Guide and How I Passed — re:cinq Blog">S-01</a></span></div>
+    <div class="crow"><span class="ck">意見</span><span class="cv">「読むだけでなく、実際に動かして壊す演習のほうが定着する」<a class="src s2" href="https://re-cinq.com/blog/claude-certified-architect-foundations-exam" target="_blank" rel="noopener noreferrer" title="【二次情報】Claude Certified Architect (Foundations) Exam: A Study Guide and How I Passed — re:cinq Blog">S-01</a></span></div>
+    <div class="crow"><span class="ck">意見</span><span class="cv">「練習ツールが問題を使い回すなら、上がっていくスコアは理解ではなく<b>その問題プールの記憶</b>を測っている」<a class="src s2" href="https://verygood.ventures/blog/passing-the-claude-certified-architect-exam/" target="_blank" rel="noopener noreferrer" title="【二次情報】Passing the Claude Certified Architect Exam: A 738 Story — Very Good Ventures">S-02</a></span></div>
+    <div class="crow"><span class="ck">事実主張</span><span class="cv">Architect 試験は<b>4ブロック × 15問</b>の構成で、各ブロックが6本のシナリオプールから抽選された1本に紐づく<a class="src s2" href="https://verygood.ventures/blog/passing-the-claude-certified-architect-exam/" target="_blank" rel="noopener noreferrer" title="【二次情報】Passing the Claude Certified Architect Exam: A 738 Story — Very Good Ventures">S-02</a>。<b>ただしこれは Architect の話で、Associate はドメイン別出題である。</b></span></div>
   </div>
 
   <div class="diff">
     <div class="dh"><span class="tag">要注意</span>流通している誤情報</div>
     <dl>
-      <dt>誤った主張</dt><dd>「認定は合格から<b>6ヶ月</b>で失効する」<span class="src s2">S-02</span></dd>
-      <dt>一次情報</dt><dd>試験ガイド、Partner Academy の FAQ とも<b>12ヶ月</b>と明記している<span class="src pe">P-EXAM-01 §14</span><span class="src pe">P-EXAM-06</span>。</dd>
+      <dt>誤った主張</dt><dd>「認定は合格から<b>6ヶ月</b>で失効する」<a class="src s2" href="https://verygood.ventures/blog/passing-the-claude-certified-architect-exam/" target="_blank" rel="noopener noreferrer" title="【二次情報】Passing the Claude Certified Architect Exam: A 738 Story — Very Good Ventures">S-02</a></dd>
+      <dt>一次情報</dt><dd>試験ガイド、Partner Academy の FAQ とも<b>12ヶ月</b>と明記している<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 §14</a><a class="src pe" href="https://anthropic-partners.skilljar.com/page/faq-certifications" target="_blank" rel="noopener noreferrer" title="FAQ – Certifications — Anthropic Partner Academy">P-EXAM-06</a>。</dd>
       <dt>判定</dt><dd><b>誤り。</b>12ヶ月が正しい。</dd>
     </dl>
     <dl style="margin-top:12px">
       <dt>裏付けのない主張</dt><dd>「一部の設問には<b>部分点</b>がある」（出典不特定のまとめ記事）</dd>
-      <dt>一次情報</dt><dd>Architect は「Multiple choice; one correct answer and three incorrect options」<span class="src pe">P-EXAM-02</span>。Associate は「each item states how many responses to select」<span class="src pe">P-EXAM-01</span>。<b>いずれも部分点には言及していない。</b></dd>
+      <dt>一次情報</dt><dd>Architect は「Multiple choice; one correct answer and three incorrect options」<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Architect – Foundations Exam Guide (PDF, Version 0.2 / 2026-06-30) — Anthropic Partner Academy からダウンロード">P-EXAM-02</a>。Associate は「each item states how many responses to select」<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01</a>。<b>いずれも部分点には言及していない。</b></dd>
       <dt>判定</dt><dd><b>裏付けなし。</b>Associate の複数回答形式を部分点と誤認した可能性がある。本教材では採用しない。</dd>
     </dl>
     <div class="verdict"><b>教訓：</b>これは D2（出力評価と検証）で学ぶことそのものである。<b>もっともらしく具体的な数値ほど、一次情報に当たって確かめる。</b>AI の出力に対して求められる姿勢は、人間が書いたブログ記事にも同じように必要になる。</div>
@@ -1626,9 +1627,9 @@
   <div class="tablewrap" style="margin-top:16px"><table class="t">
     <thead><tr><th>論点</th><th>試験ガイド</th><th>現行ドキュメント</th><th>試験での解答</th></tr></thead>
     <tbody>
-      <tr><td><b>モデル階層</b></td><td>Haiku / Sonnet / Opus の<b>3階層</b><span class="src pe">P-EXAM-01 D3</span></td><td>Fable 5 / Opus 5 / Sonnet 5 / Haiku 4.5 の<b>4種類</b><span class="src pd">P-DOC-01</span></td><td>3階層の<b>役割分担の考え方</b>で判断する。Fable 5 は試験範囲外</td></tr>
-      <tr><td><b>スケジュール変更</b></td><td>予約の<b>24時間前</b>まで<span class="src pe">P-EXAM-01 §10</span></td><td>Pearson VUE：テストセンターは<b>48時間前</b>まで<span class="src pe">P-EXAM-04</span></td><td>出題対象外。実務上は<b>48時間前</b>を安全側とする</td></tr>
-      <tr><td><b>結果通知</b></td><td>Associate：合否＋スコア＋<b>ドメイン別正答率</b><span class="src pe">P-EXAM-01 §9</span></td><td>Architect の試験ガイドは「Pass or fail」のみ<span class="src pe">P-EXAM-02</span></td><td>試験ごとに異なる。Associate はドメイン別内訳あり</td></tr>
+      <tr><td><b>モデル階層</b></td><td>Haiku / Sonnet / Opus の<b>3階層</b><a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 D3</a></td><td>Fable 5 / Opus 5 / Sonnet 5 / Haiku 4.5 の<b>4種類</b><a class="src pd" href="https://platform.claude.com/docs/en/about-claude/models/overview" target="_blank" rel="noopener noreferrer" title="Models overview — Claude Platform Docs">P-DOC-01</a></td><td>3階層の<b>役割分担の考え方</b>で判断する。Fable 5 は試験範囲外</td></tr>
+      <tr><td><b>スケジュール変更</b></td><td>予約の<b>24時間前</b>まで<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 §10</a></td><td>Pearson VUE：テストセンターは<b>48時間前</b>まで<a class="src pe" href="https://www.pearsonvue.com/us/en/anthropic.html" target="_blank" rel="noopener noreferrer" title="Claude Certification Program by Anthropic — Pearson VUE">P-EXAM-04</a></td><td>出題対象外。実務上は<b>48時間前</b>を安全側とする</td></tr>
+      <tr><td><b>結果通知</b></td><td>Associate：合否＋スコア＋<b>ドメイン別正答率</b><a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 §9</a></td><td>Architect の試験ガイドは「Pass or fail」のみ<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Architect – Foundations Exam Guide (PDF, Version 0.2 / 2026-06-30) — Anthropic Partner Academy からダウンロード">P-EXAM-02</a></td><td>試験ごとに異なる。Associate はドメイン別内訳あり</td></tr>
     </tbody>
   </table></div>
 </section>
@@ -1637,7 +1638,7 @@
   <div class="sec-kicker"><span class="num">9</span><div><span class="lbl">STUDY PLAN</span><h2>学習計画</h2></div></div>
 
   <div class="card" style="margin-top:16px">
-    <h4>試験ガイドが挙げる準備方法<span class="src pe">P-EXAM-01 §7</span></h4>
+    <h4>試験ガイドが挙げる準備方法<a class="src pe" href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer" title="Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード">P-EXAM-01 §7</a></h4>
     <p class="def">試験ガイドは冒頭で「必須のコースはない。特定のリソースが合格を保証するものでもない」と明言したうえで、実地経験と以下の組み合わせを推奨している。</p>
     <div class="axis">
       <div class="a"><div class="an">1</div><div>ブループリント（ドメインと達成項目）を読み、<b>各項目について自己評価する</b>。</div></div>
@@ -1675,6 +1676,16 @@
     <div class="crow warn"><span class="ck">注意</span><span class="cv">本教材の設問は<b>すべてオリジナル</b>で、本試験の設問とは重複しない（公式サンプル問題は試験ガイドに収録・公開されているもの）。本教材で高得点が取れても、それは本試験の予測ではない。</span></div>
   </div>
 
+  <div class="next"><a href="#g-b9">出典一覧を見る →</a></div>
+</section>
+
+<section id="g-b9">
+  <div class="sec-kicker"><span class="num">10</span><div><span class="lbl">REFERENCES</span><h2>出典一覧</h2></div></div>
+  <p class="def">本文中の出典バッジはすべてこの一覧のいずれかに対応しており、<b>クリックすると出典のページが新しいタブで開きます</b>。試験ガイド PDF は Anthropic Partner Academy からダウンロードするものなので、<span class="src pe">P-EXAM-01</span> などのバッジは配布元のページへ遷移します。各出典から確定した事実、一次情報どうしの差分、採用しなかった情報源を含む台帳の全文は <code>ccaf/SOURCES.md</code> にあります。</p>
+  <div class="tablewrap srclist"><table class="t">
+    <caption>本教材が引用している出典（最終確認日：2026-08-26）</caption>
+    <thead><tr><th>ID</th><th>出典</th><th>URL</th></tr></thead><tbody><tr><td colspan="3" style="background:var(--card2);color:var(--ink3);font-family:var(--mono);font-size:11px;letter-spacing:.08em">一次（試験）— 試験の正解を決める</td></tr><tr><td><span class="src pe">P-EXAM-01</span></td><td>Claude Certified Associate – Foundations Exam Guide (PDF, Version 1.0 / July 2026) — Anthropic Partner Academy からダウンロード</td><td><a href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer">https://anthropic-partners.skilljar.com/page/partner-certifications</a></td></tr><tr><td><span class="src pe">P-EXAM-02</span></td><td>Claude Certified Architect – Foundations Exam Guide (PDF, Version 0.2 / 2026-06-30) — Anthropic Partner Academy からダウンロード</td><td><a href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer">https://anthropic-partners.skilljar.com/page/partner-certifications</a></td></tr><tr><td><span class="src pe">P-EXAM-04</span></td><td>Claude Certification Program by Anthropic — Pearson VUE</td><td><a href="https://www.pearsonvue.com/us/en/anthropic.html" target="_blank" rel="noopener noreferrer">https://www.pearsonvue.com/us/en/anthropic.html</a></td></tr><tr><td><span class="src pe">P-EXAM-05</span></td><td>Earn your Claude certification — Anthropic Partner Academy</td><td><a href="https://anthropic-partners.skilljar.com/page/partner-certifications" target="_blank" rel="noopener noreferrer">https://anthropic-partners.skilljar.com/page/partner-certifications</a></td></tr><tr><td><span class="src pe">P-EXAM-06</span></td><td>FAQ – Certifications — Anthropic Partner Academy</td><td><a href="https://anthropic-partners.skilljar.com/page/faq-certifications" target="_blank" rel="noopener noreferrer">https://anthropic-partners.skilljar.com/page/faq-certifications</a></td></tr><tr><td colspan="3" style="background:var(--card2);color:var(--ink3);font-family:var(--mono);font-size:11px;letter-spacing:.08em">一次（製品）— 背景理解と現行仕様</td></tr><tr><td><span class="src pd">P-DOC-01</span></td><td>Models overview — Claude Platform Docs</td><td><a href="https://platform.claude.com/docs/en/about-claude/models/overview" target="_blank" rel="noopener noreferrer">https://platform.claude.com/docs/en/about-claude/models/overview</a></td></tr><tr><td><span class="src pd">P-DOC-02</span></td><td>Pricing — Claude Platform Docs</td><td><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener noreferrer">https://platform.claude.com/docs/en/about-claude/pricing</a></td></tr><tr><td><span class="src pd">P-DOC-05</span></td><td>Prompting best practices — Claude Platform Docs</td><td><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices" target="_blank" rel="noopener noreferrer">https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices</a></td></tr><tr><td><span class="src pd">P-DOC-06</span></td><td>Prompt engineering overview — Claude Platform Docs</td><td><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview" target="_blank" rel="noopener noreferrer">https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview</a></td></tr><tr><td><span class="src pd">P-DOC-10</span></td><td>How Claude remembers your project — Claude Code Docs</td><td><a href="https://code.claude.com/docs/en/memory" target="_blank" rel="noopener noreferrer">https://code.claude.com/docs/en/memory</a></td></tr><tr><td><span class="src pd">P-DOC-30</span></td><td>What are Projects? — Anthropic Help Center</td><td><a href="https://support.claude.com/en/articles/9517075-what-are-projects" target="_blank" rel="noopener noreferrer">https://support.claude.com/en/articles/9517075-what-are-projects</a></td></tr><tr><td><span class="src pd">P-DOC-31</span></td><td>What are artifacts and how do I use them? — Anthropic Help Center</td><td><a href="https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them" target="_blank" rel="noopener noreferrer">https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them</a></td></tr><tr><td><span class="src pd">P-DOC-32</span></td><td>Use connectors to extend Claude's capabilities — Anthropic Help Center</td><td><a href="https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities" target="_blank" rel="noopener noreferrer">https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities</a></td></tr><tr><td><span class="src pd">P-DOC-33</span></td><td>Use Google Workspace connectors — Anthropic Help Center</td><td><a href="https://support.claude.com/en/articles/10166901-use-google-workspace-connectors" target="_blank" rel="noopener noreferrer">https://support.claude.com/en/articles/10166901-use-google-workspace-connectors</a></td></tr><tr><td><span class="src pd">P-DOC-34</span></td><td>Use Claude's chat search and memory — Anthropic Help Center</td><td><a href="https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context" target="_blank" rel="noopener noreferrer">https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context</a></td></tr><tr><td><span class="src pd">P-DOC-35</span></td><td>Use research on Claude — Anthropic Help Center</td><td><a href="https://support.claude.com/en/articles/11088861-use-research-on-claude" target="_blank" rel="noopener noreferrer">https://support.claude.com/en/articles/11088861-use-research-on-claude</a></td></tr><tr><td><span class="src pd">P-DOC-36</span></td><td>When should I use web search, extended thinking, and research? — Anthropic Help Center</td><td><a href="https://support.claude.com/en/articles/11095361-when-should-i-use-web-search-extended-thinking-and-research" target="_blank" rel="noopener noreferrer">https://support.claude.com/en/articles/11095361-when-should-i-use-web-search-extended-thinking-and-research</a></td></tr><tr><td><span class="src pd">P-DOC-40</span></td><td>Usage Policy — Anthropic</td><td><a href="https://www.anthropic.com/legal/aup" target="_blank" rel="noopener noreferrer">https://www.anthropic.com/legal/aup</a></td></tr><tr><td colspan="3" style="background:var(--card2);color:var(--ink3);font-family:var(--mono);font-size:11px;letter-spacing:.08em">二次 — 事実の根拠には使わない</td></tr><tr><td><span class="src s2">S-01</span></td><td>【二次情報】Claude Certified Architect (Foundations) Exam: A Study Guide and How I Passed — re:cinq Blog</td><td><a href="https://re-cinq.com/blog/claude-certified-architect-foundations-exam" target="_blank" rel="noopener noreferrer">https://re-cinq.com/blog/claude-certified-architect-foundations-exam</a></td></tr><tr><td><span class="src s2">S-02</span></td><td>【二次情報】Passing the Claude Certified Architect Exam: A 738 Story — Very Good Ventures</td><td><a href="https://verygood.ventures/blog/passing-the-claude-certified-architect-exam/" target="_blank" rel="noopener noreferrer">https://verygood.ventures/blog/passing-the-claude-certified-architect-exam/</a></td></tr></tbody></table></div>
+  <p class="cap-note" style="margin-top:12px">Anthropic の製品仕様は更新が速いため、<b>一次（製品）の出典は3ヶ月ごとに再確認</b>する運用にしています。リンク先の内容が本教材の記述と食い違っていた場合は、<b>リンク先を正</b>としてください。</p>
   <div class="next"><a href="quiz.html">演習クイズへ進む →</a></div>
 </section>
 

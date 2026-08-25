@@ -33,9 +33,9 @@
 | `P-EXAM-01` | Claude Certified Associate – Foundations Exam Guide（PDF・全11ページ）<br>`C:\Users\showh\OneDrive\ドキュメント\Downloads\Claude_Certified_Associate_-_Foundations_-_Exam_Guide.pdf` | Version 1.0 / Effective July 2026 | 2026-08-26 | Associate の全ドメイン・配点・出題形式・採点・ポリシー・公式サンプル問題3問 |
 | `P-EXAM-02` | Claude Certified Architect – Foundations Exam Guide（PDF・全37ページ）<br>`C:\Users\showh\OneDrive\ドキュメント\Downloads\Claude_Certified_Architect_-_Foundations_-_Exam_Guide.pdf` | Version 0.2 / Last Updated June 30 2026 | 2026-08-26 | Architect の全5ドメイン・26タスクステートメント・6シナリオ・公式サンプル問題12問・演習4本・In/Out of Scope |
 | `P-EXAM-03` | 同上（旧版）<br>`instructor_..._Claude+Certified+Architect+–+Foundations+Certification+Exam+Guide.pdf` | Version 0.1 / Feb 10 2025 | 2026-08-26 | **差分照合用。**v0.1→v0.2 で出題範囲の変更がないことの確認に使用 |
-| `P-EXAM-04` | Claude Certification Program by Anthropic — Pearson VUE<br>https://www.pearsonvue.com/us/en/anthropic.html | — | 2026-08-26 | 4試験の**正式な試験コード**、再受験待機期間、テストセンターの変更期限 |
-| `P-EXAM-05` | Earn your Claude certification — Anthropic Partner Academy<br>https://anthropic-partners.skilljar.com/page/partner-certifications | — | 2026-08-26 | 4試験の対象ロール・価格・Associate はパートナー階層要件に算入されない旨 |
-| `P-EXAM-06` | FAQ – Certifications — Anthropic Partner Academy<br>https://anthropic-partners.skilljar.com/page/faq-certifications | — | 2026-08-26 | **受験資格（パートナー限定）**、年齢要件、更新プロセス、階層別割引、提供言語 |
+| `P-EXAM-04` | Claude Certification Program by Anthropic — Pearson VUE<br>[https://www.pearsonvue.com/us/en/anthropic.html](https://www.pearsonvue.com/us/en/anthropic.html) | — | 2026-08-26 | 4試験の**正式な試験コード**、再受験待機期間、テストセンターの変更期限 |
+| `P-EXAM-05` | Earn your Claude certification — Anthropic Partner Academy<br>[https://anthropic-partners.skilljar.com/page/partner-certifications](https://anthropic-partners.skilljar.com/page/partner-certifications) | — | 2026-08-26 | 4試験の対象ロール・価格・Associate はパートナー階層要件に算入されない旨 |
+| `P-EXAM-06` | FAQ – Certifications — Anthropic Partner Academy<br>[https://anthropic-partners.skilljar.com/page/faq-certifications](https://anthropic-partners.skilljar.com/page/faq-certifications) | — | 2026-08-26 | **受験資格（パートナー限定）**、年齢要件、更新プロセス、階層別割引、提供言語 |
 
 ### P-EXAM から確定した事実
 
@@ -75,12 +75,12 @@
 
 | ID | 出典 | 取得日 | 確定した事実 |
 |---|---|---|---|
-| `P-DOC-01` | Models overview<br>https://platform.claude.com/docs/en/about-claude/models/overview | 2026-08-26 | 現行ラインナップ、コンテキスト長、レイテンシ序列、モデルID |
-| `P-DOC-02` | Pricing<br>https://platform.claude.com/docs/en/about-claude/pricing | 2026-08-26 | 単価、バッチ50%割引、プロンプトキャッシュ倍率 |
-| `P-DOC-03` | Batch processing<br>https://platform.claude.com/docs/en/build-with-claude/batch-processing | 2026-08-26 | バッチAPIの制限・期限・`custom_id`・結果順序 |
-| `P-DOC-04` | Tool use with Claude<br>https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview | 2026-08-26 | `tool_use` / `tool_result` の往復、`tool_choice`、クライアント/サーバーツールの区別 |
-| `P-DOC-05` | Prompting best practices<br>https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices | 2026-08-26 | プロンプト技法の公式リファレンス（明確・文脈・例示・XML構造・ロール・思考・エージェント系） |
-| `P-DOC-06` | Prompt engineering overview<br>https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview | 2026-08-26 | プロンプトエンジニアリング着手前の前提（成功基準の定義・評価の用意） |
+| `P-DOC-01` | Models overview<br>[https://platform.claude.com/docs/en/about-claude/models/overview](https://platform.claude.com/docs/en/about-claude/models/overview) | 2026-08-26 | 現行ラインナップ、コンテキスト長、レイテンシ序列、モデルID |
+| `P-DOC-02` | Pricing<br>[https://platform.claude.com/docs/en/about-claude/pricing](https://platform.claude.com/docs/en/about-claude/pricing) | 2026-08-26 | 単価、バッチ50%割引、プロンプトキャッシュ倍率 |
+| `P-DOC-03` | Batch processing<br>[https://platform.claude.com/docs/en/build-with-claude/batch-processing](https://platform.claude.com/docs/en/build-with-claude/batch-processing) | 2026-08-26 | バッチAPIの制限・期限・`custom_id`・結果順序 |
+| `P-DOC-04` | Tool use with Claude<br>[https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) | 2026-08-26 | `tool_use` / `tool_result` の往復、`tool_choice`、クライアント/サーバーツールの区別 |
+| `P-DOC-05` | Prompting best practices<br>[https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices) | 2026-08-26 | プロンプト技法の公式リファレンス（明確・文脈・例示・XML構造・ロール・思考・エージェント系） |
+| `P-DOC-06` | Prompt engineering overview<br>[https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview) | 2026-08-26 | プロンプトエンジニアリング着手前の前提（成功基準の定義・評価の用意） |
 
 **モデルラインナップ**（`P-DOC-01`／`P-DOC-02`、2026-08-26 時点）
 
@@ -105,14 +105,14 @@
 
 | ID | 出典 | 取得日 | 確定した事実 |
 |---|---|---|---|
-| `P-DOC-10` | How Claude remembers your project（memory）<br>https://code.claude.com/docs/en/memory | 2026-08-26 | CLAUDE.md 階層・`@import`・`.claude/rules/` の `paths` フロントマター・`/memory` |
-| `P-DOC-11` | Extend Claude with skills<br>https://code.claude.com/docs/en/skills | 2026-08-26 | SKILL.md フロントマター全項目、`context: fork`、スキルの配置場所と優先順位 |
-| `P-DOC-12` | CLI reference<br>https://code.claude.com/docs/en/cli-reference | 2026-08-26 | `-p/--print`、`--output-format`、`--json-schema`、`--resume`、`--fork-session` 等 |
-| `P-DOC-13` | Connect Claude Code to tools via MCP<br>https://code.claude.com/docs/en/mcp | 2026-08-26 | MCP スコープ3種と保存先、環境変数展開、ツール名前空間 |
-| `P-DOC-14` | Create custom subagents<br>https://code.claude.com/docs/en/sub-agents | 2026-08-26 | サブエージェント定義の配置と優先順位、継承するもの/しないもの、Explore サブエージェント |
-| `P-DOC-15` | Hooks reference<br>https://code.claude.com/docs/en/hooks | 2026-08-26 | 全フックイベント名、ブロック・改変が可能なイベントと方法 |
-| `P-DOC-16` | Configure permissions<br>https://code.claude.com/docs/en/permissions | 2026-08-26 | パーミッションモード一覧、plan モードの挙動 |
-| `P-DOC-17` | Explore the context window<br>https://code.claude.com/docs/en/context-window | 2026-08-26 | セッション開始時に何がコンテキストへ載るか、`/compact` |
+| `P-DOC-10` | How Claude remembers your project（memory）<br>[https://code.claude.com/docs/en/memory](https://code.claude.com/docs/en/memory) | 2026-08-26 | CLAUDE.md 階層・`@import`・`.claude/rules/` の `paths` フロントマター・`/memory` |
+| `P-DOC-11` | Extend Claude with skills<br>[https://code.claude.com/docs/en/skills](https://code.claude.com/docs/en/skills) | 2026-08-26 | SKILL.md フロントマター全項目、`context: fork`、スキルの配置場所と優先順位 |
+| `P-DOC-12` | CLI reference<br>[https://code.claude.com/docs/en/cli-reference](https://code.claude.com/docs/en/cli-reference) | 2026-08-26 | `-p/--print`、`--output-format`、`--json-schema`、`--resume`、`--fork-session` 等 |
+| `P-DOC-13` | Connect Claude Code to tools via MCP<br>[https://code.claude.com/docs/en/mcp](https://code.claude.com/docs/en/mcp) | 2026-08-26 | MCP スコープ3種と保存先、環境変数展開、ツール名前空間 |
+| `P-DOC-14` | Create custom subagents<br>[https://code.claude.com/docs/en/sub-agents](https://code.claude.com/docs/en/sub-agents) | 2026-08-26 | サブエージェント定義の配置と優先順位、継承するもの/しないもの、Explore サブエージェント |
+| `P-DOC-15` | Hooks reference<br>[https://code.claude.com/docs/en/hooks](https://code.claude.com/docs/en/hooks) | 2026-08-26 | 全フックイベント名、ブロック・改変が可能なイベントと方法 |
+| `P-DOC-16` | Configure permissions<br>[https://code.claude.com/docs/en/permissions](https://code.claude.com/docs/en/permissions) | 2026-08-26 | パーミッションモード一覧、plan モードの挙動 |
+| `P-DOC-17` | Explore the context window<br>[https://code.claude.com/docs/en/context-window](https://code.claude.com/docs/en/context-window) | 2026-08-26 | セッション開始時に何がコンテキストへ載るか、`/compact` |
 
 **CLAUDE.md 階層**（`P-DOC-10`、広い順＝読み込み順）
 
@@ -147,9 +147,9 @@
 
 | ID | 出典 | 取得日 | 確定した事実 |
 |---|---|---|---|
-| `P-DOC-20` | Agent SDK overview<br>https://code.claude.com/docs/en/agent-sdk/overview | 2026-08-26 | Agent SDK の位置づけ、CLI / Client SDK / Managed Agents との使い分け |
-| `P-DOC-21` | Subagents in the SDK<br>https://code.claude.com/docs/en/agent-sdk/subagents | 2026-08-26 | `AgentDefinition` の全フィールド、`allowedTools` への Agent 追加、継承しないもの |
-| `P-DOC-22` | Work with sessions<br>https://code.claude.com/docs/en/agent-sdk/sessions | 2026-08-26 | `resume` / `continue` / `fork_session`(`forkSession`) の違い |
+| `P-DOC-20` | Agent SDK overview<br>[https://code.claude.com/docs/en/agent-sdk/overview](https://code.claude.com/docs/en/agent-sdk/overview) | 2026-08-26 | Agent SDK の位置づけ、CLI / Client SDK / Managed Agents との使い分け |
+| `P-DOC-21` | Subagents in the SDK<br>[https://code.claude.com/docs/en/agent-sdk/subagents](https://code.claude.com/docs/en/agent-sdk/subagents) | 2026-08-26 | `AgentDefinition` の全フィールド、`allowedTools` への Agent 追加、継承しないもの |
+| `P-DOC-22` | Work with sessions<br>[https://code.claude.com/docs/en/agent-sdk/sessions](https://code.claude.com/docs/en/agent-sdk/sessions) | 2026-08-26 | `resume` / `continue` / `fork_session`(`forkSession`) の違い |
 
 **`AgentDefinition` のフィールド**（`P-DOC-21`）
 必須：`description`、`prompt`
@@ -169,13 +169,13 @@
 
 | ID | 出典 | 取得日 | 確定した事実 |
 |---|---|---|---|
-| `P-DOC-30` | What are Projects?<br>https://support.claude.com/en/articles/9517075-what-are-projects | 2026-08-26 | Projects の定義、ナレッジベース、カスタム指示、プラン別制限、共有 |
-| `P-DOC-31` | What are artifacts and how do I use them?<br>https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them | 2026-08-26 | Artifacts の生成条件、対象コンテンツ種別、公開・共有、プラン要件 |
-| `P-DOC-32` | Use connectors to extend Claude's capabilities<br>https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities | 2026-08-26 | コネクタの権限継承、プラン別可用性、組織管理者による制御 |
-| `P-DOC-33` | Use Google Workspace connectors<br>https://support.claude.com/en/articles/10166901-use-google-workspace-connectors | 2026-08-26 | Gmail / Drive / Calendar 連携、コネクタデータをモデル学習に使わない旨 |
-| `P-DOC-34` | Use Claude's chat search and memory<br>https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context | 2026-08-26 | メモリはトピック単位で保存、プロジェクトごとに独立したメモリ空間、設定でのオン/オフ |
-| `P-DOC-35` | Use research on Claude<br>https://support.claude.com/en/articles/11088861-use-research-on-claude | 2026-08-26 | Research の適用範囲と所要時間、有料プラン限定 |
-| `P-DOC-36` | When should I use web search, extended thinking, and research?<br>https://support.claude.com/en/articles/11095361-when-should-i-use-web-search-extended-thinking-and-research | 2026-08-26 | 3機能の使い分け基準（ツール呼び出し回数・所要時間・タスク性質） |
+| `P-DOC-30` | What are Projects?<br>[https://support.claude.com/en/articles/9517075-what-are-projects](https://support.claude.com/en/articles/9517075-what-are-projects) | 2026-08-26 | Projects の定義、ナレッジベース、カスタム指示、プラン別制限、共有 |
+| `P-DOC-31` | What are artifacts and how do I use them?<br>[https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them](https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them) | 2026-08-26 | Artifacts の生成条件、対象コンテンツ種別、公開・共有、プラン要件 |
+| `P-DOC-32` | Use connectors to extend Claude's capabilities<br>[https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities) | 2026-08-26 | コネクタの権限継承、プラン別可用性、組織管理者による制御 |
+| `P-DOC-33` | Use Google Workspace connectors<br>[https://support.claude.com/en/articles/10166901-use-google-workspace-connectors](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors) | 2026-08-26 | Gmail / Drive / Calendar 連携、コネクタデータをモデル学習に使わない旨 |
+| `P-DOC-34` | Use Claude's chat search and memory<br>[https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context](https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context) | 2026-08-26 | メモリはトピック単位で保存、プロジェクトごとに独立したメモリ空間、設定でのオン/オフ |
+| `P-DOC-35` | Use research on Claude<br>[https://support.claude.com/en/articles/11088861-use-research-on-claude](https://support.claude.com/en/articles/11088861-use-research-on-claude) | 2026-08-26 | Research の適用範囲と所要時間、有料プラン限定 |
+| `P-DOC-36` | When should I use web search, extended thinking, and research?<br>[https://support.claude.com/en/articles/11095361-when-should-i-use-web-search-extended-thinking-and-research](https://support.claude.com/en/articles/11095361-when-should-i-use-web-search-extended-thinking-and-research) | 2026-08-26 | 3機能の使い分け基準（ツール呼び出し回数・所要時間・タスク性質） |
 
 **主要な確定事実**
 
@@ -189,7 +189,7 @@
 
 | ID | 出典 | 取得日 | 確定した事実 |
 |---|---|---|---|
-| `P-DOC-40` | Anthropic Usage Policy<br>https://www.anthropic.com/legal/aup | 2026-08-26 | 禁止用途カテゴリ、高リスク用途要件、AI 利用開示義務 |
+| `P-DOC-40` | Anthropic Usage Policy<br>[https://www.anthropic.com/legal/aup](https://www.anthropic.com/legal/aup) | 2026-08-26 | 禁止用途カテゴリ、高リスク用途要件、AI 利用開示義務 |
 
 **高リスク用途の2要件**（`P-DOC-40`）— Associate ドメイン6 の中核
 1. **Human-in-the-Loop**：「A qualified professional in that field must review the content or decision prior to dissemination or finalization」
@@ -231,8 +231,8 @@
 
 | ID | 出典 | 取得日 | 引用する範囲 |
 |---|---|---|---|
-| `S-01` | re:cinq Blog「Claude Certified Architect (Foundations) Exam: A Study Guide and How I Passed」<br>https://re-cinq.com/blog/claude-certified-architect-foundations-exam | 2026-08-26 | 受験体験（設問の言い回し、CI/CD の出題感） |
-| `S-02` | Very Good Ventures「Passing the Claude Certified Architect Exam: A 738 Story」<br>https://verygood.ventures/blog/passing-the-claude-certified-architect-exam/ | 2026-08-26 | 受験体験（スコア内訳、ブロック構造） |
+| `S-01` | re:cinq Blog「Claude Certified Architect (Foundations) Exam: A Study Guide and How I Passed」<br>[https://re-cinq.com/blog/claude-certified-architect-foundations-exam](https://re-cinq.com/blog/claude-certified-architect-foundations-exam) | 2026-08-26 | 受験体験（設問の言い回し、CI/CD の出題感） |
+| `S-02` | Very Good Ventures「Passing the Claude Certified Architect Exam: A 738 Story」<br>[https://verygood.ventures/blog/passing-the-claude-certified-architect-exam/](https://verygood.ventures/blog/passing-the-claude-certified-architect-exam/) | 2026-08-26 | 受験体験（スコア内訳、ブロック構造） |
 
 ### S-01 からの引用（二次）
 

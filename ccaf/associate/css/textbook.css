@@ -553,3 +553,22 @@ background:var(--rose-d);border:1px solid rgba(222,102,120,.34);border-radius:4p
 font-size:13px;color:var(--ink2)}
 .diff .verdict b{color:var(--ink)}
 @media(max-width:620px){.diff dl{grid-template-columns:1fr;gap:3px 0}.diff dt{padding-top:8px}}
+
+/* —— 出典バッジをリンク化したときの見た目 —— */
+a.src{text-decoration:none;cursor:pointer;
+transition:background var(--t-fast) var(--ease),border-color var(--t-fast) var(--ease),color var(--t-fast) var(--ease)}
+a.src::after{content:"↗";font-size:8.5px;margin-left:3px;opacity:.6}
+a.src.pe:hover{background:rgba(79,176,124,.24);border-color:var(--emerald);color:#8FD7AC}
+a.src.pd:hover{background:rgba(95,183,192,.22);border-color:var(--sky);color:#9BD8DE}
+a.src.s2:hover{background:rgba(194,168,107,.24);border-color:var(--amber);color:#DCC894}
+a.src:hover::after{opacity:1}
+a.src:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+
+/* 凡例の中のバッジは説明用なのでリンク装飾を付けない */
+.srckey .src::after{content:none}
+
+/* —— 出典一覧テーブル —— */
+.srclist{margin-top:16px}
+.srclist a{color:var(--sky);text-decoration:none;word-break:break-all}
+.srclist a:hover{text-decoration:underline}
+.srclist td:first-child{white-space:nowrap;color:var(--ink3)}

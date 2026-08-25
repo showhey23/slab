@@ -47,3 +47,6 @@ padding:11px 18px;border-top:1px solid var(--line);font-size:13.5px}
 .dwrow .dpc{text-align:right;font-family:var(--mono);font-weight:700;font-size:13px;color:var(--amber)}
 .dwbar{grid-column:1/-1;height:4px;border-radius:3px;background:rgba(200,205,215,.10);overflow:hidden}
 .dwbar>i{display:block;height:100%;background:linear-gradient(90deg,var(--amber),#DCC894)}
+.foot a{color:var(--amber);text-decoration:none;border-bottom:1px solid rgba(194,168,107,.32)}
+.foot a:hover{color:#DCC894;border-bottom-color:var(--amber)}
+.foot a::after{content:"↗";font-size:9px;margin-left:2px;opacity:.6}
