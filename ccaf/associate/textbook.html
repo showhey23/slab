@@ -1,0 +1,1684 @@
+<!DOCTYPE html><html lang="ja"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CCAO-F 統合学習ノート（Textbook）｜Claude Certified Associate – Foundations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/base.css">
+<link rel="stylesheet" href="css/textbook.css">
+<link rel="icon" href="../../favicon/favicon.ico" sizes="any">
+<link rel="icon" href="../../favicon/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../favicon/apple-touch-icon.png">
+<link rel="manifest" href="../../favicon/site.webmanifest">
+<meta name="theme-color" content="#0B0C0E">
+<link rel="stylesheet" href="../../assets/responsive.css">
+</head>
+<body>
+<div id="bar"></div>
+<header class="appbar">
+  <div class="brand"><span class="bt"><b>CCAO-F</b> 統合学習ノート</span><span class="bs">7 Domains + 受験ガイド</span></div>
+  <div class="dtabs" role="tablist">
+    <button class="dtab" type="button" data-go="1"><span class="dn">01</span><span class="dl"><span class="dlj">プロンプト</span><span class="dle">D1 Prompting</span></span></button>
+    <button class="dtab" type="button" data-go="2"><span class="dn">02</span><span class="dl"><span class="dlj">出力評価</span><span class="dle">D2 Validation</span></span></button>
+    <button class="dtab" type="button" data-go="3"><span class="dn">03</span><span class="dl"><span class="dlj">製品/モデル</span><span class="dle">D3 Selection</span></span></button>
+    <button class="dtab" type="button" data-go="4"><span class="dn">04</span><span class="dl"><span class="dlj">ワークフロー</span><span class="dle">D4 Workflow</span></span></button>
+    <button class="dtab" type="button" data-go="5"><span class="dn">05</span><span class="dl"><span class="dlj">設定/知識</span><span class="dle">D5 Config</span></span></button>
+    <button class="dtab" type="button" data-go="6"><span class="dn">06</span><span class="dl"><span class="dlj">ガバナンス</span><span class="dle">D6 Governance</span></span></button>
+    <button class="dtab" type="button" data-go="7"><span class="dn">07</span><span class="dl"><span class="dlj">改善/最適化</span><span class="dle">D7 Troubleshoot</span></span></button>
+    <button class="dtab" type="button" data-go="8"><span class="dn">受</span><span class="dl"><span class="dlj">受験ガイド</span><span class="dle">Exam Guide</span></span></button>
+  </div>
+  <a class="xlink" href="quiz.html">📝 Quiz</a><a class="xlink alt" href="index.html">Home</a>
+</header>
+
+<!-- ============================== DOMAIN 1 ============================== -->
+<section class="domain" id="domain-1" data-domain="1" data-screen-label="Domain 1"><div class="shell">
+<aside class="rail">
+  <span class="badge">DOMAIN 01 / 07 · 14%</span>
+  <div class="rtitle">プロンプトと<br>タスク実行</div>
+  <div class="rsub">Prompting and Task Execution</div>
+  <nav class="rnav">
+    <a href="#d1-goal"><span class="n">1</span><span>到達目標</span></a>
+    <div class="navgrp">タスク領域</div>
+    <a href="#d1-b1"><span class="n">2</span><span>効果的なプロンプト</span></a>
+    <a href="#d1-b2"><span class="n">3</span><span>タスク分解</span></a>
+    <a href="#d1-b3"><span class="n">4</span><span>反復による改善</span></a>
+    <a href="#d1-b4"><span class="n">5</span><span>タスク種別ごとの戦略</span></a>
+    <div class="navgrp">仕上げ</div>
+    <a href="#d1-exam"><span class="n">6</span><span>試験エッセンス</span></a>
+    <a href="#d1-check"><span class="n">7</span><span>確認問題</span></a>
+  </nav>
+  <div class="rprog"><span>読了 0%</span><div class="track"><i></i></div></div>
+</aside>
+<main>
+
+<section class="hero" id="d1-goal">
+  <div class="eyebrow">CCAO-F · DOMAIN 1</div>
+  <h1>プロンプトとタスク実行<span class="en">PROMPTING AND TASK EXECUTION · 14%</span></h1>
+  <div class="scope"><span class="ic">GOAL</span><div>業務上の目的を、Claude が安定して遂行できる<b>指示の形</b>へ翻訳できるようになる。曖昧な依頼を具体的な成功基準へ落とし、大きな仕事を検証可能な単位へ分解し、出てきた出力を手がかりに<b>プロンプトを反復改善</b>できること。さらに分析・調査・起草・発想というタスク種別ごとに、寄せるべき指示の型が違うことを理解する。配点は14%と中位だが、<b>ここでの失敗は D2（出力評価）と D7（トラブルシュート）の失点として現れる</b>ため、実質的な影響は配点以上に大きい。</div></div>
+  <div class="srckey">
+    <div><span class="src pe">試験ガイド</span>試験の正解を決める一次情報</div>
+    <div><span class="src pd">公式ドキュメント</span>背景理解のための一次情報</div>
+    <div><span class="src s2">二次情報</span>体験談・傾向（根拠には使わない）</div>
+  </div>
+</section>
+
+<div class="keymsg">
+  <div class="km"><span class="kn">01</span><p><b>プロンプトを書く前に、成功基準を決める。</b>公式のプロンプトエンジニアリングガイドは、着手前の前提として「明確な成功基準の定義」と「それを実証的に検証する手段」を挙げている<span class="src pd">P-DOC-06</span>。何をもって良い出力とするかが決まっていなければ、反復しても改善したかどうか判定できない。</p></div>
+  <div class="km"><span class="kn">02</span><p><b>「明確かつ直接的に」が最初の一手。</b>公式ガイドの一般原則は、明確さ → 文脈の付与 → 例示 → XML タグによる構造化 → ロールの付与、という順で並ぶ<span class="src pd">P-DOC-05</span>。凝った技法より、まず曖昧語を消すほうが効く。</p></div>
+  <div class="km"><span class="kn">03</span><p><b>指示を足しても直らないときは、例を見せる。</b>散文で説明しても解釈がぶれる変換規則は、入力と出力の具体例を2〜3組示すほうが確実に伝わる。これは Architect 試験でも同じ原理が繰り返し問われる中核パターン。</p></div>
+  <div class="km"><span class="kn">04</span><p><b>分解は「検証できる単位」で切る。</b>試験ガイドは複雑な依頼を構造化するタスク分解を明示的な出題対象としている<span class="src pe">P-EXAM-01 D1</span>。良い分解の基準は「小ささ」ではなく、各ステップの出力を人が単独で正誤判定できること。</p></div>
+</div>
+
+<section id="d1-b1">
+  <div class="sec-kicker"><span class="num">2</span><div><span class="lbl">OBJECTIVE 1.1</span><h2>効果的なプロンプトを作る<span class="jp">Create effective prompts for business and technical tasks</span></h2></div></div>
+
+  <div class="card concept">
+    <h4>プロンプトの5要素</h4>
+    <p class="def">Claude への依頼は、次の5つが揃っているかを点検すると安定する。公式の「一般原則」に対応している<span class="src pd">P-DOC-05</span>。</p>
+    <div class="crow"><span class="ck">役割</span><span class="cv"><b>誰として答えるか。</b>「経験10年の内部監査人として」のように立場を与えると、語彙・注目点・前提知識が揃う。システムプロンプト／プロジェクト指示に置くと全チャットへ効く。</span></div>
+    <div class="crow"><span class="ck">文脈</span><span class="cv"><b>なぜこれが必要か、誰が読むか。</b>公式ガイドは「Add context to improve performance」を独立した節として扱う。読者（経営層か現場か）と用途（意思決定資料か下書きか）は出力を大きく変える。</span></div>
+    <div class="crow"><span class="ck">タスク</span><span class="cv"><b>動詞を具体化する。</b>「まとめて」ではなく「3つの論点に整理し、各論点に反対意見を1つ添えて」。</span></div>
+    <div class="crow"><span class="ck">例示</span><span class="cv"><b>望ましい出力を1〜3例。</b>形式・粒度・トーンを言葉で説明するより速い。</span></div>
+    <div class="crow"><span class="ck">形式</span><span class="cv"><b>出力の器を指定する。</b>表・箇条書き・見出し構成・文字数。長い資料の入力・出力は XML タグで領域を区切ると混線しにくい。</span></div>
+    <div class="crow exam"><span class="ck">試験</span><span class="cv">設問では「最も効果的な<b>最初の</b>一手はどれか」の形で問われやすい。<b>労力が小さく効果が大きい修正</b>（曖昧語の具体化・文脈の付与）が正解になり、いきなり分類器や別ツールを持ち出す選択肢は誤答になる。</span></div>
+  </div>
+
+  <div class="grid g2" style="margin-top:18px">
+    <div class="minibox"><h5>曖昧な依頼</h5><ul>
+      <li>「この議事録を<b>まとめて</b>」</li>
+      <li>「顧客への返信を<b>いい感じに</b>書いて」</li>
+      <li>「このデータを<b>分析して</b>」</li>
+      <li>「規程を<b>チェックして</b>」</li>
+    </ul></div>
+    <div class="minibox"><h5>成功基準の入った依頼</h5><ul>
+      <li>「決定事項・宿題・未決の3見出しで、宿題には<b>担当と期限</b>を必ず付けて」</li>
+      <li>「初回購入の顧客向け。<b>謝罪→事実→次のアクション</b>の順、200字以内、敬体」</li>
+      <li>「月次の異常値を<b>上位5件</b>、各件に<b>考えられる原因を2つ</b>、断定せず可能性として」</li>
+      <li>「<b>実際の記述と食い違う箇所だけ</b>を挙げ、体裁の指摘は出さないで」</li>
+    </ul></div>
+  </div>
+
+  <div class="card" style="margin-top:18px">
+    <h4>XML タグで入力と指示を分ける</h4>
+    <p class="def">長い資料を貼り付けると、どこまでが素材でどこからが指示か曖昧になる。公式ガイドは XML タグによる構造化を一般原則の一つとして挙げている<span class="src pd">P-DOC-05</span>。タグ名は自由で、閉じていれば十分機能する。</p>
+    <div class="mono" style="margin-top:12px">&lt;議事録&gt;<br>（ここに原文を貼る）<br>&lt;/議事録&gt;<br><br>上の &lt;議事録&gt; だけを根拠に、決定事項を箇条書きで抽出してください。<br>議事録に書かれていない内容は推測せず「記載なし」としてください。</div>
+    <p class="def" style="margin-top:12px">最後の1文が効く。<b>根拠の範囲を明示的に閉じる</b>指示は、後述するハルシネーション対策（D2）の最も安価な予防策でもある。</p>
+  </div>
+</section>
+
+<section id="d1-b2">
+  <div class="sec-kicker"><span class="num">3</span><div><span class="lbl">OBJECTIVE 1.2</span><h2>タスク分解で複雑な依頼を構造化する<span class="jp">Apply task decomposition techniques to structure complex requests</span></h2></div></div>
+
+  <p class="def">1回のプロンプトに複数の異なる判断を詰め込むと、どれか一つが薄くなる。分解の目的は<b>各ステップの出力を独立して検証可能にすること</b>であり、単に細かく割ることではない。</p>
+
+  <div class="tablewrap" style="margin-top:16px"><table class="t">
+    <caption>分解の3パターン</caption>
+    <thead><tr><th>パターン</th><th>形</th><th>向いている仕事</th><th>注意</th></tr></thead>
+    <tbody>
+      <tr><td><b>逐次連鎖</b><br><span class="mono" style="font-size:11px">prompt chaining</span></td><td>抽出 → 整理 → 起草 → 推敲を、別々のやりとりで順に行う</td><td>手順が事前に決まっている定型業務（月次レポート、議事録処理）</td><td>前段の出力をそのまま次段の入力にする。途中で人が確認できる</td></tr>
+      <tr><td><b>並列分割</b></td><td>対象を分けて別々に処理し、最後に統合する</td><td>複数部門・複数文書の横断レビュー</td><td>統合パスを別途置かないと、部分最適な結論が並ぶだけになる</td></tr>
+      <tr><td><b>適応的分解</b></td><td>まず全体を調べ、分かったことに応じて次の下位タスクを決める</td><td>調査、原因究明、前提が不明な検討</td><td>最初から手順を固定すると、想定外の論点を取りこぼす</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="card" style="margin-top:18px">
+    <h4>分解が甘いと何が起きるか</h4>
+    <p class="def">「創造産業への AI の影響を調べて」を、視覚芸術（デジタルアート・グラフィックデザイン・写真）だけに割ってしまうと、音楽・執筆・映画が丸ごと抜け落ちる。各ステップは正しく実行されているのに、<b>割り当ての段階で範囲が欠けている</b>ため、成果物は不完全になる。これは Architect 試験の公式サンプル問題でもそのまま出題されている論点で<span class="src pe">P-EXAM-02 Q7</span>、Associate でも「調査の抜け漏れをどう防ぐか」の形で応用が問われうる。</p>
+    <div class="crow"><span class="ck">対処</span><span class="cv">分解した直後に「この分け方で<b>漏れている領域はないか</b>」を一度問う。分解そのものをレビュー対象にする。</span></div>
+  </div>
+</section>
+
+<section id="d1-b3">
+  <div class="sec-kicker"><span class="num">4</span><div><span class="lbl">OBJECTIVE 1.3</span><h2>反復して出力品質を上げる<span class="jp">Iterate prompts to improve output quality</span></h2></div></div>
+
+  <p class="def">1回で完璧な指示は書けない。重要なのは<b>何を変えたから何が良くなったのか</b>を追えるように反復することで、闇雲に文言を足すことではない。</p>
+
+  <div class="axis" style="margin-top:16px">
+    <div class="a"><div class="an">1</div><div><b>症状を特定する。</b>「いまいち」ではなく「根拠のない数値が入る」「読者に対して専門的すぎる」「形式が毎回違う」まで落とす。症状ごとに効く手が違う。</div></div>
+    <div class="a"><div class="an">2</div><div><b>症状に対応した手を1つだけ打つ。</b>形式がぶれる → 出力例を見せる。事実が怪しい → 根拠の範囲を閉じる。粒度が合わない → 読者と用途を書く。<b>複数を同時に変えると、何が効いたか分からなくなる。</b></div></div>
+    <div class="a"><div class="an">3</div><div><b>同じ入力で比べる。</b>入力が変わっていると改善したか判定できない。代表的な入力を1〜2本、固定の検証セットとして手元に残しておく。</div></div>
+    <div class="a"><div class="an">4</div><div><b>効いた指示はプロジェクト指示へ昇格させる。</b>毎回貼り直している文言は、恒久設定にする（D5）。</div></div>
+  </div>
+
+  <div class="card" style="margin-top:18px">
+    <h4>相互に絡む問題は、まとめて1回で伝える</h4>
+    <p class="def">修正点が互いに影響し合う場合（トーンを直すと構成も変わる、など）は、1通のメッセージにまとめて具体的に伝えるほうが早い。逆に、互いに独立した問題は1つずつ順に直したほうが、原因と結果の対応が保たれる。この使い分けは Architect 試験でも明示的な出題対象になっている<span class="src pe">P-EXAM-02 TS 3.5</span>。</p>
+  </div>
+</section>
+
+<section id="d1-b4">
+  <div class="sec-kicker"><span class="num">5</span><div><span class="lbl">OBJECTIVE 1.4</span><h2>タスク種別ごとに戦略を変える<span class="jp">Adapt prompting strategies based on task type</span></h2></div></div>
+
+  <p class="def">試験ガイドは<b>分析・調査・起草・発想</b>の4種別を名指ししている<span class="src pe">P-EXAM-01 D1</span>。それぞれ「良い出力」の定義が違うため、寄せるべき指示も違う。</p>
+
+  <div class="tablewrap" style="margin-top:16px"><table class="t">
+    <thead><tr><th>種別</th><th>良い出力とは</th><th>効く指示</th><th>やりがちな失敗</th></tr></thead>
+    <tbody>
+      <tr><td><b>分析</b><br>Analysis</td><td>根拠が示され、反証可能で、断定と推測が区別されている</td><td>根拠の範囲を閉じる／「確度」を明示させる／反対の見方も出させる</td><td>結論だけ求めて、根拠のない断定を受け取る</td></tr>
+      <tr><td><b>調査</b><br>Research</td><td>網羅性があり、出典が辿れる</td><td>調べる観点を先に列挙させる／出典を必ず添えさせる／不明は「不明」と書かせる</td><td>分解が狭く、領域が丸ごと抜ける</td></tr>
+      <tr><td><b>起草</b><br>Drafting</td><td>読者に合っており、そのまま使える形式になっている</td><td>読者・用途・長さ・トーンを指定／既存文書を例として渡す</td><td>読者を書かないため、汎用的で使えない文章になる</td></tr>
+      <tr><td><b>発想</b><br>Brainstorming</td><td>選択肢に幅があり、既知の案に収束していない</td><td>「まず20案、評価は後で」と量と評価を分離／制約や軸を変えて再度出させる</td><td>最初から実現可能性で絞らせ、平凡な案しか出ない</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="card" style="margin-top:18px">
+    <h4>発想では「量」と「評価」を分ける</h4>
+    <p class="def">「実現可能な施策を3つ」と最初から言うと、無難な案に収束する。<b>先に幅を出し、次のターンで評価軸を与えて絞る</b>ほうが、探索空間を広く使える。分析でも同じで、結論を急がせるほど検討の幅は狭くなる。</p>
+  </div>
+</section>
+
+<section id="d1-exam">
+  <div class="sec-kicker"><span class="num">6</span><div><span class="lbl">EXAM ESSENCE</span><h2>試験エッセンス</h2></div></div>
+  <div class="examwrap">
+    <div class="eh">◆ ドメイン1で問われる判断軸</div>
+    <div class="axis">
+      <div class="a"><div class="an">A</div><div><b>「最初の一手」を選ばせる問題では、労力が小さく効果が大きい修正が正解。</b>プロンプトの曖昧さが原因なのに、分類器の導入や別プラットフォームへの移行を選ぶ選択肢は誤答として用意されている。</div></div>
+      <div class="a"><div class="an">B</div><div><b>形式のぶれには例示、事実の誤りには根拠の限定。</b>症状と対処の対応を覚える。「もっと丁寧に指示する」は多くの場合ダミー選択肢。</div></div>
+      <div class="a"><div class="an">C</div><div><b>分解の責任は「割り当てる側」にある。</b>下流の処理が正しく動いているのに成果物が不完全なら、原因は分解の設計。</div></div>
+      <div class="a"><div class="an">D</div><div><b>タスク種別で正解が変わる。</b>発想タスクで「実現可能性で絞る」、分析タスクで「幅を広げる」はいずれも逆。設問文からどの種別かを先に見極める。</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="d1-check">
+  <div class="sec-kicker"><span class="num">7</span><div><span class="lbl">CHECK</span><h2>確認問題</h2></div></div>
+
+  <div class="scn">
+    <div class="q">
+      <div class="qt">DOMAIN 1<span class="tag">オリジナル想定問題</span></div>
+      <p class="stem">アソシエイトが、社内規程を要約するプロンプトを使っている。出力の構成が毎回変わり、ある回は箇条書き、ある回は長い散文になる。内容の正確さには問題がない。最も効果的な対処はどれか。</p>
+      <div class="opts">
+        <div class="opt"><span class="ol">A</span><span>「一貫した形式で出力してください」という指示をプロンプトに追加する</span></div>
+        <div class="opt" data-correct><span class="ol">B</span><span>望ましい出力の具体例を1〜2件プロンプトに含め、その形式に倣わせる</span></div>
+        <div class="opt"><span class="ol">C</span><span>より高性能なモデルに切り替える</span></div>
+        <div class="opt"><span class="ol">D</span><span>要約対象の規程を短く分割してから投入する</span></div>
+      </div>
+      <button class="hintbtn scn-toggle" type="button">解答・解説を見る</button>
+    </div>
+    <div class="reveal">
+      <div class="row"><span class="rk ok">正解</span><span class="rv"><b>B</b></span></div>
+      <div class="row"><span class="rk proc">解説</span><span class="rv">症状は<b>形式の不安定さ</b>であり、内容の正確さではない。形式を言葉で説明しても解釈の幅が残るため、<b>具体例を示す</b>のが最も直接的で効果が高い。A は抽象的な指示の追加にすぎず「一貫した形式」の定義が示されていない。C はコストを上げるだけで症状の原因（形式の指定不足）に対応しない。D は入力長の問題であり、この症状の原因ではない。</span></div>
+    </div>
+  </div>
+
+  <div class="scn">
+    <div class="q">
+      <div class="qt">DOMAIN 1<span class="tag">オリジナル想定問題</span></div>
+      <p class="stem">新製品の販促アイデアを Claude に出させたところ、どの回も「SNS キャンペーン」「インフルエンサー起用」など既知の案に収束した。発想の幅を広げるうえで最も適切な進め方はどれか。</p>
+      <div class="opts">
+        <div class="opt"><span class="ol">A</span><span>実現可能性が高い案に限定するよう指示を強める</span></div>
+        <div class="opt" data-correct><span class="ol">B</span><span>まず評価を求めずに多数の案を出させ、次のターンで評価軸を与えて絞る</span></div>
+        <div class="opt"><span class="ol">C</span><span>過去に成功した施策を例として与え、それに似た案を求める</span></div>
+        <div class="opt"><span class="ol">D</span><span>1回のプロンプトで案の列挙と優先順位付けを同時に依頼する</span></div>
+      </div>
+      <button class="hintbtn scn-toggle" type="button">解答・解説を見る</button>
+    </div>
+    <div class="reveal">
+      <div class="row"><span class="rk ok">正解</span><span class="rv"><b>B</b></span></div>
+      <div class="row"><span class="rk proc">解説</span><span class="rv">発想タスクでは<b>量の生成と評価を分離する</b>のが定石。A と D はいずれも生成段階に評価の制約を持ち込み、探索空間を狭める。C は既知の成功例に寄せる指示であり、収束をさらに強める。B のように段階を分ければ、幅を確保したうえで別基準で絞り込める。</span></div>
+    </div>
+  </div>
+
+  <div class="next"><a href="#d2-goal">次のドメインへ：出力評価と検証（21%）→</a></div>
+</section>
+
+</main></div></section>
+
+<!-- ============================== DOMAIN 2 ============================== -->
+<section class="domain" id="domain-2" data-domain="2" data-screen-label="Domain 2"><div class="shell">
+<aside class="rail">
+  <span class="badge">DOMAIN 02 / 07 · 21%</span>
+  <div class="rtitle">出力評価と検証</div>
+  <div class="rsub">Output Evaluation and Validation</div>
+  <nav class="rnav">
+    <a href="#d2-goal"><span class="n">1</span><span>到達目標</span></a>
+    <div class="navgrp">タスク領域</div>
+    <a href="#d2-b1"><span class="n">2</span><span>正確性と網羅性の評価</span></a>
+    <a href="#d2-b2"><span class="n">3</span><span>ハルシネーション・矛盾・バイアス</span></a>
+    <a href="#d2-b3"><span class="n">4</span><span>ファクトチェックの技法</span></a>
+    <a href="#d2-b4"><span class="n">5</span><span>人間のレビューが要る境界</span></a>
+    <a href="#d2-b5"><span class="n">6</span><span>読者に合わせた編集</span></a>
+    <a href="#d2-b6"><span class="n">7</span><span>出力形式の選択</span></a>
+    <div class="navgrp">仕上げ</div>
+    <a href="#d2-exam"><span class="n">8</span><span>試験エッセンス</span></a>
+    <a href="#d2-check"><span class="n">9</span><span>確認問題</span></a>
+  </nav>
+  <div class="rprog"><span>読了 0%</span><div class="track"><i></i></div></div>
+</aside>
+<main>
+
+<section class="hero" id="d2-goal">
+  <div class="eyebrow">CCAO-F · DOMAIN 2</div>
+  <h1>出力評価と検証<span class="en">OUTPUT EVALUATION AND VALIDATION · 21%</span></h1>
+  <div class="scope"><span class="ic">GOAL</span><div><b>本試験で最大の配点（21%）を占めるドメイン。</b>Claude の出力を鵜呑みにせず、正確性・網羅性・偏りの観点で検証し、どこまでを自分の責任で送り出し、どこからは人間の専門家に回すかを判断できるようになる。加えて、同じ内容を読者に応じて編集し直し、情報を整理して<b>適切な出力形式</b>（Artifacts・インライン・構造化データ）に載せるところまでが範囲。この試験が「Claude を使える人」ではなく「<b>Claude の出力に責任を持てる人</b>」を認定していることが、この配点に表れている。</div></div>
+</section>
+
+<div class="keymsg">
+  <div class="km"><span class="kn">01</span><p><b>自己申告の確信度は精度の指標にならない。</b>公式サンプル問題の解説が明示している：「Self-reported confidence is not a reliable accuracy signal」<span class="src pe">P-EXAM-01 §8</span>。「Claude に自信度を聞いて高ければ送る」という選択肢は、Associate でも Architect でも一貫して<b>誤答</b>である。</p></div>
+  <div class="km"><span class="kn">02</span><p><b>もっともらしい細部ほど疑う。</b>言語モデルは条番号・引用番号・統計値のような<b>具体的に見える細部を捏造しうる</b>。公式解説の表現では「Language models can fabricate specific-looking details such as citation numbers」<span class="src pe">P-EXAM-01 §8</span>。数字と固有名詞と出典は、常に一次資料に当たる。</p></div>
+  <div class="km"><span class="kn">03</span><p><b>高リスク領域では人間のレビューが「必須要件」。</b>Anthropic の利用ポリシーは、法解釈・医療・保険引受・金融適格性・雇用・住宅・学術試験などの高リスク用途について、<b>その分野の有資格専門家による事前レビュー</b>と<b>AI 利用の開示</b>を要求している<span class="src pd">P-DOC-40</span>。これは「望ましい運用」ではなくポリシー上の要件。</p></div>
+  <div class="km"><span class="kn">04</span><p><b>体裁を整えることは、正しさの検証ではない。</b>文章を formal に書き直しても事実誤認は消えない。設問には必ずこの種の「作業はしているが問題は解決していない」選択肢が置かれる。</p></div>
+</div>
+
+<section id="d2-b1">
+  <div class="sec-kicker"><span class="num">2</span><div><span class="lbl">OBJECTIVE 2.1</span><h2>正確性と網羅性を評価する<span class="jp">Evaluate Claude-generated outputs for accuracy and completeness</span></h2></div></div>
+
+  <p class="def">評価は「読んで違和感がないか」ではなく、<b>観点を決めて機械的に走査する</b>。試験ガイドは正確性（accuracy）と網羅性（completeness）を並べて挙げており<span class="src pe">P-EXAM-01 D2</span>、両者は別の失敗である。</p>
+
+  <div class="tablewrap" style="margin-top:16px"><table class="t">
+    <caption>2種類の失敗と、その見つけ方</caption>
+    <thead><tr><th>失敗</th><th>症状</th><th>見つけ方</th></tr></thead>
+    <tbody>
+      <tr><td><b>正確性の失敗</b></td><td>書かれている内容が事実と違う。数値・条番号・日付・引用が誤っている</td><td>出典に当たる。特に<b>具体的な識別子</b>（第○条第○項、統計値、URL、人名）を優先的に照合する</td></tr>
+      <tr><td><b>網羅性の失敗</b></td><td>書かれていることは正しいが、<b>あるべきものが無い</b>。例外規定、反対意見、対象外の部門</td><td>元資料の見出し・章立てと出力を突き合わせる。「触れていない領域はどこか」を明示的に問う</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="card" style="margin-top:18px">
+    <h4>網羅性の失敗は気づきにくい</h4>
+    <p class="def">出力に書かれている誤りは読めば疑える。しかし<b>書かれていないもの</b>は、元資料を知らない読者には見えない。だから網羅性の検証は「出力を読む」のではなく「<b>元資料の構造と出力を照合する</b>」作業になる。要約を頼むときに、あらかじめ元資料の見出し一覧を出させておくと、後の照合が容易になる。</p>
+  </div>
+</section>
+
+<section id="d2-b2">
+  <div class="sec-kicker"><span class="num">3</span><div><span class="lbl">OBJECTIVE 2.2</span><h2>ハルシネーション・矛盾・バイアスを見抜く<span class="jp">Identify hallucinations, inconsistencies, and biases in responses</span></h2></div></div>
+
+  <div class="grid g3" style="margin-top:16px">
+    <div class="minibox"><h5>ハルシネーション</h5><ul>
+      <li>存在しない条文・判例・論文の<b>引用</b></li>
+      <li>もっともらしい<b>統計値</b>や比率</li>
+      <li>実在しない製品名・機能名・API</li>
+      <li><b>兆候</b>：自信のある断定と検証可能な細部の組み合わせ</li>
+    </ul></div>
+    <div class="minibox"><h5>矛盾（inconsistency）</h5><ul>
+      <li>同一文書内で数値が食い違う</li>
+      <li>前半の前提と後半の結論が噛み合わない</li>
+      <li>同じ論点を別の箇所で逆に評価している</li>
+      <li><b>兆候</b>：長い出力ほど発生しやすい</li>
+    </ul></div>
+    <div class="minibox"><h5>バイアス</h5><ul>
+      <li>特定の立場・属性に偏った前提</li>
+      <li>一方の選択肢だけ長く好意的に書かれる</li>
+      <li>元データの偏りをそのまま結論にする</li>
+      <li><b>兆候</b>：反対の立場を書かせると急に薄くなる</li>
+    </ul></div>
+  </div>
+
+  <div class="card" style="margin-top:18px">
+    <h4>矛盾は「長さ」と相関する</h4>
+    <p class="def">長い入力では、モデルは冒頭と末尾を安定して扱う一方、<b>中間部分の情報を落としやすい</b>（lost-in-the-middle）。この性質は Architect 試験でも明示的な出題対象になっている<span class="src pe">P-EXAM-02 TS 5.1</span>。Associate の実務上は、長い資料を1回で処理させず、章ごとに分けて処理してから統合するほうが、抜けも矛盾も減る。</p>
+  </div>
+
+  <div class="card" style="margin-top:18px">
+    <h4>バイアスの点検は「逆を書かせる」</h4>
+    <p class="def">出力が偏っているかを目視で判定するのは難しい。実務的には、<b>反対の結論を支持する材料を同じ分量で書かせる</b>のが最も速い検査になる。反対側が明らかに薄い、あるいは根拠が弱い場合、元の出力は結論ありきで書かれている可能性が高い。</p>
+  </div>
+</section>
+
+<section id="d2-b3">
+  <div class="sec-kicker"><span class="num">4</span><div><span class="lbl">OBJECTIVE 2.3</span><h2>ファクトチェックと検証の技法<span class="jp">Apply fact-checking and validation techniques</span></h2></div></div>
+
+  <div class="axis" style="margin-top:16px">
+    <div class="a"><div class="an">1</div><div><b>検証対象を先に切り出す。</b>出力全体を疑うのではなく、<b>数値・固有名詞・引用・日付・因果の主張</b>だけを列挙する。列挙自体を Claude にやらせてもよい（「この文書中の検証すべき事実主張を箇条書きで抽出して」）。</div></div>
+    <div class="a"><div class="an">2</div><div><b>権威ある出典に当たる。</b>Claude に「合っている？」と聞き返すのは検証ではない。<b>元の規程・公式サイト・一次資料</b>を開く。公式サンプル問題の正解はまさにこれ：「Verify the cited subsection against the official regulation text before sharing」<span class="src pe">P-EXAM-01 §8</span>。</div></div>
+    <div class="a"><div class="an">3</div><div><b>根拠の範囲を最初から閉じておく。</b>「与えた資料だけを根拠にし、書かれていないことは『記載なし』とする」と指示しておけば、検証すべき主張の数そのものが減る。事後の検証より事前の制約のほうが安い。</div></div>
+    <div class="a"><div class="an">4</div><div><b>独立したインスタンスで見直す。</b>同じ会話の続きでレビューさせると、モデルは自分の推論の文脈を保持しているため、自らの判断を疑いにくい。<b>新しい会話で、生成過程を知らない状態でレビューさせる</b>ほうが問題を見つけやすい。この原則は Architect 試験で明示されている<span class="src pe">P-EXAM-02 TS 4.6</span>。</div></div>
+  </div>
+
+  <div class="diff">
+    <div class="dh"><span class="tag">よくある誤解</span>「Claude に確認させれば検証になる」</div>
+    <dl>
+      <dt>誤解</dt><dd>同じ会話の中で「この内容は正確ですか？」と聞き、「はい、正確です」と返ってきたので送信した。</dd>
+      <dt>なぜ誤り</dt><dd>自己申告の確信度は精度の信頼できる指標ではない<span class="src pe">P-EXAM-01 §8</span>。加えて、同一セッションのモデルは自分の生成時の推論を保持しており、自らの判断を疑いにくい<span class="src pe">P-EXAM-02 TS 4.6</span>。</dd>
+      <dt>正しい手</dt><dd>一次資料に当たる。どうしてもモデルを使うなら、<b>生成過程を共有していない別セッション</b>に、資料と出力だけを渡して照合させる。</dd>
+    </dl>
+    <div class="verdict"><b>試験での出方：</b>「Claude に自信度をスコアで出させ、閾値未満だけ人間に回す」という選択肢は、Associate・Architect の双方で誤答として登場する。</div>
+  </div>
+</section>
+
+<section id="d2-b4">
+  <div class="sec-kicker"><span class="num">5</span><div><span class="lbl">OBJECTIVE 2.4</span><h2>人間のレビューが必要な境界を決める<span class="jp">Determine when human review or additional verification is required</span></h2></div></div>
+
+  <p class="def">「念のため全部人が見る」では運用が回らず、「速いから全部任せる」では事故が起きる。<b>どの条件を満たしたら人間に回すか</b>を、あらかじめ言語化しておくのがアソシエイトの仕事になる。</p>
+
+  <div class="tablewrap" style="margin-top:16px"><table class="t">
+    <caption>人間のレビューを必須とすべき条件</caption>
+    <thead><tr><th>条件</th><th>理由</th><th>根拠</th></tr></thead>
+    <tbody>
+      <tr><td><b>高リスク領域に該当する</b><br>法解釈・医療・保険引受・金融適格性・雇用・住宅・学術試験・報道</td><td>Anthropic 利用ポリシーが「その分野の有資格専門家による、公開・確定前のレビュー」を要求している</td><td><span class="src pd">P-DOC-40</span></td></tr>
+      <tr><td><b>外部に出る、または記録に残る</b></td><td>訂正コストが跳ね上がる。社内メモと顧客提出文書では要求水準が違う</td><td>実務判断</td></tr>
+      <tr><td><b>検証できない主張を含む</b></td><td>出典に当たれない数値・引用が残っている時点で、送り手が責任を負えない</td><td><span class="src pe">P-EXAM-01 D2</span></td></tr>
+      <tr><td><b>規制対象データ・個人データが絡む</b></td><td>ドメイン6の論点と重なる。データ側の適法性と出力側の正確性は別々に確認が要る</td><td><span class="src pe">P-EXAM-01 D6</span></td></tr>
+      <tr><td><b>自分の専門外である</b></td><td>誤りを検出できない領域では、レビューしても検証にならない。試験ガイドはアソシエイトの職務として「より複雑・技術的な作業を Architect / Developer へエスカレーションすること」を明記している</td><td><span class="src pe">P-EXAM-01 §1</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="card" style="margin-top:18px">
+    <h4>AI 利用の開示義務</h4>
+    <p class="def">高リスク領域では、レビューに加えて<b>開示</b>も要件になる。利用ポリシーの文言は「You must disclose to them that you are using AI to help produce your advice, decisions, or recommendations」<span class="src pd">P-DOC-40</span>。また消費者向けのチャットボットは、<b>各チャットセッションの冒頭で</b>最低限 AI であることを開示する必要がある。「AI が作ったと分かると信頼されないので伏せる」はポリシー違反にあたる。</p>
+  </div>
+</section>
+
+<section id="d2-b5">
+  <div class="sec-kicker"><span class="num">6</span><div><span class="lbl">OBJECTIVE 2.5</span><h2>読者に合わせて編集・比較する<span class="jp">Edit, adapt, refine, and compare outputs for the intended audience</span></h2></div></div>
+
+  <p class="def">同じ事実でも、経営会議・現場担当・社外顧客では必要な粒度と語彙が違う。試験ガイドは「edit, adapt, refine, and <b>compare</b>」と並べており、<b>複数案を比較する</b>行為まで含まれている点に注意<span class="src pe">P-EXAM-01 D2</span>。</p>
+
+  <div class="grid g2" style="margin-top:16px">
+    <div class="minibox"><h5>読者を変えると何が変わるか</h5><ul>
+      <li><b>結論の位置</b>：経営層は先頭、技術者は根拠の後</li>
+      <li><b>専門用語</b>：社外向けは初出で定義、社内向けは略語で可</li>
+      <li><b>不確実性の扱い</b>：意思決定資料では確度を明示、広報文では確定事項のみ</li>
+      <li><b>分量</b>：長さは読者の可処分時間で決まる</li>
+    </ul></div>
+    <div class="minibox"><h5>比較のさせ方</h5><ul>
+      <li>同じ素材から<b>2〜3案</b>を別々に作らせる</li>
+      <li>案を作らせた後に<b>評価軸</b>を与えて比較させる</li>
+      <li>「どちらが良いか」ではなく<b>「どの軸でどちらが優れるか」</b>を問う</li>
+      <li>採用案に、他案の良い部分を接ぎ木する</li>
+    </ul></div>
+  </div>
+</section>
+
+<section id="d2-b6">
+  <div class="sec-kicker"><span class="num">7</span><div><span class="lbl">OBJECTIVE 2.6</span><h2>情報を整理し、出力形式を選ぶ<span class="jp">Organize and curate information and select appropriate output formats</span></h2></div></div>
+
+  <p class="def">試験ガイドは形式の選択肢として <b>artifacts / inline / structured data</b> を名指ししている<span class="src pe">P-EXAM-01 D2</span>。それぞれ適する場面が異なる。</p>
+
+  <div class="tablewrap" style="margin-top:16px"><table class="t">
+    <caption>出力形式の選び分け</caption>
+    <thead><tr><th>形式</th><th>適する場面</th><th>公式仕様</th></tr></thead>
+    <tbody>
+      <tr><td><b>インライン</b><br>チャット本文</td><td>短い回答、判断の相談、その場限りの確認</td><td>—</td></tr>
+      <tr><td><b>Artifacts</b></td><td>あとで<b>編集・反復・再利用</b>する自己完結したコンテンツ。ドキュメント、コード、HTML、SVG、図表、React コンポーネント</td><td>「significant and self-contained, typically over 15 lines」の内容で自動生成される<span class="src pd">P-DOC-31</span></td></tr>
+      <tr><td><b>構造化データ</b><br>表・JSON・CSV</td><td>他システムへ渡す、集計する、機械的に突合する</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="card concept" style="margin-top:18px">
+    <h4>Artifacts の実務上の注意</h4>
+    <div class="crow"><span class="ck">保存</span><span class="cv">会話中の Artifact は自動ではサイドバーに残らない。残すには <b>Publish</b> が必要<span class="src pd">P-DOC-31</span>。</span></div>
+    <div class="crow"><span class="ck">前提</span><span class="cv">設定で「Code execution and file creation」が有効になっている必要がある<span class="src pd">P-DOC-31</span>。</span></div>
+    <div class="crow"><span class="ck">共有</span><span class="cv">公開した Artifact は公開共有や Web への埋め込みが可能。<b>共有は外部への配布</b>であることを、機微情報を含む場合は必ず意識する（D6 と接続）。</span></div>
+    <div class="crow exam"><span class="ck">試験</span><span class="cv">判断軸は「<b>反復・再利用するか</b>」。1往復で終わる短い回答を Artifact にする選択肢、逆に何度も直す長文をチャット本文に置き続ける選択肢は、いずれも誤答になりやすい。</span></div>
+  </div>
+</section>
+
+<section id="d2-exam">
+  <div class="sec-kicker"><span class="num">8</span><div><span class="lbl">EXAM ESSENCE</span><h2>試験エッセンス</h2></div></div>
+  <div class="examwrap">
+    <div class="eh">◆ 最大配点ドメインの正解パターン</div>
+    <div class="axis">
+      <div class="a"><div class="an">A</div><div><b>「権威ある出典に当たる」が正解になる。</b>モデルへの再質問、自己申告の確信度、体裁の修正はいずれも誤答。とくに<b>引用・条番号・統計値</b>が絡む設問はこのパターン。</div></div>
+      <div class="a"><div class="an">B</div><div><b>「作業を放棄する」も誤答。</b>公式サンプル問題の解説は、匿名化すれば分析を進められる場面で分析自体を諦める選択肢を「abandoning the task (D) is unnecessary」と明確に否定している<span class="src pe">P-EXAM-01 §8</span>。<b>リスクを消したうえで前に進む</b>のが正解の形。</div></div>
+      <div class="a"><div class="an">C</div><div><b>網羅性は「元資料の構造」と照合する。</b>出力だけを読んで抜けを探す選択肢より、元資料の章立てと突き合わせる選択肢を選ぶ。</div></div>
+      <div class="a"><div class="an">D</div><div><b>高リスク領域は「有資格専門家のレビュー」と「AI 利用の開示」がセット。</b>片方だけの選択肢は不十分な答えになる<span class="src pd">P-DOC-40</span>。</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="d2-check">
+  <div class="sec-kicker"><span class="num">9</span><div><span class="lbl">CHECK</span><h2>確認問題</h2></div></div>
+
+  <div class="scn">
+    <div class="q">
+      <div class="qt">DOMAIN 2<span class="tag">公式サンプル問題（試験ガイド収録）</span></div>
+      <p class="stem">アソシエイトが Claude に新しい規制の要約を依頼したところ、Claude は特定の条項番号を引用した自信のある要約を返した。この要約をコンプライアンス部門へ送る前に取るべき、最も適切な行動はどれか。</p>
+      <div class="opts">
+        <div class="opt"><span class="ol">A</span><span>Claude が高い確信を示していたので、そのまま送る</span></div>
+        <div class="opt" data-correct><span class="ol">B</span><span>共有する前に、引用された条項を公式の規制原文と照合する</span></div>
+        <div class="opt"><span class="ol">C</span><span>Claude に自身の確信度を評価させ、高ければ送る</span></div>
+        <div class="opt"><span class="ol">D</span><span>より格式ばった文体に書き直してから送る</span></div>
+      </div>
+      <button class="hintbtn scn-toggle" type="button">解答・解説を見る</button>
+    </div>
+    <div class="reveal">
+      <div class="row"><span class="rk ok">正解</span><span class="rv"><b>B</b><span class="src pe">P-EXAM-01 §8 Sample 1</span></span></div>
+      <div class="row"><span class="rk proc">公式解説</span><span class="rv">言語モデルは<b>引用番号のような「具体的に見える細部」を捏造しうる</b>（ハルシネーション）。事実主張、とりわけコンプライアンス部門へ向かう引用を、権威ある出典に照らして検証することが求められる注意義務である。自己申告の確信度（A・C）は<b>信頼できる精度の指標ではない</b>。体裁の修正（D）は正しさの問題に対処していない。</span></div>
+      <div class="row"><span class="rk bad">頻出の罠</span><span class="rv">「モデルに確信度を聞く」は Associate・Architect の両方で一貫して誤答。理由も同一（自己申告の確信度は較正されていない）。</span></div>
+    </div>
+  </div>
+
+  <div class="scn">
+    <div class="q">
+      <div class="qt">DOMAIN 2<span class="tag">オリジナル想定問題</span></div>
+      <p class="stem">アソシエイトが、40ページの社内規程から「例外が認められるケース」を Claude に抽出させた。出力は正確だったが、後日のレビューで、中盤の章にあった重要な例外が2件抜けていたことが判明した。再発を防ぐうえで最も効果的な対策はどれか。</p>
+      <div class="opts">
+        <div class="opt"><span class="ol">A</span><span>Claude に「抜け漏れなく」抽出するよう指示を追加する</span></div>
+        <div class="opt"><span class="ol">B</span><span>出力を読み直し、不自然な箇所がないか目視で確認する</span></div>
+        <div class="opt" data-correct><span class="ol">C</span><span>規程を章ごとに分けて抽出させ、章立てと出力を突き合わせて照合する</span></div>
+        <div class="opt"><span class="ol">D</span><span>Claude に抽出結果の網羅性を自己評価させる</span></div>
+      </div>
+      <button class="hintbtn scn-toggle" type="button">解答・解説を見る</button>
+    </div>
+    <div class="reveal">
+      <div class="row"><span class="rk ok">正解</span><span class="rv"><b>C</b></span></div>
+      <div class="row"><span class="rk proc">解説</span><span class="rv">これは<b>網羅性</b>の失敗であり、しかも<b>中盤</b>で起きている点が典型的（長い入力では冒頭と末尾が安定し、中間が落ちやすい）。書かれていないものは出力を読んでも見えないため、B は検出手段にならない。A のような抽象的な指示追加は、原因（1回で長文全体を処理させたこと）に対処していない。D は自己申告であり信頼できない。C は入力を分割して中間落ちを防ぎ、かつ<b>元資料の構造との照合</b>という検証手段を確立している。</span></div>
+    </div>
+  </div>
+
+  <div class="scn">
+    <div class="q">
+      <div class="qt">DOMAIN 2<span class="tag">オリジナル想定問題・複数回答</span></div>
+      <p class="stem">人事担当者が、Claude を使って応募者の書類選考の一次評価コメントを作成しようとしている。最終的な合否は人事部長が決める。この運用で満たすべき要件として適切なものを<b>2つ</b>選べ。</p>
+      <div class="opts">
+        <div class="opt" data-correct><span class="ol">A</span><span>その分野の有資格者が、確定・展開の前に内容または判断をレビューする</span></div>
+        <div class="opt"><span class="ol">B</span><span>Claude の確信度スコアが閾値を超えた案件のみ人間が確認する</span></div>
+        <div class="opt" data-correct><span class="ol">C</span><span>助言・判断・推奨の作成に AI を用いていることを対象者へ開示する</span></div>
+        <div class="opt"><span class="ol">D</span><span>評価コメントを人間が書いたように書き直し、AI 利用が分からないようにする</span></div>
+      </div>
+      <button class="hintbtn scn-toggle" type="button">解答・解説を見る</button>
+    </div>
+    <div class="reveal">
+      <div class="row"><span class="rk ok">正解</span><span class="rv"><b>A と C</b><span class="src pd">P-DOC-40</span></span></div>
+      <div class="row"><span class="rk proc">解説</span><span class="rv">雇用に関する判断は Anthropic 利用ポリシーの<b>高リスク用途</b>にあたり、(1) 有資格専門家による事前レビュー（human-in-the-loop）と (2) <b>AI 利用の開示</b>の両方が要件になる。B は自己申告の確信度に依存しており、精度指標として信頼できないうえ、高リスク用途のレビュー要件を満たさない。D は AI 生成物を人間が作ったものとして提示する行為で、利用ポリシーが明示的に禁じている。</span></div>
+      <div class="row"><span class="rk bad">形式</span><span class="rv">本試験には<b>複数回答</b>の設問が含まれ、各問に選択すべき数が明記される<span class="src pe">P-EXAM-01 §5</span>。選択数の指示を読み飛ばさないこと。</span></div>
+    </div>
+  </div>
+
+  <div class="next"><a href="#d3-goal">次のドメインへ：製品とモデルの選択（12%）→</a></div>
+</section>
+
+</main></div></section>
+
+<!-- ============================== DOMAIN 3 ============================== -->
+<section class="domain" id="domain-3" data-domain="3" data-screen-label="Domain 3"><div class="shell">
+<aside class="rail">
+  <span class="badge">DOMAIN 03 / 07 · 12%</span>
+  <div class="rtitle">製品とモデルの選択</div>
+  <div class="rsub">Product and Model Selection</div>
+  <nav class="rnav">
+    <a href="#d3-goal"><span class="n">1</span><span>到達目標</span></a>
+    <div class="navgrp">タスク領域</div>
+    <a href="#d3-b1"><span class="n">2</span><span>製品機能の選択</span></a>
+    <a href="#d3-b2"><span class="n">3</span><span>モデル階層の違い</span></a>
+    <a href="#d3-b3"><span class="n">4</span><span>品質・速度・コストの整合</span></a>
+    <a href="#d3-b4"><span class="n">5</span><span>コンテキストとメモリ</span></a>
+    <div class="navgrp">仕上げ</div>
+    <a href="#d3-exam"><span class="n">6</span><span>試験エッセンス</span></a>
+    <a href="#d3-check"><span class="n">7</span><span>確認問題</span></a>
+  </nav>
+  <div class="rprog"><span>読了 0%</span><div class="track"><i></i></div></div>
+</aside>
+<main>
+
+<section class="hero" id="d3-goal">
+  <div class="eyebrow">CCAO-F · DOMAIN 3</div>
+  <h1>製品とモデルの選択<span class="en">PRODUCT AND MODEL SELECTION · 12%</span></h1>
+  <div class="scope"><span class="ic">GOAL</span><div>目の前のタスクに対して、<b>どの機能（通常チャット・Projects・Research・Artifacts）</b>と<b>どのモデル階層</b>を使うのが妥当かを、品質・速度・コストの三点で説明できるようになる。あわせて、コンテキストウィンドウとメモリの限界を理解し、<b>いつ会話をやり直し、いつ要約し、いつ恒久設定へ移すか</b>を判断できること。「常に最高性能のモデルを使う」は、この試験では一貫して<b>誤答</b>である。</div></div>
+</section>
+
+<div class="keymsg">
+  <div class="km"><span class="kn">01</span><p><b>最上位モデルの常用は誤り。</b>公式サンプル問題の解説は「Always using the top model (A) wastes the cost and latency budget」と明言する<span class="src pe">P-EXAM-01 §8</span>。単純・大量の処理には速く安いモデル、複雑な推論には最も高性能なモデルを充てる。</p></div>
+  <div class="km"><span class="kn">02</span><p><b>機能の選択はツール呼び出しの回数で決まる。</b>公式ヘルプの基準では、Web 検索は1〜2回のツール呼び出しで済む事実確認、Research は<b>5回以上のツール呼び出し</b>を伴う1〜3分の包括的調査、Extended thinking は Web データが不要な複雑推論<span class="src pd">P-DOC-36</span>。</p></div>
+  <div class="km"><span class="kn">03</span><p><b>Projects は「繰り返す仕事」に使う。</b>独立したチャット履歴とナレッジベースを持ち、カスタム指示を設定できるワークスペース<span class="src pd">P-DOC-30</span>。同じ前提を毎回貼り直しているなら、それは Project にすべき合図。</p></div>
+  <div class="km"><span class="kn">04</span><p><b>コンテキストは有限で、長さは品質に効く。</b>詰め込むほど良くなるわけではない。会話が長引いて挙動が不安定になったら、<b>要約を作って新しい会話を始める</b>ほうが、同じ会話を引き延ばすより確実。</p></div>
+</div>
+
+<section id="d3-b1">
+  <div class="sec-kicker"><span class="num">2</span><div><span class="lbl">OBJECTIVE 3.1</span><h2>適切な製品機能を選ぶ<span class="jp">Select appropriate Claude product features (Projects, research mode, chat, artifacts)</span></h2></div></div>
+
+  <div class="tablewrap" style="margin-top:16px"><table class="t">
+    <caption>機能の選び分け（公式ヘルプの基準に基づく）</caption>
+    <thead><tr><th>機能</th><th>適する場面</th><th>目安</th><th>出典</th></tr></thead>
+    <tbody>
+      <tr><td><b>通常チャット</b></td><td>単発の質問、下書き、相談。前提を毎回渡しても負担にならない範囲</td><td>—</td><td>—</td></tr>
+      <tr><td><b>Projects</b></td><td>同じ前提・同じ資料を<b>繰り返し</b>使う業務。独立したチャット履歴とナレッジベース、カスタム指示を持つ</td><td>無料プランは最大5プロジェクト。有料プランは RAG により容量が最大10倍</td><td><span class="src pd">P-DOC-30</span></td></tr>
+      <tr><td><b>Artifacts</b></td><td>あとで編集・反復・再利用する自己完結コンテンツ</td><td>「significant and self-contained, typically over 15 lines」で自動生成</td><td><span class="src pd">P-DOC-31</span></td></tr>
+      <tr><td><b>Web 検索</b></td><td>単純な事実確認、最新情報の確認</td><td><b>1〜2回</b>のツール呼び出し</td><td><span class="src pd">P-DOC-36</span></td></tr>
+      <tr><td><b>Extended thinking</b></td><td>Web の最新データが不要な、複雑な推論・検討</td><td>複数の角度を検討させたいとき</td><td><span class="src pd">P-DOC-36</span></td></tr>
+      <tr><td><b>Research</b></td><td>複数ソースを横断して総合する調査。競合比較、社内資料と Web の突合</td><td><b>5回以上</b>のツール呼び出し、1〜3分。上位モードは最大45分。<b>有料プラン限定</b></td><td><span class="src pd">P-DOC-35</span><span class="src pd">P-DOC-36</span></td></tr>
+      <tr><td><b>コネクタ</b></td><td>Gmail・Google Drive・Calendar 等、実データに触れる作業</td><td>権限は<b>接続先サービスから継承</b>される（D5 で詳述）</td><td><span class="src pd">P-DOC-32</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="card" style="margin-top:18px">
+    <h4>選択を誤る典型パターン</h4>
+    <div class="crow warn"><span class="ck">過剰</span><span class="cv">単純な事実確認に Research を使う。1〜2回で済む調べ物に数分待つのは、時間とコストの両方の無駄。</span></div>
+    <div class="crow warn"><span class="ck">過少</span><span class="cv">複数ソースの横断調査を通常チャットで済ませ、断片的な答えを得る。網羅性の失敗（D2）につながる。</span></div>
+    <div class="crow warn"><span class="ck">設定漏れ</span><span class="cv">同じ資料を毎回添付し続ける。Project のナレッジベースに置けば、以後のすべてのチャットで参照される。</span></div>
+  </div>
+</section>
+
+<section id="d3-b2">
+  <div class="sec-kicker"><span class="num">3</span><div><span class="lbl">OBJECTIVE 3.2</span><h2>モデル階層の違いを理解する<span class="jp">Differentiate between Claude model types (Haiku, Sonnet, Opus)</span></h2></div></div>
+
+  <p class="def">試験ガイドが名指しするのは <b>Haiku / Sonnet / Opus</b> の3階層である<span class="src pe">P-EXAM-01 D3</span>。試験で問われるのは個別のモデル名や価格ではなく、<b>階層ごとの役割分担の考え方</b>だと理解しておくとよい。</p>
+
+  <div class="tablewrap" style="margin-top:16px"><table class="t">
+    <caption>階層の考え方（試験ガイドの枠組み）</caption>
+    <thead><tr><th>階層</th><th>位置づけ</th><th>向く仕事</th></tr></thead>
+    <tbody>
+      <tr><td><b>Haiku</b></td><td>最速・最安。近フロンティア級の知能</td><td>短文の大量処理、分類、抽出、定型返信の下書き</td></tr>
+      <tr><td><b>Sonnet</b></td><td>速度と知能のバランス</td><td>日常業務の大半。要約、起草、分析</td></tr>
+      <tr><td><b>Opus</b></td><td>複雑なエージェント的作業と企業業務向け</td><td>込み入った推論、長い文脈をまたぐ判断、重要な意思決定の支援</td></tr>
+    </tbody>
+  </table></div>
+
+  <p class="def" style="margin-top:14px">公式ドキュメントのコスト最適化の指針も同じ形をとる：<b>「Choose Haiku for simple tasks, Sonnet for most production workloads, and Opus for the most complex reasoning」</b><span class="src pd">P-DOC-02</span>。</p>
+
+  <div class="diff">
+    <div class="dh"><span class="tag">試験ガイド vs 現行ドキュメント</span>モデルラインナップは3階層ではない</div>
+    <dl>
+      <dt>試験ガイド</dt><dd>「Differentiate between Claude model types (<b>Haiku, Sonnet, Opus</b>)」の3階層のみを挙げる<span class="src pe">P-EXAM-01 D3</span>。</dd>
+      <dt>現行ドキュメント</dt><dd>2026-08-26 時点の現行ラインナップは <b>Claude Fable 5 / Claude Opus 5 / Claude Sonnet 5 / Claude Haiku 4.5</b> の4種類。Fable 5 は「長時間稼働エージェント向けの次世代の知能」と位置づけられ、Opus より上位の価格帯（入力 $10 / 出力 $50 per MTok）にある<span class="src pd">P-DOC-01</span>。</dd>
+      <dt>判断</dt><dd>試験の設問は「速度とコストを優先すべき場面で最上位モデルを常用していないか」という<b>考え方</b>を問う。個別のモデル名を答えさせる設問は想定しにくい。</dd>
+    </dl>
+    <div class="verdict"><b>試験での扱い：</b>選択肢に「Haiku / Sonnet / Opus」が出たら、上表の役割分担で判断する。<b>Fable 5 は試験ガイドの範囲外</b>であり、参考情報として押さえるにとどめてよい。</div>
+  </div>
+
+  <div class="card" style="margin-top:18px">
+    <h4>参考：現行ラインナップの実数値（2026-08-26 時点）</h4>
+    <div class="tablewrap"><table class="t">
+      <thead><tr><th>モデル</th><th>コンテキスト</th><th>最大出力</th><th>入力 $/MTok</th><th>出力 $/MTok</th><th>相対レイテンシ</th></tr></thead>
+      <tbody>
+        <tr><td>Claude Fable 5</td><td>1M</td><td>128K</td><td>$10</td><td>$50</td><td>Slower</td></tr>
+        <tr><td>Claude Opus 5</td><td>1M</td><td>128K</td><td>$5</td><td>$25</td><td>Moderate</td></tr>
+        <tr><td>Claude Sonnet 5</td><td>1M</td><td>128K</td><td>$2</td><td>$10</td><td>Fast</td></tr>
+        <tr><td>Claude Haiku 4.5</td><td>200K</td><td>64K</td><td>$1</td><td>$5</td><td>Fastest</td></tr>
+      </tbody>
+    </table></div>
+    <p class="cap-note">出典：Models overview / Pricing<span class="src pd">P-DOC-01</span><span class="src pd">P-DOC-02</span>。<b>この表は試験範囲外の参考情報であり、更新が速い。</b>実務で使う際は必ず公式ページで再確認すること。</p>
+  </div>
+</section>
+
+<section id="d3-b3">
+  <div class="sec-kicker"><span class="num">4</span><div><span class="lbl">OBJECTIVE 3.3</span><h2>品質・速度・コストを要件に合わせる<span class="jp">Align model selection with task requirements (cost, speed, quality)</span></h2></div></div>
+
+  <div class="axis" style="margin-top:16px">
+    <div class="a"><div class="an">1</div><div><b>まず「何が制約か」を決める。</b>締切が制約なのか、単価が制約なのか、誤りの許容度が制約なのか。三つ同時に最適化はできない。</div></div>
+    <div class="a"><div class="an">2</div><div><b>件数が多いほど、単価差が効く。</b>1件の重要文書なら最上位モデルでよい。1日1万件の短文なら、速く安い階層でなければ運用が成立しない。</div></div>
+    <div class="a"><div class="an">3</div><div><b>誤りのコストが高いほど、上位階層に寄せる。</b>取り返しのつく下書きと、外部に出る確定文書では要求水準が違う。</div></div>
+    <div class="a"><div class="an">4</div><div><b>段階を分ける手もある。</b>一次処理を安い階層で行い、上位階層は<b>難しいものだけ</b>に回す。全件を最上位で処理する必要はない。</div></div>
+  </div>
+
+  <div class="card" style="margin-top:18px">
+    <h4>「機能を全部無効化してコストを下げる」は答えにならない</h4>
+    <p class="def">公式サンプル問題では、コスト削減の選択肢として「Disable all product features to reduce cost」が用意されているが、これは<b>トレードオフに対処していない</b>として誤答とされる<span class="src pe">P-EXAM-01 §8</span>。同様に「別の AI プラットフォームに乗り換える」も、問題（タスクに対する階層の不一致）を解いていない。<b>正解は常に、要件に合った階層・機能を選ぶこと</b>である。</p>
+  </div>
+</section>
+
+<section id="d3-b4">
+  <div class="sec-kicker"><span class="num">5</span><div><span class="lbl">OBJECTIVE 3.4</span><h2>コンテキストとメモリの限界を扱う<span class="jp">Understand and manage context limitations and memory considerations</span></h2></div></div>
+
+  <p class="def">試験ガイドは、この目的に<b>「when to restart, summarize, or persist」</b>という括弧書きを添えている<span class="src pe">P-EXAM-01 D3</span>。つまり問われるのは「コンテキストとは何か」ではなく、<b>三つの行動の選び分け</b>である。</p>
+
+  <div class="tablewrap" style="margin-top:16px"><table class="t">
+    <caption>restart / summarize / persist の選び分け</caption>
+    <thead><tr><th>行動</th><th>取るべき状況</th><th>やり方</th></tr></thead>
+    <tbody>
+      <tr><td><b>Restart</b><br>やり直す</td><td>会話が長くなり、前半の指示が効かなくなった。話題が変わった。誤った前提が会話に染み付いた</td><td>新しい会話を開く。必要な前提だけを改めて渡す</td></tr>
+      <tr><td><b>Summarize</b><br>要約する</td><td>これまでの経緯は必要だが、全履歴は不要</td><td>「ここまでの決定事項と未決事項を箇条書きで」と要約させ、それを持って新しい会話へ移る</td></tr>
+      <tr><td><b>Persist</b><br>恒久化する</td><td>同じ前提・同じ資料・同じ指示を<b>毎回</b>渡している</td><td>Project のカスタム指示とナレッジベースへ移す（D5）</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="card concept" style="margin-top:18px">
+    <h4>メモリ機能の押さえどころ</h4>
+    <div class="crow"><span class="ck">粒度</span><span class="cv">会話終了後にまとめて要約するのではなく、<b>チャット中にトピック単位で</b>保存される<span class="src pd">P-DOC-34</span>。「これを覚えておいて」と明示的に指示することもできる。</span></div>
+    <div class="crow"><span class="ck">分離</span><span class="cv"><b>各 Project は独立したメモリ空間</b>を持つ。あるプロジェクトの文脈が別のプロジェクトへ漏れない<span class="src pd">P-DOC-34</span>。</span></div>
+    <div class="crow"><span class="ck">制御</span><span class="cv">Settings &gt; Memory から過去チャット検索とメモリを<b>無効化できる</b>。過去チャット検索は有料プラン限定<span class="src pd">P-DOC-34</span>。</span></div>
+    <div class="crow exam"><span class="ck">試験</span><span class="cv">「機微な案件を扱うのでメモリに残したくない」という設問なら、<b>設定で無効化できる</b>ことと、<b>プロジェクトごとに分離されている</b>ことの両方が判断材料になる。</span></div>
+  </div>
+</section>
+
+<section id="d3-exam">
+  <div class="sec-kicker"><span class="num">6</span><div><span class="lbl">EXAM ESSENCE</span><h2>試験エッセンス</h2></div></div>
+  <div class="examwrap">
+    <div class="eh">◆ 選択の設問はトレードオフを見る</div>
+    <div class="axis">
+      <div class="a"><div class="an">A</div><div><b>「大量・単純・速度重視」なら下位階層。</b>公式サンプル問題そのもののパターン。最上位モデルの常用はコストとレイテンシの予算を浪費する。</div></div>
+      <div class="a"><div class="an">B</div><div><b>「機能を全部切る」「他社に乗り換える」は常に誤答。</b>いずれもトレードオフに向き合っていない。</div></div>
+      <div class="a"><div class="an">C</div><div><b>Research かどうかはツール呼び出し回数で判断。</b>1〜2回で済む確認に Research は過剰、5回以上の横断調査に通常チャットは過少。</div></div>
+      <div class="a"><div class="an">D</div><div><b>毎回同じものを貼っているなら persist。</b>「もっと丁寧に貼り直す」ではなく、Project 設定へ移す選択肢を選ぶ。</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="d3-check">
+  <div class="sec-kicker"><span class="num">7</span><div><span class="lbl">CHECK</span><h2>確認問題</h2></div></div>
+
+  <div class="scn">
+    <div class="q">
+      <div class="qt">DOMAIN 3<span class="tag">公式サンプル問題（試験ガイド収録）</span></div>
+      <p class="stem">アソシエイトが、短い顧客返信の下書きを大量に生成する必要がある。深い推論より速度とコストのほうが重要である。このタスクに最も適した選択はどれか。</p>
+      <div class="opts">
+        <div class="opt"><span class="ol">A</span><span>品質を最大化するため、すべての返信に最も高性能で高コストなモデルを使う</span></div>
+        <div class="opt" data-correct><span class="ol">B</span><span>単純で大量なタスクに適した、より高速・低コストなモデルを使う</span></div>
+        <div class="opt"><span class="ol">C</span><span>コスト削減のため、すべての製品機能を無効化する</span></div>
+        <div class="opt"><span class="ol">D</span><span>別の AI プラットフォームに切り替える</span></div>
+      </div>
+      <button class="hintbtn scn-toggle" type="button">解答・解説を見る</button>
+    </div>
+    <div class="reveal">
+      <div class="row"><span class="rk ok">正解</span><span class="rv"><b>B</b><span class="src pe">P-EXAM-01 §8 Sample 2</span></span></div>
+      <div class="row"><span class="rk proc">公式解説</span><span class="rv">モデル選択をタスク要件に合わせるとは、<b>単純・大量の作業には高速で低コストなモデルを充て、最も高性能なモデルは複雑な推論のために取っておく</b>ことを意味する。常に最上位モデルを使うこと（A）は、コストとレイテンシの予算を浪費する。機能の無効化（C）やプラットフォームの変更（D）は、このトレードオフに対処していない。</span></div>
+    </div>
+  </div>
+
+  <div class="scn">
+    <div class="q">
+      <div class="qt">DOMAIN 3<span class="tag">オリジナル想定問題</span></div>
+      <p class="stem">アソシエイトが、四半期ごとに同じ8本の社内規程を参照して部門向けの解説資料を作っている。毎回すべての規程 PDF を添付し、同じ書式指定を貼り直している。作業効率を上げる最も適切な方法はどれか。</p>
+      <div class="opts">
+        <div class="opt"><span class="ol">A</span><span>より長いコンテキストを扱えるモデルへ切り替える</span></div>
+        <div class="opt" data-correct><span class="ol">B</span><span>Project を作成し、規程をナレッジベースに置き、書式指定をカスタム指示に設定する</span></div>
+        <div class="opt"><span class="ol">C</span><span>過去のチャットを検索して、前回のやりとりの続きから再開する</span></div>
+        <div class="opt"><span class="ol">D</span><span>規程 PDF を1つのファイルに結合してから添付する</span></div>
+      </div>
+      <button class="hintbtn scn-toggle" type="button">解答・解説を見る</button>
+    </div>
+    <div class="reveal">
+      <div class="row"><span class="rk ok">正解</span><span class="rv"><b>B</b><span class="src pd">P-DOC-30</span></span></div>
+      <div class="row"><span class="rk proc">解説</span><span class="rv">「毎回同じものを渡している」は <b>persist</b> の合図。Project は独立したナレッジベースとカスタム指示を持ち、以後のすべてのチャットで参照される。A はコンテキスト長の問題ではないため的外れ。C は過去の会話の再開であり、恒久的な設定にはならない。D は添付の手間をわずかに減らすだけで、書式指定の再入力も、次回以降の再利用も解決しない。</span></div>
+    </div>
+  </div>
+
+  <div class="scn">
+    <div class="q">
+      <div class="qt">DOMAIN 3<span class="tag">オリジナル想定問題</span></div>
+      <p class="stem">長時間続いた1つのチャットで、Claude が会話の前半で合意した用語定義を無視し始めた。最も適切な対処はどれか。</p>
+      <div class="opts">
+        <div class="opt"><span class="ol">A</span><span>同じチャットで「前半の定義を守って」と繰り返し指示する</span></div>
+        <div class="opt" data-correct><span class="ol">B</span><span>これまでの決定事項を要約させ、その要約を持って新しいチャットを開始する</span></div>
+        <div class="opt"><span class="ol">C</span><span>より高性能なモデルに切り替えて同じチャットを続ける</span></div>
+        <div class="opt"><span class="ol">D</span><span>用語定義を毎回のメッセージの末尾に貼り付ける</span></div>
+      </div>
+      <button class="hintbtn scn-toggle" type="button">解答・解説を見る</button>
+    </div>
+    <div class="reveal">
+      <div class="row"><span class="rk ok">正解</span><span class="rv"><b>B</b></span></div>
+      <div class="row"><span class="rk proc">解説</span><span class="rv">長い会話では前半の情報が埋もれる。試験ガイドが挙げる <b>summarize → restart</b> の組み合わせがこの症状の定石である<span class="src pe">P-EXAM-01 D3</span>。A は同じ状況を維持したまま指示を足すだけ。C はモデルを変えても会話の肥大という原因は残る。D は毎回の手作業が増えるうえ、恒久化するなら Project のカスタム指示に置くべきで、その場しのぎにとどまる。</span></div>
+    </div>
+  </div>
+
+  <div class="next"><a href="#d4-goal">次のドメインへ：ワークフロー統合とソリューション設計（16%）→</a></div>
+</section>
+
+</main></div></section>
+
+<!-- ============================== DOMAIN 4 ============================== -->
+<section class="domain" id="domain-4" data-domain="4" data-screen-label="Domain 4"><div class="shell">
+<aside class="rail">
+  <span class="badge">DOMAIN 04 / 07 · 16%</span>
+  <div class="rtitle">ワークフロー統合と<br>ソリューション設計</div>
+  <div class="rsub">Workflow Integration and Solution Design</div>
+  <nav class="rnav">
+    <a href="#d4-goal"><span class="n">1</span><span>到達目標</span></a>
+    <div class="navgrp">タスク領域</div>
+    <a href="#d4-b1"><span class="n">2</span><span>要件とユースケースの分析</span></a>
+    <a href="#d4-b2"><span class="n">3</span><span>調査・計画・プロセス最適化</span></a>
+    <a href="#d4-b3"><span class="n">4</span><span>設計・開発・反復の支援</span></a>
+    <a href="#d4-b4"><span class="n">5</span><span>既存ワークフローへの統合</span></a>
+    <a href="#d4-b5"><span class="n">6</span><span>価値と限界の説明</span></a>
+    <div class="navgrp">仕上げ</div>
+    <a href="#d4-exam"><span class="n">7</span><span>試験エッセンス</span></a>
+    <a href="#d4-check"><span class="n">8</span><span>確認問題</span></a>
+  </nav>
+  <div class="rprog"><span>読了 0%</span><div class="track"><i></i></div></div>
+</aside>
+<main>
+
+<section class="hero" id="d4-goal">
+  <div class="eyebrow">CCAO-F · DOMAIN 4</div>
+  <h1>ワークフロー統合とソリューション設計<span class="en">WORKFLOW INTEGRATION AND SOLUTION DESIGN · 16%</span></h1>
+  <div class="scope"><span class="ic">GOAL</span><div>単発の依頼をこなす段階から一歩進み、<b>業務プロセスのどこに Claude を挿すか</b>を設計できるようになる。既存の手順を機械的に置き換えるのか、それとも手順そのものを組み替えるのかを判断し、関係者に対して<b>価値と限界の両方</b>を説明できること。試験ガイドは「Communicate Claude's value <b>and limitations</b> to stakeholders」と、限界の説明を明示的な達成項目に含めている<span class="src pe">P-EXAM-01 D4</span>。</div></div>
+</section>
+
+<div class="keymsg">
+  <div class="km"><span class="kn">01</span><p><b>自動化する前に、その作業がなぜ存在するかを問う。</b>不要な手順を高速化しても、無駄が速くなるだけ。試験ガイドは「process reimagination（プロセスの再構想）」を最小限合格者像の中に置いている<span class="src pe">P-EXAM-01 §4</span>。</p></div>
+  <div class="km"><span class="kn">02</span><p><b>効果は「頻度 × 1回あたりの時間 × 誤りのコスト」で見る。</b>頻度が低く誤りのコストが高い作業は、自動化より支援に向く。頻度が高く定型的な作業ほど投資が回収しやすい。</p></div>
+  <div class="km"><span class="kn">03</span><p><b>限界を伏せた提案は、後で信頼を失う。</b>ハルシネーションの可能性、コンテキストの制約、データの機微性、高リスク領域での人間レビュー義務。これらを<b>先に</b>言うのがアソシエイトの役割。</p></div>
+  <div class="km"><span class="kn">04</span><p><b>自分の手に負えない範囲は渡す。</b>API 連携やエージェント設計は Architect / Developer の領域であり、試験ガイドはアソシエイトに<b>エスカレーションを期待している</b><span class="src pe">P-EXAM-01 §1・§3</span>。抱え込むほうが減点される。</p></div>
+</div>
+
+<section id="d4-b1">
+  <div class="sec-kicker"><span class="num">2</span><div><span class="lbl">OBJECTIVE 4.1</span><h2>要件とユースケースを分析する<span class="jp">Apply Claude to analyze requirements and use cases</span></h2></div></div>
+
+  <p class="def">「Claude で何かできないか」から始めると、たいてい失敗する。出発点は<b>業務側の困りごと</b>であり、そこから逆算して適用可否を決める。</p>
+
+  <div class="tablewrap" style="margin-top:16px"><table class="t">
+    <caption>ユースケースの適性判定</caption>
+    <thead><tr><th>観点</th><th>向いている</th><th>向いていない</th></tr></thead>
+    <tbody>
+      <tr><td><b>作業の性質</b></td><td>読む・書く・整理する・言い換える・分類する</td><td>正確な計算、厳密な検索、権限を伴う実行</td></tr>
+      <tr><td><b>正解の性質</b></td><td>複数の妥当な答えがあり、人が最終判断する</td><td>唯一の正解があり、誤りが直ちに損害になる</td></tr>
+      <tr><td><b>入力</b></td><td>非構造のテキスト、雑多な資料</td><td>そもそも構造化済みで、既存ツールで足りる</td></tr>
+      <tr><td><b>検証可能性</b></td><td>出力の妥当性を人が判定できる</td><td>誰も正誤を判定できない（＝検証不能な領域）</td></tr>
+      <tr><td><b>データ</b></td><td>社内で扱ってよい情報</td><td>規制対象・個人データで、匿名化もできない（D6）</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="d4-b2">
+  <div class="sec-kicker"><span class="num">3</span><div><span class="lbl">OBJECTIVE 4.2</span><h2>調査・計画・プロセス最適化に使う<span class="jp">Leverage Claude for research, planning, and process optimization</span></h2></div></div>
+
+  <div class="axis" style="margin-top:16px">
+    <div class="a"><div class="an">1</div><div><b>現状を書き出させる。</b>担当者へのヒアリングメモを渡し、手順・所要時間・受け渡し・待ち時間を表に起こさせる。可視化した時点で、無駄の在処はたいてい見える。</div></div>
+    <div class="a"><div class="an">2</div><div><b>ボトルネックを特定する。</b>「時間がかかる工程」ではなく「<b>後工程を待たせている工程</b>」を探す。ここを外すと、局所最適化に終わる。</div></div>
+    <div class="a"><div class="an">3</div><div><b>案を複数出させ、評価軸は後で与える。</b>D1 の発想タスクの原則と同じ。実現可能性で最初から絞らない。</div></div>
+    <div class="a"><div class="an">4</div><div><b>小さく試して測る。</b>1工程・1週間で効果を測れる範囲から始める。何をもって成功とするかを事前に決めておく（D1 の成功基準）。</div></div>
+  </div>
+
+  <div class="card" style="margin-top:18px">
+    <h4>「置き換え」と「組み替え」は別物</h4>
+    <div class="crow"><span class="ck">置き換え</span><span class="cv"><b>Augment。</b>既存手順はそのままに、ある工程だけを Claude で速くする。導入が容易でリスクが低い。効果も限定的。</span></div>
+    <div class="crow"><span class="ck">組み替え</span><span class="cv"><b>Redesign。</b>Claude があることを前提に手順そのものを設計し直す。効果は大きいが、関係者の合意と検証の設計が要る。</span></div>
+    <div class="crow exam"><span class="ck">試験</span><span class="cv">試験ガイドは「integrate Claude into existing workflows to <b>augment or redesign</b> them」と両方を挙げる<span class="src pe">P-EXAM-01 D4</span>。設問では、リスク許容度と関係者の数から<b>どちらが妥当か</b>を選ばせる形になりやすい。</span></div>
+  </div>
+</section>
+
+<section id="d4-b3">
+  <div class="sec-kicker"><span class="num">4</span><div><span class="lbl">OBJECTIVE 4.3</span><h2>設計・開発・反復を支援する<span class="jp">Use Claude to support solution design, development, and iteration</span></h2></div></div>
+
+  <p class="def">アソシエイトが作るのはコードではなく、<b>再現可能な運用の型</b>である。プロジェクト設定、指示文、検証手順、エスカレーション基準の4点がそろって初めて「他人が回せる」状態になる。</p>
+
+  <div class="grid g2" style="margin-top:16px">
+    <div class="minibox"><h5>成果物として残すもの</h5><ul>
+      <li><b>Project 設定</b>：カスタム指示とナレッジベース</li>
+      <li><b>標準プロンプト</b>：入出力例つき</li>
+      <li><b>検証手順</b>：何を、どの出典で照合するか</li>
+      <li><b>エスカレーション基準</b>：どうなったら人／専門家へ回すか</li>
+    </ul></div>
+    <div class="minibox"><h5>残さないと起きること</h5><ul>
+      <li>担当者が変わると品質が落ちる</li>
+      <li>誰も検証していない出力が外に出る</li>
+      <li>同じ失敗が別部署で繰り返される</li>
+      <li>「AI が言ったから」で責任の所在が消える</li>
+    </ul></div>
+  </div>
+</section>
+
+<section id="d4-b4">
+  <div class="sec-kicker"><span class="num">5</span><div><span class="lbl">OBJECTIVE 4.4</span><h2>既存ワークフローへ統合する<span class="jp">Integrate Claude into existing workflows to augment or redesign them</span></h2></div></div>
+
+  <div class="tablewrap" style="margin-top:16px"><table class="t">
+    <caption>統合の設計で必ず決めること</caption>
+    <thead><tr><th>決めること</th><th>問い</th><th>外すとどうなるか</th></tr></thead>
+    <tbody>
+      <tr><td><b>入口</b></td><td>誰が、いつ、どの形式で入力するか</td><td>入力の品質がばらつき、出力もばらつく</td></tr>
+      <tr><td><b>関門</b></td><td>どの条件で人間のレビューに回すか</td><td>検証されない出力が外部へ出る（D2）</td></tr>
+      <tr><td><b>出口</b></td><td>成果物はどこに保存され、誰が使うか</td><td>作ったが使われない、または版が乱立する</td></tr>
+      <tr><td><b>記録</b></td><td>誰がいつ何を承認したかを残すか</td><td>問題発生時に経緯を再構成できない</td></tr>
+      <tr><td><b>限界の扱い</b></td><td>Claude が答えられない入力が来たらどうするか</td><td>無理に答えた出力がそのまま流れる</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="d4-b5">
+  <div class="sec-kicker"><span class="num">6</span><div><span class="lbl">OBJECTIVE 4.5</span><h2>価値と限界を関係者へ説明する<span class="jp">Communicate Claude's value and limitations to stakeholders</span></h2></div></div>
+
+  <p class="def">説明の相手によって、知りたいことが違う。<b>限界を伝えることは反対材料ではなく、導入の前提条件を共有する行為</b>である。</p>
+
+  <div class="tablewrap" style="margin-top:16px"><table class="t">
+    <thead><tr><th>相手</th><th>関心</th><th>伝えるべき限界</th></tr></thead>
+    <tbody>
+      <tr><td><b>経営層</b></td><td>投資対効果、リスク</td><td>誤りが起こりうること、そのための検証工程と責任の所在</td></tr>
+      <tr><td><b>現場担当</b></td><td>自分の仕事がどう変わるか</td><td>丸投げはできないこと、確認は依然として人の仕事であること</td></tr>
+      <tr><td><b>法務・コンプライアンス</b></td><td>データの取り扱い、規制適合</td><td>どのデータを入れ、どこに保存され、誰が見られるか（D6）</td></tr>
+      <tr><td><b>情報システム</b></td><td>連携、権限、監査</td><td>コネクタは<b>接続先の権限を継承する</b>こと（D5）、管理者側で制御できる範囲</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="card" style="margin-top:18px">
+    <h4>説明で必ず触れる4つの限界</h4>
+    <div class="crow warn"><span class="ck">正確性</span><span class="cv">もっともらしい誤りを生成しうる。とくに引用・数値・固有名詞（D2）。</span></div>
+    <div class="crow warn"><span class="ck">コンテキスト</span><span class="cv">1回に扱える情報量には限りがあり、長い会話では前半が薄れる（D3）。</span></div>
+    <div class="crow warn"><span class="ck">データ</span><span class="cv">組織のポリシーで入れてよいデータが決まる。規制対象データは匿名化などの前処理が要る（D6）。</span></div>
+    <div class="crow warn"><span class="ck">責任</span><span class="cv">高リスク領域では有資格者のレビューと AI 利用の開示が要件<span class="src pd">P-DOC-40</span>。最終責任は人間側に残る。</span></div>
+  </div>
+</section>
+
+<section id="d4-exam">
+  <div class="sec-kicker"><span class="num">7</span><div><span class="lbl">EXAM ESSENCE</span><h2>試験エッセンス</h2></div></div>
+  <div class="examwrap">
+    <div class="eh">◆ 設計の設問で選ばれる答えの形</div>
+    <div class="axis">
+      <div class="a"><div class="an">A</div><div><b>関門（人間のレビュー）を設計に含む選択肢が強い。</b>速度だけを最適化して検証を省く選択肢は、この試験では通らない。</div></div>
+      <div class="a"><div class="an">B</div><div><b>限界を先に伝える選択肢を選ぶ。</b>「懸念されるので触れずに導入を進める」は誤答。</div></div>
+      <div class="a"><div class="an">C</div><div><b>技術的な範囲はエスカレーションする。</b>API 連携やエージェント設計が必要な場面で、アソシエイトが自力で作ろうとする選択肢は誤答。試験ガイドが期待するのは<b>渡すこと</b>。</div></div>
+      <div class="a"><div class="an">D</div><div><b>小さく試して測る。</b>いきなり全社展開する選択肢より、効果を測れる範囲で試す選択肢が正解になりやすい。</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="d4-check">
+  <div class="sec-kicker"><span class="num">8</span><div><span class="lbl">CHECK</span><h2>確認問題</h2></div></div>
+
+  <div class="scn">
+    <div class="q">
+      <div class="qt">DOMAIN 4<span class="tag">オリジナル想定問題</span></div>
+      <p class="stem">アソシエイトが、問い合わせ対応チームの業務改善を検討している。現状は担当者が過去の類似案件を手作業で探し、返信文を起草している。経営層への提案として最も適切なものはどれか。</p>
+      <div class="opts">
+        <div class="opt"><span class="ol">A</span><span>全案件の返信を自動生成して即時送信し、対応時間をゼロにする</span></div>
+        <div class="opt" data-correct><span class="ol">B</span><span>起草までを Claude が担い、送信前に担当者が確認する運用を1チームで試行し、効果を測って判断する</span></div>
+        <div class="opt"><span class="ol">C</span><span>API を使った自動応答システムをアソシエイト自身が構築する</span></div>
+        <div class="opt"><span class="ol">D</span><span>まず全社に展開し、問題が出た部署から個別に調整する</span></div>
+      </div>
+      <button class="hintbtn scn-toggle" type="button">解答・解説を見る</button>
+    </div>
+    <div class="reveal">
+      <div class="row"><span class="rk ok">正解</span><span class="rv"><b>B</b></span></div>
+      <div class="row"><span class="rk proc">解説</span><span class="rv">B は (1) <b>人間の関門</b>を設計に含み、(2) 効果を測れる範囲で試行している。A は検証工程を消しており、外部に出る文書に対する妥当な設計ではない。C は API を用いたシステム構築であり、試験ガイドが Architect / Developer の領域として明示的にアソシエイトの範囲外としている<span class="src pe">P-EXAM-01 §3</span>。D は測定なしの全社展開で、失敗時の影響範囲が最大になる。</span></div>
+    </div>
+  </div>
+
+  <div class="scn">
+    <div class="q">
+      <div class="qt">DOMAIN 4<span class="tag">オリジナル想定問題</span></div>
+      <p class="stem">アソシエイトが、Claude 導入の提案を法務部門に説明する場面である。法務から「誤った内容が顧客に届いたらどうするのか」と問われた。最も適切な応答はどれか。</p>
+      <div class="opts">
+        <div class="opt"><span class="ol">A</span><span>最新モデルは精度が高いので実務上問題は起きないと説明する</span></div>
+        <div class="opt"><span class="ol">B</span><span>Claude に確信度を出力させ、低い場合のみ人が確認する仕組みを説明する</span></div>
+        <div class="opt" data-correct><span class="ol">C</span><span>誤りが起こりうる前提を認めたうえで、外部送付前の検証手順と、高リスク領域での有資格者レビューを含む運用設計を示す</span></div>
+        <div class="opt"><span class="ol">D</span><span>顧客向け文書には利用しない方針とし、社内利用に限定すると答える</span></div>
+      </div>
+      <button class="hintbtn scn-toggle" type="button">解答・解説を見る</button>
+    </div>
+    <div class="reveal">
+      <div class="row"><span class="rk ok">正解</span><span class="rv"><b>C</b></span></div>
+      <div class="row"><span class="rk proc">解説</span><span class="rv">試験ガイドは「価値<b>と限界</b>を関係者に伝える」ことを達成項目としている<span class="src pe">P-EXAM-01 D4</span>。A は限界を否認しており、後で信頼を失う。B は<b>自己申告の確信度</b>に依存する設計で、精度指標として信頼できない<span class="src pe">P-EXAM-01 §8</span>。D は用途を放棄する選択で、検証手順を設ければ実施できる場面まで諦めている（公式解説が繰り返し否定する「作業の放棄」パターン）。C はリスクを認めたうえで統制を示す、この試験が一貫して求める形。</span></div>
+    </div>
+  </div>
+
+  <div class="next"><a href="#d5-goal">次のドメインへ：設定とナレッジ管理（12%）→</a></div>
+</section>
+
+</main></div></section>
+
+<!-- ============================== DOMAIN 5 ============================== -->
+<section class="domain" id="domain-5" data-domain="5" data-screen-label="Domain 5"><div class="shell">
+<aside class="rail">
+  <span class="badge">DOMAIN 05 / 07 · 12%</span>
+  <div class="rtitle">設定と<br>ナレッジ管理</div>
+  <div class="rsub">Configuration and Knowledge Management</div>
+  <nav class="rnav">
+    <a href="#d5-goal"><span class="n">1</span><span>到達目標</span></a>
+    <div class="navgrp">タスク領域</div>
+    <a href="#d5-b1"><span class="n">2</span><span>Projects の構成</span></a>
+    <a href="#d5-b2"><span class="n">3</span><span>ナレッジとコネクタの管理</span></a>
+    <a href="#d5-b3"><span class="n">4</span><span>システムレベル指示</span></a>
+    <a href="#d5-b4"><span class="n">5</span><span>設定の維持・更新</span></a>
+    <div class="navgrp">仕上げ</div>
+    <a href="#d5-exam"><span class="n">6</span><span>試験エッセンス</span></a>
+    <a href="#d5-check"><span class="n">7</span><span>確認問題</span></a>
+  </nav>
+  <div class="rprog"><span>読了 0%</span><div class="track"><i></i></div></div>
+</aside>
+<main>
+
+<section class="hero" id="d5-goal">
+  <div class="eyebrow">CCAO-F · DOMAIN 5</div>
+  <h1>設定とナレッジ管理<span class="en">CONFIGURATION AND KNOWLEDGE MANAGEMENT · 12%</span></h1>
+  <div class="scope"><span class="ic">GOAL</span><div>その場のプロンプトではなく、<b>恒久的な設定</b>として Claude を仕込めるようになる。Projects にカスタム指示とナレッジソースを構成し、Google Drive や Gmail のコネクタを適切な権限のもとで扱い、<b>設定が陳腐化しないよう維持・更新する</b>ところまでが範囲。試験ガイドはこの目的を「<b>Inform, maintain, and update</b> Claude configurations, knowledge sources, and instructions」と表現しており、作って終わりではないことを明示している<span class="src pe">P-EXAM-01 D5</span>。</div></div>
+</section>
+
+<div class="keymsg">
+  <div class="km"><span class="kn">01</span><p><b>コネクタは接続先の権限を継承する。</b>公式ヘルプの文言は「Claude inherits each person's permissions from the connected service. If someone can't access a specific file, channel, or record in the source system, the connector can't reach it from Claude either.」<span class="src pd">P-DOC-32</span>。<b>コネクタを繋いでも、その人が元々見られないものは見られない。</b>逆に言えば、権限の広い人が繋げば広く見える。</p></div>
+  <div class="km"><span class="kn">02</span><p><b>Project ごとにメモリ空間が独立している。</b>各プロジェクトは専用のメモリとプロジェクトサマリを持ち、他のプロジェクトや通常チャットの文脈と混ざらない<span class="src pd">P-DOC-34</span>。案件ごとに Project を分けることが、そのまま情報分離になる。</p></div>
+  <div class="km"><span class="kn">03</span><p><b>共有は Team / Enterprise 限定。</b>Project の共有機能は Team・Enterprise プランのみで、閲覧のみ／編集可の権限を指定できる<span class="src pd">P-DOC-30</span>。無料プランは<b>最大5プロジェクト</b>。</p></div>
+  <div class="km"><span class="kn">04</span><p><b>古い資料を置いたままにするのが最大の事故源。</b>ナレッジベースは「入れたら終わり」ではない。改訂された規程の旧版が残っていると、Claude は自信を持って旧版に基づく回答を返す。</p></div>
+</div>
+
+<section id="d5-b1">
+  <div class="sec-kicker"><span class="num">2</span><div><span class="lbl">OBJECTIVE 5.1</span><h2>Projects を指示とナレッジで構成する<span class="jp">Configure Claude Projects with instructions and knowledge sources</span></h2></div></div>
+
+  <div class="card concept" style="margin-top:16px">
+    <h4>Projects の構成要素</h4>
+    <p class="def">Projects は「独立したチャット履歴とナレッジベースを持つ自己完結したワークスペース」と定義される<span class="src pd">P-DOC-30</span>。設定する対象は2つある。</p>
+    <div class="crow"><span class="ck">カスタム指示</span><span class="cv"><b>そのプロジェクトの全チャットに常に効く指示。</b>役割、読者、書式、禁止事項、確認すべき出典の範囲。毎回貼り直している文言はここへ移す。</span></div>
+    <div class="crow"><span class="ck">ナレッジベース</span><span class="cv"><b>参照される資料。</b>規程、テンプレート、用語集、過去の成果物。有料プランでは RAG により容量が最大10倍に拡張される。</span></div>
+    <div class="crow"><span class="ck">制限</span><span class="cv">無料プランは<b>最大5プロジェクト</b>。共有は Team / Enterprise 限定（閲覧のみ／編集可、個別・一括・組織全体を選択可能）。</span></div>
+    <div class="crow exam"><span class="ck">試験</span><span class="cv">「毎回同じ資料を添付している」「担当者ごとに出力の質が違う」という症状は、いずれも <b>Project 設定へ移すべき</b>という結論に向かう。</span></div>
+  </div>
+
+  <div class="grid g2" style="margin-top:18px">
+    <div class="minibox"><h5>カスタム指示に置くべきもの</h5><ul>
+      <li>役割と読者（「社外の非技術者向けに」）</li>
+      <li>常に守る書式（見出し構成、文字数）</li>
+      <li><b>根拠の範囲</b>（「ナレッジベースの資料のみを根拠とし、無い情報は『記載なし』とする」）</li>
+      <li>禁止事項（推測での断定、社外秘の引用）</li>
+    </ul></div>
+    <div class="minibox"><h5>ナレッジベースに置くべきもの</h5><ul>
+      <li>参照頻度が高く、内容が安定している資料</li>
+      <li>用語集・表記ルール</li>
+      <li>良質な過去成果物（出力例として機能する）</li>
+      <li><b>版と発効日が分かる形</b>で置く</li>
+    </ul></div>
+  </div>
+</section>
+
+<section id="d5-b2">
+  <div class="sec-kicker"><span class="num">3</span><div><span class="lbl">OBJECTIVE 5.2</span><h2>アップロード資料とコネクタを管理する<span class="jp">Manage uploaded knowledge and connectors (e.g., Google Drive, Gmail)</span></h2></div></div>
+
+  <div class="tablewrap" style="margin-top:16px"><table class="t">
+    <caption>アップロードとコネクタの違い</caption>
+    <thead><tr><th></th><th>アップロード（ナレッジベース）</th><th>コネクタ</th></tr></thead>
+    <tbody>
+      <tr><td><b>対象</b></td><td>その時点のファイルのコピー</td><td>接続先サービスの<b>生きたデータ</b></td></tr>
+      <tr><td><b>更新</b></td><td>手動で入れ替える必要がある</td><td>接続先の最新状態を参照する</td></tr>
+      <tr><td><b>権限</b></td><td>アップロードした人の判断に依存</td><td><b>接続先サービスの権限を各人ごとに継承</b><span class="src pd">P-DOC-32</span></td></tr>
+      <tr><td><b>向く用途</b></td><td>安定した規程・テンプレート・用語集</td><td>日々変わるメール・ファイル・予定</td></tr>
+      <tr><td><b>主なリスク</b></td><td>旧版が残り、古い情報で回答される</td><td>権限の広い人が接続すると、広範囲が参照可能になる</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="card concept" style="margin-top:18px">
+    <h4>コネクタの押さえどころ</h4>
+    <div class="crow"><span class="ck">権限継承</span><span class="cv">元のサービスで見られないものは、Claude からも見られない<span class="src pd">P-DOC-32</span>。裏を返せば<b>権限設計は接続先側の責任</b>であり、Claude 側で絞る話ではない。</span></div>
+    <div class="crow"><span class="ck">組織統制</span><span class="cv">Team / Enterprise のオーナーは、組織全体でコネクタを有効化し、<b>接続先サービスが取れるアクションを制限</b>できる（特定の読み書き操作の禁止など）<span class="src pd">P-DOC-32</span>。</span></div>
+    <div class="crow"><span class="ck">Google Workspace</span><span class="cv">Gmail・Google Drive・Google Calendar に接続できる。ヘルプセンターは<b>これらのコネクタのデータをモデルの学習に使わない</b>と明記している<span class="src pd">P-DOC-33</span>。</span></div>
+    <div class="crow"><span class="ck">認証</span><span class="cv">各ユーザーが個別に third-party サービスへ認証する。接続先は独自の規約とインフラで運用され、<b>米国外にある場合もある</b><span class="src pd">P-DOC-32</span>。</span></div>
+  </div>
+</section>
+
+<section id="d5-b3">
+  <div class="sec-kicker"><span class="num">4</span><div><span class="lbl">OBJECTIVE 5.3</span><h2>効果的なシステムレベル指示を書く<span class="jp">Create effective system-level instructions</span></h2></div></div>
+
+  <p class="def">カスタム指示は「毎回のプロンプトの前に置かれる文」だと考えるとよい。だから<b>常に真であること</b>だけを書く。特定の一回だけの依頼はここに書かない。</p>
+
+  <div class="axis" style="margin-top:16px">
+    <div class="a"><div class="an">1</div><div><b>検証できる粒度で書く。</b>「丁寧に」ではなく「敬体、1文40字以内、専門用語は初出で括弧書き」。曖昧な形容詞は解釈の幅を残す。</div></div>
+    <div class="a"><div class="an">2</div><div><b>矛盾を作らない。</b>「簡潔に」と「網羅的に」が同居していると、どちらが優先されるか予測できない。優先順位を明示する。</div></div>
+    <div class="a"><div class="an">3</div><div><b>短く保つ。</b>長い指示は守られにくくなる。これは Claude Code の CLAUDE.md についても公式が明言している性質で、目安は200行未満とされる<span class="src pd">P-DOC-10</span>。Projects のカスタム指示も同じ傾向を持つ。</div></div>
+    <div class="a"><div class="an">4</div><div><b>根拠の範囲を必ず入れる。</b>「ナレッジベースにある資料のみを根拠とし、記載がない事項は推測せず『記載なし』と答える」の1文が、ハルシネーション対策として最も費用対効果が高い。</div></div>
+  </div>
+</section>
+
+<section id="d5-b4">
+  <div class="sec-kicker"><span class="num">5</span><div><span class="lbl">OBJECTIVE 5.4</span><h2>設定・ナレッジ・指示を維持し更新する<span class="jp">Inform, maintain, and update Claude configurations, knowledge sources, and instructions</span></h2></div></div>
+
+  <div class="tablewrap" style="margin-top:16px"><table class="t">
+    <caption>更新のトリガー</caption>
+    <thead><tr><th>きっかけ</th><th>やること</th></tr></thead>
+    <tbody>
+      <tr><td>参照している規程・テンプレートが改訂された</td><td><b>旧版を削除して</b>新版を入れる。追加だけして旧版を残すと、Claude は両方を根拠にする</td></tr>
+      <tr><td>同じ修正指示を2回以上出した</td><td>その指示をカスタム指示へ昇格させる</td></tr>
+      <tr><td>担当者が交代する</td><td>設定・標準プロンプト・検証手順・エスカレーション基準を引き継ぐ（D4）</td></tr>
+      <tr><td>出力の質が下がったと感じる</td><td>設定が肥大化・矛盾していないか点検する。まず<b>足す</b>のではなく<b>整理する</b></td></tr>
+      <tr><td>組織のポリシーが変わった</td><td>扱ってよいデータの範囲を見直す（D6）。コネクタの接続範囲も確認する</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="card" style="margin-top:18px">
+    <h4>旧版の残存が最も危険な理由</h4>
+    <p class="def">誤った出力の多くは、Claude の推論ミスではなく<b>与えた資料が古い</b>ことに起因する。しかもこの種の誤りは、出力そのものは首尾一貫しているため<b>読んでも気づけない</b>。ナレッジベースは、内容の正しさと同じくらい<b>版管理</b>が重要になる。資料名に版番号と発効日を含める運用が、最も安価な防御になる。</p>
+  </div>
+</section>
+
+<section id="d5-exam">
+  <div class="sec-kicker"><span class="num">6</span><div><span class="lbl">EXAM ESSENCE</span><h2>試験エッセンス</h2></div></div>
+  <div class="examwrap">
+    <div class="eh">◆ 設定ドメインの判断軸</div>
+    <div class="axis">
+      <div class="a"><div class="an">A</div><div><b>繰り返しているなら設定へ移す。</b>「毎回貼る」「毎回同じ修正を指示する」は、いずれも Project 設定への昇格が正解。</div></div>
+      <div class="a"><div class="an">B</div><div><b>コネクタの権限は接続先が決める。</b>「Claude 側で閲覧範囲を制限する」という選択肢は仕組みを取り違えている。制限するなら<b>接続先サービスの権限</b>、または組織管理者によるアクション制限。</div></div>
+      <div class="a"><div class="an">C</div><div><b>資料は入れ替える。</b>新版を「追加」する選択肢より、旧版を削除して差し替える選択肢を選ぶ。</div></div>
+      <div class="a"><div class="an">D</div><div><b>案件の分離は Project の分離で行う。</b>各 Project が独立したメモリ空間を持つため、これがそのまま情報分離になる<span class="src pd">P-DOC-34</span>。</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="d5-check">
+  <div class="sec-kicker"><span class="num">7</span><div><span class="lbl">CHECK</span><h2>確認問題</h2></div></div>
+
+  <div class="scn">
+    <div class="q">
+      <div class="qt">DOMAIN 5<span class="tag">オリジナル想定問題</span></div>
+      <p class="stem">部門で Google Drive コネクタを有効にしたところ、あるメンバーから「他部署の機密ファイルまで Claude が読めてしまうのではないか」と懸念が出た。この懸念に対する正しい説明はどれか。</p>
+      <div class="opts">
+        <div class="opt"><span class="ol">A</span><span>Claude はコネクタ経由でドライブ全体を読めるため、利用を停止すべきである</span></div>
+        <div class="opt" data-correct><span class="ol">B</span><span>Claude は各ユーザーが接続先サービスで持つ権限を継承するため、本人が元々アクセスできないファイルには到達できない</span></div>
+        <div class="opt"><span class="ol">C</span><span>プロンプトで「他部署のファイルは見ないで」と指示すれば防げる</span></div>
+        <div class="opt"><span class="ol">D</span><span>Claude 側の設定画面で、参照可能なフォルダを個別に指定する必要がある</span></div>
+      </div>
+      <button class="hintbtn scn-toggle" type="button">解答・解説を見る</button>
+    </div>
+    <div class="reveal">
+      <div class="row"><span class="rk ok">正解</span><span class="rv"><b>B</b><span class="src pd">P-DOC-32</span></span></div>
+      <div class="row"><span class="rk proc">解説</span><span class="rv">公式ヘルプは「Claude inherits each person's permissions from the connected service」と明記している。<b>権限の境界は接続先サービス側にある。</b>A は事実誤認に基づく過剰反応。C はプロンプトによる指示であり、アクセス制御の仕組みではない（プロンプトは統制ではない、という原則は Architect 試験でも一貫している）。D の説明は仕組みを取り違えており、統制したい場合は接続先の権限設計、または Team / Enterprise オーナーによる組織全体のアクション制限を用いる。</span></div>
+    </div>
+  </div>
+
+  <div class="scn">
+    <div class="q">
+      <div class="qt">DOMAIN 5<span class="tag">オリジナル想定問題</span></div>
+      <p class="stem">経費精算規程を扱う Project で、Claude が廃止済みの上限額を回答した。ナレッジベースには規程の 2024 年版と 2026 年版の両方がアップロードされている。最も適切な対処はどれか。</p>
+      <div class="opts">
+        <div class="opt"><span class="ol">A</span><span>カスタム指示に「最新の規程を参照すること」と追記する</span></div>
+        <div class="opt" data-correct><span class="ol">B</span><span>2024 年版をナレッジベースから削除し、資料名に版と発効日を含める運用にする</span></div>
+        <div class="opt"><span class="ol">C</span><span>回答のたびに、参照した規程の版を確認する手順を担当者に周知する</span></div>
+        <div class="opt"><span class="ol">D</span><span>より高性能なモデルに切り替えて、最新版を選ばせる</span></div>
+      </div>
+      <button class="hintbtn scn-toggle" type="button">解答・解説を見る</button>
+    </div>
+    <div class="reveal">
+      <div class="row"><span class="rk ok">正解</span><span class="rv"><b>B</b></span></div>
+      <div class="row"><span class="rk proc">解説</span><span class="rv">原因は<b>ナレッジベースに旧版が残っていること</b>であり、根本にあるのは版管理の欠如。B は原因そのものを取り除き、再発を防ぐ運用も加えている。A は指示による緩和にすぎず、両方の版が存在する限り誤参照の余地が残る。C は人手の確認工程を増やすだけで、原因を放置している。D はモデルの能力の問題ではない。</span></div>
+      <div class="row"><span class="rk bad">要注意</span><span class="rv">この種の誤りは<b>出力が首尾一貫しているため読んでも気づけない</b>。D2 の検証手順（一次資料への照合）と組み合わせて初めて検出できる。</span></div>
+    </div>
+  </div>
+
+  <div class="next"><a href="#d6-goal">次のドメインへ：ガバナンス・リスク・責任ある利用（15%）→</a></div>
+</section>
+
+</main></div></section>
+
+<!-- ============================== DOMAIN 6 ============================== -->
+<section class="domain" id="domain-6" data-domain="6" data-screen-label="Domain 6"><div class="shell">
+<aside class="rail">
+  <span class="badge">DOMAIN 06 / 07 · 15%</span>
+  <div class="rtitle">ガバナンス・リスク<br>責任ある利用</div>
+  <div class="rsub">Governance, Risk, and Responsible Use</div>
+  <nav class="rnav">
+    <a href="#d6-goal"><span class="n">1</span><span>到達目標</span></a>
+    <div class="navgrp">タスク領域</div>
+    <a href="#d6-b1"><span class="n">2</span><span>適切／不適切なユースケース</span></a>
+    <a href="#d6-b2"><span class="n">3</span><span>データの機微性・規制・プライバシー</span></a>
+    <a href="#d6-b3"><span class="n">4</span><span>組織の AI ポリシー</span></a>
+    <a href="#d6-b4"><span class="n">5</span><span>倫理的な含意</span></a>
+    <div class="navgrp">仕上げ</div>
+    <a href="#d6-exam"><span class="n">6</span><span>試験エッセンス</span></a>
+    <a href="#d6-check"><span class="n">7</span><span>確認問題</span></a>
+  </nav>
+  <div class="rprog"><span>読了 0%</span><div class="track"><i></i></div></div>
+</aside>
+<main>
+
+<section class="hero" id="d6-goal">
+  <div class="eyebrow">CCAO-F · DOMAIN 6</div>
+  <h1>ガバナンス・リスク・責任ある利用<span class="en">GOVERNANCE, RISK, AND RESPONSIBLE USE · 15%</span></h1>
+  <div class="scope"><span class="ic">GOAL</span><div>Claude を「使ってよい場面／使ってはいけない場面」を判断し、データの機微性・規制・プライバシーを踏まえて<b>安全に前へ進める形</b>を設計できるようになる。判断の拠り所は、Anthropic の利用ポリシーと、所属組織の AI ポリシーの二層である。このドメインの正解は一貫して「<b>リスクを消したうえで実施する</b>」であり、「気にせず実施する」でも「諦める」でもない。</div></div>
+</section>
+
+<div class="keymsg">
+  <div class="km"><span class="kn">01</span><p><b>匿名化して進めるのが正解。</b>公式サンプル問題の解説：「redacting or anonymizing regulated identifiers before use, so the analysis can proceed without exposing protected data」。そのままのアップロード（A）はポリシー違反、モデルへの「保持しないで」という指示（C）は<b>ポリシー統制を満たさない</b>、分析の中止（D）は匿名化で実施可能なのだから不要<span class="src pe">P-EXAM-01 §8</span>。</p></div>
+  <div class="km"><span class="kn">02</span><p><b>モデルへの指示は統制ではない。</b>「データを保持しないで」とプロンプトで頼んでも、それは組織のポリシー要件を満たす管理策にならない。この区別（<b>プロンプトによる依頼 vs 仕組みによる統制</b>）は Architect 試験でも中核論点として繰り返される。</p></div>
+  <div class="km"><span class="kn">03</span><p><b>高リスク領域には2つの義務がある。</b>有資格専門家による<b>事前レビュー</b>と、<b>AI 利用の開示</b>。対象は法解釈、医療、保険引受、金融適格性、雇用・住宅の判断、学術試験、ジャーナリズム的コンテンツ生成など<span class="src pd">P-DOC-40</span>。</p></div>
+  <div class="km"><span class="kn">04</span><p><b>「AI の出力を人間のものとして提示する」ことは禁止。</b>利用ポリシーは、人と対話する場面で結果を人間が生成したものとして提示する行為を明示的に禁じている<span class="src pd">P-DOC-40</span>。消費者向けチャットボットは<b>各セッション冒頭</b>で AI 利用を開示する。</p></div>
+</div>
+
+<section id="d6-b1">
+  <div class="sec-kicker"><span class="num">2</span><div><span class="lbl">OBJECTIVE 6.1</span><h2>適切／不適切なユースケースを見分ける<span class="jp">Identify appropriate and inappropriate use cases</span></h2></div></div>
+
+  <p class="def">Anthropic の利用ポリシーは <b>Universal Usage Standards（普遍的な禁止事項）</b>、<b>High-Risk Use Case Requirements（高リスク用途の要件）</b>、<b>Additional Use Case Guidelines</b> の3層で構成される<span class="src pd">P-DOC-40</span>。アソシエイトが日常で当たるのは主に前2者である。</p>
+
+  <div class="tablewrap" style="margin-top:16px"><table class="t">
+    <caption>禁止用途カテゴリ（利用ポリシーの区分）</caption>
+    <thead><tr><th>カテゴリ</th><th>内容の例</th></tr></thead>
+    <tbody>
+      <tr><td>違法行為</td><td>規制薬物、人身取引、知的財産権侵害</td></tr>
+      <tr><td>重要インフラ</td><td>電力・水道・医療機器・通信・投票システムの妨害</td></tr>
+      <tr><td>コンピュータシステム</td><td>不正アクセス、マルウェア、DoS ツール、セキュリティ回避</td></tr>
+      <tr><td>武器</td><td>兵器・爆発物・大量破壊兵器の前駆物質の設計・改造・取得</td></tr>
+      <tr><td>暴力・憎悪</td><td>テロ・暴力的過激主義の扇動、差別的行為、威迫</td></tr>
+      <tr><td><b>プライバシーと身元</b></td><td>無許可の個人データアクセス、なりすまし、<b>結果を人間が生成したものとして提示する行為</b></td></tr>
+      <tr><td>児童の安全</td><td>CSAM（AI 生成を含む）、搾取、グルーミング</td></tr>
+      <tr><td>心理的加害</td><td>自傷の助長、ボディシェイミング、いじめ、動物虐待</td></tr>
+      <tr><td>誤情報</td><td>集団・法律・健康・科学に関する欺瞞的情報、陰謀論</td></tr>
+      <tr><td>民主的プロセス</td><td>自動化された有権者ターゲティング、合成政治メディア、選挙妨害</td></tr>
+      <tr><td>刑事司法・監視</td><td>量刑判断、無許可の追跡、顔認識、生体情報による分類</td></tr>
+      <tr><td>詐欺・略奪的行為</td><td>偽造品、スパム、フィッシング、偽文書、搾取的融資</td></tr>
+      <tr><td>プラットフォーム濫用</td><td>協調的な悪意ある活動、ジェイルブレイク、アカウント制限の回避、モデルスクレイピング</td></tr>
+      <tr><td>性的表現</td><td>性的行為・フェティッシュ・エロティックな描写</td></tr>
+    </tbody>
+  </table>
+  <p class="cap-note" style="padding:12px 16px">出典：Anthropic Usage Policy<span class="src pd">P-DOC-40</span>。<b>試験ガイドは個々のカテゴリを列挙していない</b>ため、丸暗記は不要。「業務で判断に迷ったときに参照すべき一次規範が存在する」ことを押さえるための一覧として使う。</p>
+  </div>
+</section>
+
+<section id="d6-b2">
+  <div class="sec-kicker"><span class="num">3</span><div><span class="lbl">OBJECTIVE 6.2</span><h2>データの機微性・規制・プライバシーを扱う<span class="jp">Apply data sensitivity, regulatory, and privacy considerations</span></h2></div></div>
+
+  <div class="axis" style="margin-top:16px">
+    <div class="a"><div class="an">1</div><div><b>データを分類する。</b>公開情報／社内限り／機密／規制対象（個人データ・与信情報・医療情報など）。分類が決まれば、取れる手も決まる。</div></div>
+    <div class="a"><div class="an">2</div><div><b>目的に必要な最小限へ絞る。</b>傾向分析に顧客氏名と口座番号は要らない。<b>分析に必要な列だけを残す</b>のが最初の一手。</div></div>
+    <div class="a"><div class="an">3</div><div><b>識別子を除去または匿名化する。</b>削除できないなら仮 ID に置き換える。公式サンプル問題の正解がまさにこの形<span class="src pe">P-EXAM-01 §8</span>。</div></div>
+    <div class="a"><div class="an">4</div><div><b>それでも扱えないなら、扱わない判断も要る。</b>ただし試験の設問では、<b>匿名化で実施可能なのに諦める</b>選択肢は誤答として置かれる。「消せないリスク」と「消せるリスク」を区別する。</div></div>
+  </div>
+
+  <div class="diff">
+    <div class="dh"><span class="tag">重要な区別</span>プロンプトによる依頼は、統制ではない</div>
+    <dl>
+      <dt>やりがちな判断</dt><dd>個人情報を含むファイルをそのままアップロードし、「このデータは保持しないでください」と指示する。</dd>
+      <dt>なぜ不十分</dt><dd>公式解説の表現では「instructing the model not to retain data (C) does not satisfy the policy control」<span class="src pe">P-EXAM-01 §8</span>。<b>モデルへの依頼は、組織のポリシーが要求する管理策の代わりにならない。</b></dd>
+      <dt>正しい手</dt><dd>アップロード<b>前に</b>識別子を除去・匿名化する。統制はデータが Claude に届く前の段階で掛ける。</dd>
+    </dl>
+    <div class="verdict"><b>同じ原理が Architect 試験でも問われる：</b>決定論的な遵守が必要な業務ルールは、プロンプト指示ではなく<b>フックや前提条件ゲートなどの仕組み</b>で強制する<span class="src pe">P-EXAM-02 TS 1.4</span>。レベルは違っても、原則は同一である。</div>
+  </div>
+</section>
+
+<section id="d6-b3">
+  <div class="sec-kicker"><span class="num">4</span><div><span class="lbl">OBJECTIVE 6.3</span><h2>組織の AI ポリシーとガバナンス基準に従う<span class="jp">Follow organizational AI policies and governance standards</span></h2></div></div>
+
+  <p class="def">判断の拠り所は二層ある。<b>Anthropic の利用ポリシー</b>（サービス提供者側の規範）と、<b>所属組織の AI ポリシー</b>（利用者側の規範）。両方を満たす必要があり、<b>厳しいほうが適用される</b>。</p>
+
+  <div class="grid g2" style="margin-top:16px">
+    <div class="minibox"><h5>Anthropic 側で決まること</h5><ul>
+      <li>禁止用途カテゴリ</li>
+      <li>高リスク用途の<b>レビューと開示の義務</b></li>
+      <li>プランごとの機能の可否（Projects 共有は Team / Enterprise 等）</li>
+      <li>管理者による組織全体のコネクタ統制</li>
+    </ul></div>
+    <div class="minibox"><h5>所属組織側で決めること</h5><ul>
+      <li>入力してよいデータの分類</li>
+      <li>承認が必要な用途と承認者</li>
+      <li>外部提出物のレビュー手順</li>
+      <li>ログ・記録の保存要件</li>
+    </ul></div>
+  </div>
+
+  <div class="card" style="margin-top:18px">
+    <h4>組織管理者が使える統制</h4>
+    <p class="def">Team / Enterprise のオーナーは、組織全体でコネクタを有効化し、<b>接続先サービスが取れるアクションを制限</b>できる。特定の読み取り／書き込み操作を組織全体で禁止することも、検証済みドメインのコネクタを Enterprise 内に限定することも可能<span class="src pd">P-DOC-32</span>。また Team / Enterprise では、同期されたコンテンツを含むチャットは共有できない。</p>
+  </div>
+</section>
+
+<section id="d6-b4">
+  <div class="sec-kicker"><span class="num">5</span><div><span class="lbl">OBJECTIVE 6.4</span><h2>倫理的な含意を理解する<span class="jp">Understand the ethical implications of AI usage</span></h2></div></div>
+
+  <div class="tablewrap" style="margin-top:16px"><table class="t">
+    <thead><tr><th>論点</th><th>問い</th><th>実務での扱い</th></tr></thead>
+    <tbody>
+      <tr><td><b>透明性</b></td><td>受け手は AI が関与したことを知っているか</td><td>高リスク領域と消費者向けチャットボットでは<b>開示が義務</b><span class="src pd">P-DOC-40</span></td></tr>
+      <tr><td><b>公平性</b></td><td>出力が特定の属性に不利に働いていないか</td><td>D2 のバイアス検査。とくに採用・与信・評価では必須</td></tr>
+      <tr><td><b>責任の所在</b></td><td>誤りが起きたとき誰が責任を負うか</td><td>「AI が言った」は成立しない。承認者を運用に明記する（D4）</td></tr>
+      <tr><td><b>人間の判断の代替</b></td><td>人が判断すべきことを機械に委ねていないか</td><td>高リスク領域では有資格者のレビューが要件<span class="src pd">P-DOC-40</span></td></tr>
+      <tr><td><b>データの由来</b></td><td>入力したデータを、その目的で使う正当性があるか</td><td>取得時の同意・利用目的の範囲を確認する</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="d6-exam">
+  <div class="sec-kicker"><span class="num">6</span><div><span class="lbl">EXAM ESSENCE</span><h2>試験エッセンス</h2></div></div>
+  <div class="examwrap">
+    <div class="eh">◆ ガバナンス設問の一貫した形</div>
+    <div class="axis">
+      <div class="a"><div class="an">A</div><div><b>「リスクを消して実施する」が正解。</b>そのまま実施（違反）でも、中止（過剰）でもない。匿名化・最小化・承認という<b>前処理</b>を選ぶ。</div></div>
+      <div class="a"><div class="an">B</div><div><b>モデルへの依頼を統制と見なす選択肢は誤答。</b>「保持しないよう指示する」「見ないよう指示する」はいずれもこのパターン。</div></div>
+      <div class="a"><div class="an">C</div><div><b>高リスク領域は「レビュー」と「開示」の両方。</b>片方だけを挙げる選択肢は不十分。</div></div>
+      <div class="a"><div class="an">D</div><div><b>AI 利用を隠す選択肢は常に誤答。</b>利用ポリシーが明示的に禁じている。</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="d6-check">
+  <div class="sec-kicker"><span class="num">7</span><div><span class="lbl">CHECK</span><h2>確認問題</h2></div></div>
+
+  <div class="scn">
+    <div class="q">
+      <div class="qt">DOMAIN 6<span class="tag">公式サンプル問題（試験ガイド収録）</span></div>
+      <p class="stem">プロジェクトマネージャーが、顧客の氏名と口座番号を含むスプレッドシートをアップロードして Claude に傾向分析をさせたいと考えている。組織のポリシーは規制対象の個人データの共有を制限している。最も適切な行動はどれか。</p>
+      <div class="opts">
+        <div class="opt"><span class="ol">A</span><span>社内分析なので、ファイルをそのままアップロードする</span></div>
+        <div class="opt" data-correct><span class="ol">B</span><span>ポリシーに従い、アップロード前に個人識別情報を除去または匿名化する</span></div>
+        <div class="opt"><span class="ol">C</span><span>ファイルをアップロードしたうえで、Claude に保持しないよう指示する</span></div>
+        <div class="opt"><span class="ol">D</span><span>分析を完全に取りやめる</span></div>
+      </div>
+      <button class="hintbtn scn-toggle" type="button">解答・解説を見る</button>
+    </div>
+    <div class="reveal">
+      <div class="row"><span class="rk ok">正解</span><span class="rv"><b>B</b><span class="src pe">P-EXAM-01 §8 Sample 3</span></span></div>
+      <div class="row"><span class="rk proc">公式解説</span><span class="rv">データの機微性とプライバシーの保護措置を適用するとは、<b>利用前に規制対象の識別子を秘匿または匿名化し、保護されたデータを露出させずに分析を進められるようにする</b>ことを意味する。そのままのアップロード（A）はポリシー違反。モデルにデータを保持しないよう指示すること（C）は<b>ポリシー上の統制を満たさない</b>。匿名化すれば実施できるのだから、作業の放棄（D）は不要である。</span></div>
+      <div class="row"><span class="rk bad">構造</span><span class="rv">4つの選択肢が「違反 / 正解 / 統制の誤解 / 過剰反応」で構成されている。<b>この構造は他のガバナンス設問でも繰り返される</b>ので、選択肢を読むときに各肢がどの役回りかを当てにいくと速い。</span></div>
+    </div>
+  </div>
+
+  <div class="scn">
+    <div class="q">
+      <div class="qt">DOMAIN 6<span class="tag">オリジナル想定問題</span></div>
+      <p class="stem">マーケティング担当者が、顧客向けの問い合わせ窓口に Claude ベースのチャットボットを設置しようとしている。担当者は「AI だと分かると利用率が下がる」として、人間のオペレーター名で応答させることを提案した。この提案の評価として正しいものはどれか。</p>
+      <div class="opts">
+        <div class="opt"><span class="ol">A</span><span>応答品質が十分であれば、表示名は運用上の裁量に委ねられる</span></div>
+        <div class="opt"><span class="ol">B</span><span>初回の応答でのみ AI であることを示せば、以降は人間名で問題ない</span></div>
+        <div class="opt" data-correct><span class="ol">C</span><span>利用ポリシーに反する。消費者向けチャットボットは各セッションの冒頭で AI 利用を開示する必要がある</span></div>
+        <div class="opt"><span class="ol">D</span><span>社内利用ではないため、ポリシーの適用対象外である</span></div>
+      </div>
+      <button class="hintbtn scn-toggle" type="button">解答・解説を見る</button>
+    </div>
+    <div class="reveal">
+      <div class="row"><span class="rk ok">正解</span><span class="rv"><b>C</b><span class="src pd">P-DOC-40</span></span></div>
+      <div class="row"><span class="rk proc">解説</span><span class="rv">利用ポリシーは、人と対話する場面で<b>結果を人間が生成したものとして提示する行為</b>を禁止しており、消費者向けチャットボットについては「at a minimum at the beginning of each chat session」で AI 利用を開示することを求めている。A は裁量の問題ではなくポリシー要件。B は「各セッションの冒頭」という要件を人間名の使用で打ち消しており、なりすましの禁止にも抵触する。D は誤りで、外部向けであることはむしろ開示義務が明確に及ぶ側である。</span></div>
+    </div>
+  </div>
+
+  <div class="next"><a href="#d7-goal">次のドメインへ：トラブルシューティングと最適化（10%）→</a></div>
+</section>
+
+</main></div></section>
+
+<!-- ============================== DOMAIN 7 ============================== -->
+<section class="domain" id="domain-7" data-domain="7" data-screen-label="Domain 7"><div class="shell">
+<aside class="rail">
+  <span class="badge">DOMAIN 07 / 07 · 10%</span>
+  <div class="rtitle">トラブルシューティング<br>と最適化</div>
+  <div class="rsub">Troubleshooting and Optimization</div>
+  <nav class="rnav">
+    <a href="#d7-goal"><span class="n">1</span><span>到達目標</span></a>
+    <div class="navgrp">タスク領域</div>
+    <a href="#d7-b1"><span class="n">2</span><span>症状から原因を特定する</span></a>
+    <a href="#d7-b2"><span class="n">3</span><span>結果に応じて手を変える</span></a>
+    <a href="#d7-b3"><span class="n">4</span><span>ワークフローの最適化</span></a>
+    <div class="navgrp">仕上げ</div>
+    <a href="#d7-exam"><span class="n">5</span><span>試験エッセンス</span></a>
+    <a href="#d7-check"><span class="n">6</span><span>確認問題</span></a>
+  </nav>
+  <div class="rprog"><span>読了 0%</span><div class="track"><i></i></div></div>
+</aside>
+<main>
+
+<section class="hero" id="d7-goal">
+  <div class="eyebrow">CCAO-F · DOMAIN 7</div>
+  <h1>トラブルシューティングと最適化<span class="en">TROUBLESHOOTING AND OPTIMIZATION · 10%</span></h1>
+  <div class="scope"><span class="ic">GOAL</span><div>出力が期待どおりでないときに、<b>症状から原因を切り分け、原因に対応した手を打つ</b>ことができるようになる。配点は最小の10%だが、設問は他ドメインの知識を「診断」の形で問うため、実質的には<b>D1〜D5 の総合演習</b>として機能する。この試験で一貫して誤答になるのは、原因に対応していない対処（モデルを上げる、指示を丁寧にする、体裁を直す）である。</div></div>
+</section>
+
+<div class="keymsg">
+  <div class="km"><span class="kn">01</span><p><b>症状と原因を分けて考える。</b>「出力が悪い」は症状。原因は、指示の曖昧さ・資料の不備・会話の肥大・形式の未指定・タスク種別の取り違えのいずれか。<b>原因ごとに効く手が違う</b>。</p></div>
+  <div class="km"><span class="kn">02</span><p><b>まず引き算、次に足し算。</b>設定が肥大化して矛盾しているケースでは、指示を足すと悪化する。整理して矛盾を消すほうが先。</p></div>
+  <div class="km"><span class="kn">03</span><p><b>一度に一つだけ変える。</b>複数を同時に変えると、何が効いたのか分からず、次に同じ問題が起きたときに再現できない。</p></div>
+  <div class="km"><span class="kn">04</span><p><b>モデルの変更は最後の手段。</b>ほとんどの品質問題は、指示・資料・会話状態のいずれかに原因がある。上位モデルへの切り替えは、原因に対処していない選択肢として設問に置かれやすい。</p></div>
+</div>
+
+<section id="d7-b1">
+  <div class="sec-kicker"><span class="num">2</span><div><span class="lbl">OBJECTIVE 7.1</span><h2>症状から原因を特定し、解消する<span class="jp">Identify, diagnose, and resolve issues with underperforming prompts or poor outputs</span></h2></div></div>
+
+  <div class="tablewrap" style="margin-top:16px"><table class="t">
+    <caption>症状 → 原因 → 対処の対応表</caption>
+    <thead><tr><th>症状</th><th>もっとも疑うべき原因</th><th>対処</th><th>参照</th></tr></thead>
+    <tbody>
+      <tr><td>出力の<b>形式</b>が毎回変わる</td><td>形式が言葉でしか指定されていない</td><td>望ましい出力の<b>具体例</b>を1〜3件示す</td><td>D1</td></tr>
+      <tr><td><b>事実</b>が誤っている・出典が怪しい</td><td>根拠の範囲が閉じていない／資料が古い</td><td>根拠を与えた資料に限定する指示＋<b>一次資料での照合</b>。ナレッジベースの版を確認</td><td>D2 / D5</td></tr>
+      <tr><td>あるべき内容が<b>抜ける</b></td><td>入力が長すぎて中間が落ちている／分解の範囲が狭い</td><td>章ごとに分割して処理し、元資料の構造と照合する</td><td>D1 / D2</td></tr>
+      <tr><td>会話の<b>前半の指示</b>が効かなくなる</td><td>会話が肥大化している</td><td>要約を作って<b>新しい会話</b>を始める。恒久的なものは Project 設定へ</td><td>D3 / D5</td></tr>
+      <tr><td>読者に対して<b>粒度が合わない</b></td><td>読者と用途が指定されていない</td><td>読者・用途・長さを明示する</td><td>D1 / D2</td></tr>
+      <tr><td><b>担当者ごと</b>に品質が違う</td><td>プロンプトが属人化している</td><td>標準プロンプトとカスタム指示を Project へ集約する</td><td>D4 / D5</td></tr>
+      <tr><td><b>古い情報</b>で回答される</td><td>ナレッジベースに旧版が残っている</td><td>旧版を削除する。資料名に版と発効日を含める</td><td>D5</td></tr>
+      <tr><td>発想が<b>平凡</b>に収束する</td><td>生成段階に評価の制約を掛けている</td><td>量と評価を分離し、評価軸は後段で与える</td><td>D1</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="card" style="margin-top:18px">
+    <h4>診断で最初に確認する3点</h4>
+    <div class="crow"><span class="ck">入力</span><span class="cv">与えた資料は<b>最新版</b>か。必要な範囲が全部入っているか。逆に不要なものが混ざっていないか。</span></div>
+    <div class="crow"><span class="ck">指示</span><span class="cv">曖昧な形容詞は残っていないか。<b>矛盾する指示</b>が同居していないか。読者と用途は書かれているか。</span></div>
+    <div class="crow"><span class="ck">状態</span><span class="cv">会話が長引いていないか。前の話題の前提を引きずっていないか。<b>新しい会話で再現するか</b>を試すと、会話状態が原因かどうかが切り分けられる。</span></div>
+  </div>
+</section>
+
+<section id="d7-b2">
+  <div class="sec-kicker"><span class="num">3</span><div><span class="lbl">OBJECTIVE 7.2</span><h2>フィードバックと結果に応じて手を変える<span class="jp">Adjust approach based on feedback and results</span></h2></div></div>
+
+  <div class="axis" style="margin-top:16px">
+    <div class="a"><div class="an">1</div><div><b>同じ入力で比較する。</b>入力が変わっていれば、改善したのか入力が易しかったのか区別できない。代表的な入力を検証セットとして固定する。</div></div>
+    <div class="a"><div class="an">2</div><div><b>2回続いた修正指示は、設定へ昇格させる。</b>その場で直し続けるのは、同じコストを毎回払うということ。</div></div>
+    <div class="a"><div class="an">3</div><div><b>効かなかった手は記録して外す。</b>効かない指示を残すと、設定が肥大化して他の指示の遵守率が下がる。</div></div>
+    <div class="a"><div class="an">4</div><div><b>相互に絡む問題はまとめて、独立した問題は順に。</b>D1 で扱った使い分けがそのまま診断にも効く。</div></div>
+  </div>
+</section>
+
+<section id="d7-b3">
+  <div class="sec-kicker"><span class="num">4</span><div><span class="lbl">OBJECTIVE 7.3</span><h2>ワークフローを効率と効果の両面で最適化する<span class="jp">Optimize workflows for efficiency and effectiveness</span></h2></div></div>
+
+  <p class="def">最適化の対象は「1回の応答の速さ」ではなく、<b>入口から成果物までの総所要時間と手戻り</b>である。速く出た出力を毎回大きく手直ししているなら、それは最適化されていない。</p>
+
+  <div class="grid g2" style="margin-top:16px">
+    <div class="minibox"><h5>効率（Efficiency）の改善</h5><ul>
+      <li>繰り返しの前提を Project 設定へ移す</li>
+      <li>タスクに合った<b>モデル階層</b>を選ぶ（D3）</li>
+      <li>過剰な機能を使わない（単純確認に Research は不要）</li>
+      <li>入力を整えて、手戻りそのものを減らす</li>
+    </ul></div>
+    <div class="minibox"><h5>効果（Effectiveness）の改善</h5><ul>
+      <li>検証工程を設計に組み込む（D2）</li>
+      <li>エスカレーション基準を明文化する</li>
+      <li>出力形式を用途に合わせる（Artifacts / 構造化データ）</li>
+      <li>成功基準を定め、測って判断する</li>
+    </ul></div>
+  </div>
+
+  <div class="card" style="margin-top:18px">
+    <h4>効率化してはいけない工程</h4>
+    <p class="def">検証工程（D2）と、高リスク領域における有資格者レビュー（D6）は、<b>効率化の対象外</b>である。ここを削って速くする案は、試験でも実務でも正解にならない。最適化とは「削れるところを削る」ことであり、削ってはいけないものを見分けることでもある。</p>
+  </div>
+</section>
+
+<section id="d7-exam">
+  <div class="sec-kicker"><span class="num">5</span><div><span class="lbl">EXAM ESSENCE</span><h2>試験エッセンス</h2></div></div>
+  <div class="examwrap">
+    <div class="eh">◆ 診断設問の解き方</div>
+    <div class="axis">
+      <div class="a"><div class="an">A</div><div><b>設問文から症状を1語で言い直す。</b>「形式のぶれ」「事実誤り」「抜け」「前半の指示が効かない」。症状が決まれば、対応表から正解の型が決まる。</div></div>
+      <div class="a"><div class="an">B</div><div><b>原因に触れていない選択肢を消す。</b>モデルの変更、体裁の修正、抽象的な指示の追加は、多くの場合ダミー。</div></div>
+      <div class="a"><div class="an">C</div><div><b>人手を増やす選択肢は弱い。</b>「担当者に周知する」「毎回確認する」は原因を放置している。<b>仕組みで直す</b>選択肢を選ぶ。</div></div>
+      <div class="a"><div class="an">D</div><div><b>再発防止まで含む選択肢が強い。</b>その場を直すだけの案より、同じ問題が起きない運用に変える案が正解になりやすい。</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="d7-check">
+  <div class="sec-kicker"><span class="num">6</span><div><span class="lbl">CHECK</span><h2>確認問題</h2></div></div>
+
+  <div class="scn">
+    <div class="q">
+      <div class="qt">DOMAIN 7<span class="tag">オリジナル想定問題</span></div>
+      <p class="stem">ある Project で、当初は的確だった出力が、数週間の運用のうちに指示を守らなくなってきた。カスタム指示は、気づいた不備のたびに追記され続けており、現在は非常に長くなっている。最も適切な対処はどれか。</p>
+      <div class="opts">
+        <div class="opt"><span class="ol">A</span><span>守られていない指示を、より強い表現で再度追記する</span></div>
+        <div class="opt" data-correct><span class="ol">B</span><span>カスタム指示を点検し、矛盾や重複を整理して短くする</span></div>
+        <div class="opt"><span class="ol">C</span><span>上位のモデル階層に切り替える</span></div>
+        <div class="opt"><span class="ol">D</span><span>指示を毎回のプロンプト末尾にも貼り付ける</span></div>
+      </div>
+      <button class="hintbtn scn-toggle" type="button">解答・解説を見る</button>
+    </div>
+    <div class="reveal">
+      <div class="row"><span class="rk ok">正解</span><span class="rv"><b>B</b></span></div>
+      <div class="row"><span class="rk proc">解説</span><span class="rv">原因は<b>指示の肥大化と矛盾</b>である。長い指示ほど遵守率が下がるという性質は、Claude Code の CLAUDE.md について公式が明示しているのと同じ傾向で、対処は「足す」ではなく「整理する」<span class="src pd">P-DOC-10</span>。A と D はいずれも量を増やす方向で、症状を悪化させる。C はモデルの能力の問題ではない。</span></div>
+    </div>
+  </div>
+
+  <div class="scn">
+    <div class="q">
+      <div class="qt">DOMAIN 7<span class="tag">オリジナル想定問題</span></div>
+      <p class="stem">同じ Project を使っている3人の担当者のうち、1人だけ明らかに質の高い出力を得ている。3人とも同じナレッジベースとカスタム指示を使っている。最も適切な改善策はどれか。</p>
+      <div class="opts">
+        <div class="opt"><span class="ol">A</span><span>質の低い2人に、より高性能なモデルを使うよう指示する</span></div>
+        <div class="opt" data-correct><span class="ol">B</span><span>質の高い担当者が使っているプロンプトを標準化し、入出力例とともに共有する</span></div>
+        <div class="opt"><span class="ol">C</span><span>3人それぞれに別の Project を作らせる</span></div>
+        <div class="opt"><span class="ol">D</span><span>出力を相互レビューする運用を追加する</span></div>
+      </div>
+      <button class="hintbtn scn-toggle" type="button">解答・解説を見る</button>
+    </div>
+    <div class="reveal">
+      <div class="row"><span class="rk ok">正解</span><span class="rv"><b>B</b></span></div>
+      <div class="row"><span class="rk proc">解説</span><span class="rv">設定が共通で結果が違うのだから、差は<b>プロンプトの属人性</b>にある。B はその差を標準化し、しかも入出力例という最も伝わる形で共有している。A はモデルの問題ではない。C は分離を進めるだけで、品質差の原因を解消しない。D は人手の確認を足すだけで、原因（プロンプトの差）を放置している。</span></div>
+    </div>
+  </div>
+
+  <div class="next"><a href="#g-goal">最後に：受験ガイドと学習計画 →</a></div>
+</section>
+
+</main></div></section>
+
+<!-- ============================== EXAM GUIDE ============================== -->
+<section class="domain" id="domain-8" data-domain="8" data-screen-label="Exam Guide"><div class="shell">
+<aside class="rail">
+  <span class="badge">EXAM GUIDE</span>
+  <div class="rtitle">受験ガイドと<br>学習計画</div>
+  <div class="rsub">Exam Logistics &amp; Study Plan</div>
+  <nav class="rnav">
+    <a href="#g-goal"><span class="n">1</span><span>この章の使い方</span></a>
+    <div class="navgrp">試験の仕組み</div>
+    <a href="#g-b1"><span class="n">2</span><span>試験要項</span></a>
+    <a href="#g-b2"><span class="n">3</span><span>受験資格と申込</span></a>
+    <a href="#g-b3"><span class="n">4</span><span>採点の仕組み</span></a>
+    <a href="#g-b4"><span class="n">5</span><span>試験日のルール</span></a>
+    <a href="#g-b5"><span class="n">6</span><span>更新と再受験</span></a>
+    <div class="navgrp">情報の扱い</div>
+    <a href="#g-b6"><span class="n">7</span><span>一次情報と二次情報</span></a>
+    <a href="#g-b7"><span class="n">8</span><span>試験ガイドと現行仕様の差分</span></a>
+    <div class="navgrp">仕上げ</div>
+    <a href="#g-b8"><span class="n">9</span><span>学習計画</span></a>
+  </nav>
+  <div class="rprog"><span>読了 0%</span><div class="track"><i></i></div></div>
+</aside>
+<main>
+
+<section class="hero" id="g-goal">
+  <div class="eyebrow">CCAO-F · EXAM GUIDE</div>
+  <h1>受験ガイドと学習計画<span class="en">EXAM LOGISTICS, SOURCE DISCIPLINE &amp; STUDY PLAN</span></h1>
+  <div class="scope"><span class="ic">USE</span><div>この章は出題範囲ではなく、<b>受験までの段取りと、情報の扱い方</b>を扱う。試験そのものより先に確認すべきこと（受験資格）から、当日のルール、そして<b>この教材がどの情報を根拠にし、何を根拠にしていないか</b>までをまとめている。とくに §7 の「一次情報と二次情報」は、ネット上の合格体験記を読むときに<b>誤情報を掴まないため</b>に読んでおいてほしい。</div></div>
+  <div class="srckey">
+    <div><span class="src pe">試験ガイド</span>Anthropic 発行の試験ガイド／Pearson VUE／Partner Academy</div>
+    <div><span class="src pd">公式ドキュメント</span>Anthropic 公式の製品ドキュメント・ポリシー</div>
+    <div><span class="src s2">二次情報</span>個人ブログ・合格体験記（事実の根拠には使わない）</div>
+  </div>
+</section>
+
+<section id="g-b1">
+  <div class="sec-kicker"><span class="num">2</span><div><span class="lbl">LOGISTICS</span><h2>試験要項</h2></div></div>
+
+  <div class="tablewrap" style="margin-top:16px"><table class="t">
+    <caption>Claude Certified Associate – Foundations</caption>
+    <tbody>
+      <tr><td style="width:34%"><b>試験コード</b></td><td><span class="mono">CCAO-F</span></td></tr>
+      <tr><td><b>問題数</b></td><td>60問</td></tr>
+      <tr><td><b>出題形式</b></td><td>多肢選択（single）および<b>複数回答（multiple-response）</b>。<b>各問に、いくつ選ぶかが明記される</b></td></tr>
+      <tr><td><b>時間</b></td><td>120分</td></tr>
+      <tr><td><b>配信</b></td><td>監督付き。オンライン監督またはテストセンター（Pearson VUE）</td></tr>
+      <tr><td><b>合格点</b></td><td>スケールドスコア <b>720</b>（範囲 100–1,000）</td></tr>
+      <tr><td><b>受験料</b></td><td>$99 USD</td></tr>
+      <tr><td><b>有効期限</b></td><td>認定日から <b>12ヶ月</b></td></tr>
+      <tr><td><b>結果通知</b></td><td>合否＋スケールドスコア（100–1,000）＋<b>ドメイン別の正答率</b></td></tr>
+      <tr><td><b>提供言語</b></td><td><b>英語のみ。</b>監督付き試験中のブラウザ翻訳ツールの使用は禁止</td></tr>
+      <tr><td><b>前提条件</b></td><td>必須の前提資格・必須コースはなし。<b>認定は試験の成績のみで判定される</b></td></tr>
+      <tr><td><b>試験ガイド版</b></td><td>Version 1.0 / Effective July 2026</td></tr>
+    </tbody>
+  </table>
+  <p class="cap-note" style="padding:12px 16px">出典<span class="src pe">P-EXAM-01 §5</span><span class="src pe">P-EXAM-04</span><span class="src pe">P-EXAM-06</span></p>
+  </div>
+
+  <div class="card" style="margin-top:18px">
+    <h4>4つの認定試験の位置づけ</h4>
+    <div class="tablewrap"><table class="t">
+      <thead><tr><th>認定</th><th>コード</th><th>受験料</th><th>対象</th></tr></thead>
+      <tbody>
+        <tr><td><b>Claude Certified Associate – Foundations</b></td><td class="mono">CCAO-F</td><td>$99</td><td>コンサルタント、セールス、デリバリーリード。<b>パートナー階層要件には算入されない</b></td></tr>
+        <tr><td>Claude Certified Developer – Foundations</td><td class="mono">CCDV-F</td><td>$125</td><td>Claude API で開発するエンジニア</td></tr>
+        <tr><td>Claude Certified Architect – Foundations</td><td class="mono">CCAR-F</td><td>$125</td><td>エンドツーエンドのソリューションを設計するパートナー</td></tr>
+        <tr><td>Claude Certified Architect – Professional</td><td class="mono">CCAR-P</td><td>$175</td><td>上級アーキテクト</td></tr>
+      </tbody>
+    </table></div>
+    <p class="cap-note">出典：Pearson VUE / Anthropic Partner Academy<span class="src pe">P-EXAM-04</span><span class="src pe">P-EXAM-05</span>。4試験とも 60問 / 120分 / 合格 720 / 有効期限12ヶ月で共通。</p>
+  </div>
+</section>
+
+<section id="g-b2">
+  <div class="sec-kicker"><span class="num">3</span><div><span class="lbl">ELIGIBILITY</span><h2>受験資格と申込</h2></div></div>
+
+  <div class="diff">
+    <div class="dh"><span class="tag">最初に確認</span>誰でも受験できるわけではない</div>
+    <dl>
+      <dt>要件</dt><dd>Anthropic Partner Academy の FAQ は「Certification is available to people at <b>Claude Partner Network organizations</b>」と記載している<span class="src pe">P-EXAM-06</span>。</dd>
+      <dt>登録</dt><dd>認識された企業ドメインの<b>パートナーメールアドレス</b>が必要。<b>個人メールでは登録できない。</b></dd>
+      <dt>年齢</dt><dd>18歳以上。チェックイン時に政府発行 ID で確認される。</dd>
+    </dl>
+    <div class="verdict"><b>学習を始める前に：</b>自組織が Claude Partner Network に加盟しているかを確認すること。未加盟の場合、Anthropic のサイトからパートナー申請の導線がある。</div>
+  </div>
+
+  <div class="card" style="margin-top:18px">
+    <h4>申込から受験までの流れ</h4>
+    <div class="axis">
+      <div class="a"><div class="an">1</div><div>Anthropic Partner Academy の当該認定ページで試験詳細を確認する。</div></div>
+      <div class="a"><div class="an">2</div><div>Exam Guide をダウンロードし、<b>Certification Terms and Conditions と Certification Exam Policy を登録前に読む</b>。</div></div>
+      <div class="a"><div class="an">3</div><div>登録して決済する。表示される金額には<b>パートナー階層に応じた割引</b>が反映される（Registered は定価、Select・Preferred・Global Premier は50%オフが自動適用。Global Premier は 2026-08-31 まで100%割引）<span class="src pe">P-EXAM-06</span>。</div></div>
+      <div class="a"><div class="an">4</div><div>確認メールの指示に従い <b>Pearson VUE アカウント</b>を作成し、サインインして日程を予約する。</div></div>
+      <div class="a"><div class="an">5</div><div>日程と、<b>オンライン監督（OnVUE）かテストセンター</b>かを選ぶ。</div></div>
+      <div class="a"><div class="an">6</div><div>配慮申請（accommodations）が必要な場合は、<b>予約前に</b> Pearson VUE の手続きで承認を得る。FAQ は<b>10日以上前</b>の申請を推奨している<span class="src pe">P-EXAM-06</span>。</div></div>
+    </div>
+  </div>
+
+  <div class="diff">
+    <div class="dh"><span class="tag">情報が食い違う点</span>キャンセル・日程変更の期限</div>
+    <dl>
+      <dt>試験ガイド</dt><dd>「You may cancel or reschedule up to <b>24 hours</b> before your appointment. Changes made within 24 hours forfeit the exam fee.」<span class="src pe">P-EXAM-01 §10</span></dd>
+      <dt>Pearson VUE</dt><dd>テストセンターの予約は「rescheduled or cancelled up to <b>48 hours</b> prior to your scheduled appointment」<span class="src pe">P-EXAM-04</span></dd>
+      <dt>実務上の判断</dt><dd>両者が食い違うため、<b>安全側の48時間前</b>を基準に動くこと。予約時に自分の予約画面に表示される期限を必ず確認する。</dd>
+    </dl>
+  </div>
+</section>
+
+<section id="g-b3">
+  <div class="sec-kicker"><span class="num">4</span><div><span class="lbl">SCORING</span><h2>採点の仕組み</h2></div></div>
+
+  <div class="card concept" style="margin-top:16px">
+    <h4>基準準拠評価（criterion-referenced）</h4>
+    <p class="def">この試験は<b>他の受験者との比較ではなく、固定された性能基準に対して</b>評価される<span class="src pe">P-EXAM-01 §9</span>。上位何％が合格、という仕組みではない。</p>
+    <div class="crow"><span class="ck">合格点</span><span class="cv">訓練を受けた subject matter expert が「最小限合格者（MQC）に期待される水準」を判定する<b>正式な標準設定スタディ</b>によって決められている。カットスコアは <b>720</b>（範囲 100–1,000）。</span></div>
+    <div class="crow"><span class="ck">スケール</span><span class="cv">スケールドスコアは、複数の試験フォーム間で難易度がわずかに異なっても比較可能にするための仕組み。<b>720 は「72%正解」という意味ではない。</b></span></div>
+    <div class="crow"><span class="ck">ドメイン別</span><span class="cv">スコアレポートにはドメインごとの正答率も表示されるが、<b>合否判定には使われない</b>。合否は総合スケールドスコアのみで決まる<span class="src pe">P-EXAM-01 §9</span>。</span></div>
+    <div class="crow"><span class="ck">異議</span><span class="cv">通知から14日以内に Pearson VUE 経由で申し立て可能。ただし<b>標準設定の結果と個々の設問内容は異議申立ての対象外</b><span class="src pe">P-EXAM-01 §15</span>。</span></div>
+  </div>
+
+  <div class="card" style="margin-top:18px">
+    <h4>複数回答形式への対応</h4>
+    <p class="def">Associate は Architect と異なり<b>複数回答（multiple-response）</b>の設問を含む。試験ガイドの記述は「Multiple-choice and multiple-response items; <b>each item states how many responses to select</b>」<span class="src pe">P-EXAM-01 §5</span>。設問文に「2つ選べ」「3つ選べ」と明記されるため、<b>選択数の指示を読み飛ばさないこと</b>が最も基本的な対策になる。</p>
+  </div>
+</section>
+
+<section id="g-b4">
+  <div class="sec-kicker"><span class="num">5</span><div><span class="lbl">EXAM DAY</span><h2>試験日のルール</h2></div></div>
+
+  <div class="grid g2" style="margin-top:16px">
+    <div class="minibox"><h5>必要なもの</h5><ul>
+      <li>有効期限内の<b>政府発行の写真付き身分証</b></li>
+      <li>ID の氏名が<b>登録名と完全に一致</b>していること</li>
+      <li>氏名の訂正が必要なら、<b>予約前に</b> certifications-support@anthropic.com へ連絡</li>
+    </ul></div>
+    <div class="minibox"><h5>持ち込み禁止</h5><ul>
+      <li>携帯電話、スマートウォッチ、ヘッドホン</li>
+      <li>学習教材、ノート、書籍</li>
+      <li>あらゆる録画・録音機器</li>
+      <li>副次モニタ</li>
+    </ul></div>
+  </div>
+
+  <div class="card" style="margin-top:18px">
+    <h4>試験中の遵守事項</h4>
+    <div class="crow"><span class="ck">在席</span><span class="cv">オンライン受験の場合、<b>セッション中ずっと</b>監督者とウェブカメラの視野内にいること。</span></div>
+    <div class="crow"><span class="ck">環境</span><span class="cv">作業スペースにノート・書籍・携帯・副次モニタ等を置かない。</span></div>
+    <div class="crow"><span class="ck">対話</span><span class="cv">試験中に他者と会話しない。</span></div>
+    <div class="crow"><span class="ck">記録</span><span class="cv">試験内容をいかなる形でも記録・複製・撮影・再現しない。</span></div>
+    <div class="crow warn"><span class="ck">違反</span><span class="cv">不正行為、禁止リソースへのアクセス試行、試験内容の開示は、<b>結果の無効化・認定の取消・将来の受験禁止</b>につながる。</span></div>
+  </div>
+
+  <div class="card" style="margin-top:18px">
+    <h4>守秘義務契約（NDA）</h4>
+    <p class="def">試験開始前に守秘義務・非開示契約への同意が求められる。設問・選択肢・シナリオを含むすべての試験内容は Anthropic の機密かつ専有の財産であり、開示・複製・配布は禁止される。<b>同意しない場合、試験セッションは終了し返金はされない</b><span class="src pe">P-EXAM-01 §13</span>。</p>
+    <p class="def" style="margin-top:10px">この教材の設問が「オリジナル想定問題」である理由もここにある。<b>本試験の設問を転載した教材は、この契約に違反して作られている。</b>そうした教材を使うこと自体もリスクになる。</p>
+  </div>
+</section>
+
+<section id="g-b5">
+  <div class="sec-kicker"><span class="num">6</span><div><span class="lbl">RENEWAL</span><h2>更新と再受験</h2></div></div>
+
+  <div class="tablewrap" style="margin-top:16px"><table class="t">
+    <tbody>
+      <tr><td style="width:30%"><b>有効期間</b></td><td>認定日から <b>12ヶ月</b>。基盤技術の変化が速いため、保有者が知識を最新に保つよう期限付きにされている</td></tr>
+      <tr><td><b>期限内更新</b></td><td>認定後の変更点をレビューし、Anthropic Partner Academy 上の<b>無料・非監督のアセスメント</b>を完了する。<b>期限内の更新に費用はかからない</b></td></tr>
+      <tr><td><b>失効した場合</b></td><td><b>全額を支払って本試験を再受験</b>する必要がある</td></tr>
+      <tr><td><b>大幅改訂時</b></td><td>試験内容が大きく変わった場合、更新アセスメントではなく本試験の再受験を求められることがある</td></tr>
+      <tr><td><b>再受験の待機</b></td><td>1回目失敗後 <b>14日</b> / 2回目後 <b>30日</b> / 3回目後 <b>90日</b></td></tr>
+      <tr><td><b>受験回数</b></td><td>ローリング12ヶ月で<b>同一試験につき最大4回</b>。試験ごとに独立しているため、ある試験に落ちても別の試験の受験は妨げられない。<b>各回とも受験料が必要</b></td></tr>
+      <tr><td><b>無断欠席・遅刻</b></td><td>受験料を失い、再登録が必要になる</td></tr>
+    </tbody>
+  </table>
+  <p class="cap-note" style="padding:12px 16px">出典<span class="src pe">P-EXAM-01 §11・§14</span><span class="src pe">P-EXAM-04</span><span class="src pe">P-EXAM-06</span></p>
+  </div>
+</section>
+
+<section id="g-b6">
+  <div class="sec-kicker"><span class="num">7</span><div><span class="lbl">SOURCE DISCIPLINE</span><h2>一次情報と二次情報の使い分け</h2></div></div>
+
+  <p class="def">この教材は、記述の根拠を3階層に分けて管理している。ネット上には Claude 認定に関する記事が多数あるが、<b>一次情報と食い違う内容が含まれているもの</b>があり、そのまま信じると受験計画を誤る。</p>
+
+  <div class="tablewrap" style="margin-top:16px"><table class="t">
+    <caption>本教材の情報源ポリシー</caption>
+    <thead><tr><th>階層</th><th>該当するもの</th><th>扱い</th></tr></thead>
+    <tbody>
+      <tr><td><span class="src pe">試験ガイド</span></td><td>Anthropic 発行の試験ガイド PDF、Pearson VUE、Anthropic Partner Academy</td><td><b>試験の正解はこれが決める。</b>他の情報源と矛盾しても試験ガイドを優先する</td></tr>
+      <tr><td><span class="src pd">公式ドキュメント</span></td><td>Anthropic 公式の製品ドキュメント、ヘルプセンター、利用ポリシー</td><td>背景理解と現行仕様の確認。試験ガイドと食い違う場合は<b>両論併記</b>する</td></tr>
+      <tr><td><span class="src s2">二次情報</span></td><td>個人ブログ、合格体験記、サードパーティのまとめ・問題集</td><td><b>事実の根拠には使わない。</b>受験傾向としてのみ、二次であることを明示して引用する</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="card" style="margin-top:18px">
+    <h4>二次情報から得られた「傾向」<span class="src s2">S-01 / S-02</span></h4>
+    <p class="def">以下は Architect 試験の合格体験記からの引用であり、<b>Anthropic の公式見解ではない</b>。Associate 試験に直接あてはまる保証もない。参考として読むにとどめること。<b>事実主張</b>と<b>筆者の意見</b>を分けて記載する。</p>
+    <div class="crow"><span class="ck">意見</span><span class="cv">「模擬試験と本番の最大の差は難易度ではなく<b>言い回し</b>だった。修飾語が長文中に埋め込まれるため、選択肢を選ぶ前に修飾語を特定するとよい」<span class="src s2">S-01</span></span></div>
+    <div class="crow"><span class="ck">意見</span><span class="cv">「読むだけでなく、実際に動かして壊す演習のほうが定着する」<span class="src s2">S-01</span></span></div>
+    <div class="crow"><span class="ck">意見</span><span class="cv">「練習ツールが問題を使い回すなら、上がっていくスコアは理解ではなく<b>その問題プールの記憶</b>を測っている」<span class="src s2">S-02</span></span></div>
+    <div class="crow"><span class="ck">事実主張</span><span class="cv">Architect 試験は<b>4ブロック × 15問</b>の構成で、各ブロックが6本のシナリオプールから抽選された1本に紐づく<span class="src s2">S-02</span>。<b>ただしこれは Architect の話で、Associate はドメイン別出題である。</b></span></div>
+  </div>
+
+  <div class="diff">
+    <div class="dh"><span class="tag">要注意</span>流通している誤情報</div>
+    <dl>
+      <dt>誤った主張</dt><dd>「認定は合格から<b>6ヶ月</b>で失効する」<span class="src s2">S-02</span></dd>
+      <dt>一次情報</dt><dd>試験ガイド、Partner Academy の FAQ とも<b>12ヶ月</b>と明記している<span class="src pe">P-EXAM-01 §14</span><span class="src pe">P-EXAM-06</span>。</dd>
+      <dt>判定</dt><dd><b>誤り。</b>12ヶ月が正しい。</dd>
+    </dl>
+    <dl style="margin-top:12px">
+      <dt>裏付けのない主張</dt><dd>「一部の設問には<b>部分点</b>がある」（出典不特定のまとめ記事）</dd>
+      <dt>一次情報</dt><dd>Architect は「Multiple choice; one correct answer and three incorrect options」<span class="src pe">P-EXAM-02</span>。Associate は「each item states how many responses to select」<span class="src pe">P-EXAM-01</span>。<b>いずれも部分点には言及していない。</b></dd>
+      <dt>判定</dt><dd><b>裏付けなし。</b>Associate の複数回答形式を部分点と誤認した可能性がある。本教材では採用しない。</dd>
+    </dl>
+    <div class="verdict"><b>教訓：</b>これは D2（出力評価と検証）で学ぶことそのものである。<b>もっともらしく具体的な数値ほど、一次情報に当たって確かめる。</b>AI の出力に対して求められる姿勢は、人間が書いたブログ記事にも同じように必要になる。</div>
+  </div>
+</section>
+
+<section id="g-b7">
+  <div class="sec-kicker"><span class="num">8</span><div><span class="lbl">DELTA</span><h2>試験ガイドと現行仕様の差分</h2></div></div>
+
+  <p class="def">Anthropic の製品は更新が速く、<b>試験ガイドの記述が現行ドキュメントと食い違う</b>箇所がある。試験の解答は必ず試験ガイド側を採ること。以下は Associate に関係する主な差分である（Architect 分を含む全一覧は <span class="mono">ccaf/SOURCES.md</span> の §4 を参照）。</p>
+
+  <div class="tablewrap" style="margin-top:16px"><table class="t">
+    <thead><tr><th>論点</th><th>試験ガイド</th><th>現行ドキュメント</th><th>試験での解答</th></tr></thead>
+    <tbody>
+      <tr><td><b>モデル階層</b></td><td>Haiku / Sonnet / Opus の<b>3階層</b><span class="src pe">P-EXAM-01 D3</span></td><td>Fable 5 / Opus 5 / Sonnet 5 / Haiku 4.5 の<b>4種類</b><span class="src pd">P-DOC-01</span></td><td>3階層の<b>役割分担の考え方</b>で判断する。Fable 5 は試験範囲外</td></tr>
+      <tr><td><b>スケジュール変更</b></td><td>予約の<b>24時間前</b>まで<span class="src pe">P-EXAM-01 §10</span></td><td>Pearson VUE：テストセンターは<b>48時間前</b>まで<span class="src pe">P-EXAM-04</span></td><td>出題対象外。実務上は<b>48時間前</b>を安全側とする</td></tr>
+      <tr><td><b>結果通知</b></td><td>Associate：合否＋スコア＋<b>ドメイン別正答率</b><span class="src pe">P-EXAM-01 §9</span></td><td>Architect の試験ガイドは「Pass or fail」のみ<span class="src pe">P-EXAM-02</span></td><td>試験ごとに異なる。Associate はドメイン別内訳あり</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="g-b8">
+  <div class="sec-kicker"><span class="num">9</span><div><span class="lbl">STUDY PLAN</span><h2>学習計画</h2></div></div>
+
+  <div class="card" style="margin-top:16px">
+    <h4>試験ガイドが挙げる準備方法<span class="src pe">P-EXAM-01 §7</span></h4>
+    <p class="def">試験ガイドは冒頭で「必須のコースはない。特定のリソースが合格を保証するものでもない」と明言したうえで、実地経験と以下の組み合わせを推奨している。</p>
+    <div class="axis">
+      <div class="a"><div class="an">1</div><div>ブループリント（ドメインと達成項目）を読み、<b>各項目について自己評価する</b>。</div></div>
+      <div class="a"><div class="an">2</div><div><b>Projects、Artifacts、Memory、Skills、Code Execution</b> について、Anthropic の公式ドキュメントとヘルプ記事を確認する。</div></div>
+      <div class="a"><div class="an">3</div><div>プロンプトの構造化、タスク分解、反復による改善を実際に練習する。</div></div>
+      <div class="a"><div class="an">4</div><div><b>実際のワークフローを作る。</b>指示とナレッジソースを設定した Project を構築し、出力を正確性と偏りの観点で評価する。</div></div>
+      <div class="a"><div class="an">5</div><div>責任ある利用の判断を練習する。データの機微性、適切なユースケース、<b>いつエスカレーションし、いつ人間のレビューを求めるか</b>。</div></div>
+      <div class="a"><div class="an">6</div><div>公式サンプル問題を解き、設問のスタイルに慣れる。</div></div>
+    </div>
+    <p class="def" style="margin-top:14px">注目すべきは項目2で、<b>試験ガイドのドメイン一覧には現れない Skills と Code Execution が名指しされている</b>点である。ドメイン5（設定とナレッジ管理）の周辺知識として、これらの機能の存在と用途は押さえておくとよい。</p>
+  </div>
+
+  <div class="card" style="margin-top:18px">
+    <h4>配点から逆算した優先順位</h4>
+    <div class="tablewrap"><table class="t">
+      <thead><tr><th>優先</th><th>ドメイン</th><th>配点</th><th>理由</th></tr></thead>
+      <tbody>
+        <tr><td><b>1</b></td><td>D2 出力評価と検証</td><td>21%</td><td>単独最大。かつ D4・D6・D7 の設問にも判断軸として埋め込まれる</td></tr>
+        <tr><td><b>2</b></td><td>D6 ガバナンス</td><td>15%</td><td>正解の型が明確で、投資対効果が高い。利用ポリシーの高リスク要件は暗記に値する</td></tr>
+        <tr><td><b>3</b></td><td>D4 ワークフロー統合</td><td>16%</td><td>配点は2位だが、D2・D6 を理解していれば大半が解ける</td></tr>
+        <tr><td><b>4</b></td><td>D1 プロンプト</td><td>14%</td><td>実務経験でカバーしやすい</td></tr>
+        <tr><td><b>5</b></td><td>D3 / D5</td><td>各12%</td><td>製品仕様の知識問題。公式ヘルプを一度読めば足りる</td></tr>
+        <tr><td><b>6</b></td><td>D7 トラブルシュート</td><td>10%</td><td>他ドメインの総合演習。個別に学ぶ必要は薄い</td></tr>
+      </tbody>
+    </table></div>
+    <p class="cap-note">合計 <b>D2 + D6 = 36%</b>。この2ドメインを固めることが、最も投資対効果の高い戦略になる。</p>
+  </div>
+
+  <div class="card" style="margin-top:18px">
+    <h4>本教材の使い方</h4>
+    <div class="crow"><span class="ck">1周目</span><span class="cv">D2 → D6 → D4 → D1 → D3 → D5 → D7 の順に Textbook を通読する。各ドメイン末尾の確認問題を必ず解く。</span></div>
+    <div class="crow"><span class="ck">2周目</span><span class="cv">各ドメインの「試験エッセンス」だけを読み返す。<b>正解の型</b>が頭に入っているかを確認する。</span></div>
+    <div class="crow"><span class="ck">演習</span><span class="cv">クイズをドメイン別に回し、<b>間違えた問題だけを復習</b>する。複数回答形式に慣れておく。</span></div>
+    <div class="crow"><span class="ck">実地</span><span class="cv">実際に Project を1つ作る。カスタム指示・ナレッジベース・検証手順・エスカレーション基準の4点を自分で設計してみると、D4 と D5 の設問が具体的に読めるようになる。</span></div>
+    <div class="crow warn"><span class="ck">注意</span><span class="cv">本教材の設問は<b>すべてオリジナル</b>で、本試験の設問とは重複しない（公式サンプル問題は試験ガイドに収録・公開されているもの）。本教材で高得点が取れても、それは本試験の予測ではない。</span></div>
+  </div>
+
+  <div class="next"><a href="quiz.html">演習クイズへ進む →</a></div>
+</section>
+
+</main></div></section>
+
+<script src="js/textbook.js"></script>
+</body></html>

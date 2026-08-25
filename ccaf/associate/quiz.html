@@ -1,0 +1,92 @@
+<!DOCTYPE html><html lang="ja"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CCAO-F 演習クイズ｜ドメイン別想定問題 全58問（複数回答対応）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/base.css">
+<link rel="stylesheet" href="css/quiz.css">
+<link rel="icon" href="../../favicon/favicon.ico" sizes="any">
+<link rel="icon" href="../../favicon/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../favicon/apple-touch-icon.png">
+<link rel="manifest" href="../../favicon/site.webmanifest">
+<meta name="theme-color" content="#0B0C0E">
+<link rel="stylesheet" href="../../assets/responsive.css">
+</head>
+<body>
+<div id="bar"></div>
+<header class="appbar">
+  <div class="brand"><div class="bt"><b>CCAO-F</b> 演習クイズ</div><div class="bs">Domain Practice · 58Q</div></div>
+  <div class="right"><a class="xlink" href="textbook.html">📖 Textbook</a><a class="xlink alt" href="index.html">Home</a><button id="toSetupTop" class="ghostbtn" type="button" hidden>設定に戻る</button></div>
+</header>
+<div class="wrap">
+
+<section id="setup" class="screen active">
+  <div class="eyebrow">CCAO-F · QUIZ</div>
+  <h1 class="h1">演習クイズ<span class="en">DOMAIN PRACTICE QUESTION BANK · 58 Q</span></h1>
+  <p class="lead">7ドメインを配点比率に沿って配分したオリジナル想定問題です。本試験と同じく<b>複数回答（multiple-response）形式</b>を含み、各問に選択すべき数が明記されます。問題文と選択肢は日英併記、解説は日本語です。</p>
+
+  <div class="notice"><div class="nic">!</div><div class="ntxt">
+    本クイズは Anthropic 公式試験ガイドと公式ドキュメントを基にした<b>オリジナル想定問題</b>です。試験ガイドに収録・公開されている<b>公式サンプル問題3問</b>のみ、出典を明記して収録しています。本試験の設問は守秘義務契約により非公開であり、転載していません。<br>
+    <b>採点は全一致のみを正解とします。</b>本試験における部分点の有無は公表されていないため、安全側の基準を採っています。
+  </div></div>
+
+  <div class="setbox">
+    <div class="fieldlbl">出題範囲</div>
+    <div class="opts-row" id="catOpts"></div>
+    <div class="fieldlbl">出題数</div>
+    <div class="seg" id="countSeg"></div>
+    <div class="fieldlbl">モード</div>
+    <div class="seg" id="modeSeg"><button type="button" data-m="learn" class="on">学習（即時採点＋解説）</button><button type="button" data-m="exam">試験（最後に採点）</button></div>
+    <div class="fieldlbl">出題順</div>
+    <div class="seg" id="shufSeg"><button type="button" data-s="1" class="on">シャッフル</button><button type="button" data-s="0">順番どおり</button></div>
+    <button class="startbtn" id="startBtn" type="button">クイズを開始</button>
+    <div class="startmeta" id="startMeta"></div>
+  </div>
+
+  <div class="wtable">
+    <div class="wth">ドメイン別の配点と収録数</div>
+    <div class="wtr"><span class="wl">D1 プロンプトとタスク実行</span><span class="wp">14%</span><span class="wn">8問</span></div>
+    <div class="wtr"><span class="wl">D2 出力評価と検証</span><span class="wp">21%</span><span class="wn">12問</span></div>
+    <div class="wtr"><span class="wl">D3 製品とモデルの選択</span><span class="wp">12%</span><span class="wn">7問</span></div>
+    <div class="wtr"><span class="wl">D4 ワークフロー統合と設計</span><span class="wp">16%</span><span class="wn">9問</span></div>
+    <div class="wtr"><span class="wl">D5 設定とナレッジ管理</span><span class="wp">12%</span><span class="wn">7問</span></div>
+    <div class="wtr"><span class="wl">D6 ガバナンス・責任ある利用</span><span class="wp">15%</span><span class="wn">9問</span></div>
+    <div class="wtr"><span class="wl">D7 トラブルシュートと最適化</span><span class="wp">10%</span><span class="wn">6問</span></div>
+  </div>
+</section>
+
+<section id="quiz" class="screen">
+  <div class="qtop"><span class="qn">Q<b id="qNum">1</b> / <span id="qTotal">10</span></span>
+    <div class="qtrack"><i id="qProg"></i></div><span class="qsc" id="qScore"></span></div>
+  <div class="qmeta" id="qMeta"></div>
+  <div class="qstem" id="qStem"></div>
+  <div class="choices" id="qChoices"></div>
+  <div class="reveal" id="qReveal"></div>
+  <div class="qnav">
+    <button id="prevBtn" type="button">← 前へ</button>
+    <button id="nextBtn" class="primary" type="button">次へ →</button>
+  </div>
+</section>
+
+<section id="result" class="screen">
+  <div class="eyebrow" id="resMode">RESULT</div>
+  <div class="resring"><svg width="158" height="158" viewBox="0 0 158 158">
+    <circle cx="79" cy="79" r="66" fill="none" stroke="var(--line2)" stroke-width="12"/>
+    <circle id="ring" cx="79" cy="79" r="66" fill="none" stroke="var(--amber)" stroke-width="12" stroke-linecap="round" stroke-dasharray="414.7" stroke-dashoffset="414.7" style="transition:stroke-dashoffset 1s var(--ease)"/>
+    <text id="ringPct" class="pct" x="79" y="79" text-anchor="middle" dominant-baseline="central" transform="rotate(90 79 79)">0%</text></svg></div>
+  <div class="resfrac" id="resFrac"></div>
+  <div class="reshead" id="resHead"></div>
+  <div class="restip" id="resTip"></div>
+  <div class="qnav" style="max-width:540px;margin:0 auto">
+    <button id="retryBtn" class="primary" type="button">もう一度</button>
+    <button id="wrongBtn" type="button">間違いだけ復習</button>
+    <button id="toSetup" type="button">設定に戻る</button>
+  </div>
+  <div id="reviewWrap" style="display:none"><div class="subhead">復習：間違えた問題</div><div class="review" id="reviewList"></div></div>
+</section>
+
+</div>
+<script src="js/quiz.js"></script>
+</body></html>
