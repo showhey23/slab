@@ -21,7 +21,7 @@ h1,h2,h3,h4{line-height:1.35;margin:0}
   background:linear-gradient(90deg,var(--sky),#3E97A0);box-shadow:0 0 12px rgba(95,183,192,.45)}
 
 /* shell */
-.shell{display:grid;grid-template-columns:var(--rail) minmax(0,1fr);max-width:1280px;margin:0 auto;gap:0}
+.shell{display:grid;grid-template-columns:var(--rail) minmax(0,1fr);max-width:min(1660px,100%);margin:0 auto;gap:0}
 
 /* rail */
 .rail{position:sticky;top:0;align-self:start;height:100vh;padding:28px 18px 28px 28px;
@@ -389,7 +389,7 @@ h1,h2,h3,h4,h5,p,li,td,th,figcaption,.lead,.def,.cv,.ck,.km p,.scope div,.eh,.dt
 }
 h1,h2,.sec-kicker h2,.hero h1{ text-wrap:balance; }
 .lead,.def,.km p,.point p,.dd{ text-wrap:pretty; }
-.def,.km p{ max-width:76ch; }
+.def,.km p{ max-width:90ch; }
 /* concept card header icon */
 .concept{ padding:22px 22px 20px; }
 .concept h4{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; font-size:16.5px; }

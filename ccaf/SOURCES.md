@@ -233,6 +233,10 @@
 |---|---|---|---|
 | `S-01` | re:cinq Blog「Claude Certified Architect (Foundations) Exam: A Study Guide and How I Passed」<br>[https://re-cinq.com/blog/claude-certified-architect-foundations-exam](https://re-cinq.com/blog/claude-certified-architect-foundations-exam) | 2026-08-26 | 受験体験（設問の言い回し、CI/CD の出題感） |
 | `S-02` | Very Good Ventures「Passing the Claude Certified Architect Exam: A 738 Story」<br>[https://verygood.ventures/blog/passing-the-claude-certified-architect-exam/](https://verygood.ventures/blog/passing-the-claude-certified-architect-exam/) | 2026-08-26 | 受験体験（スコア内訳、ブロック構造） |
+| `S-03` | Matthew Purcell「The Claude certification exams: an honest review」<br>[https://www.linkedin.com/pulse/claude-certification-exams-honest-review-matthew-purcell-byo2e](https://www.linkedin.com/pulse/claude-certification-exams-honest-review-matthew-purcell-byo2e) | 2026-08-26 | **Associate 受験体験**（所要時間、設問のペルソナ設定、難易度の感触）。⚠ 著者は自作の模擬試験を販売しており**利益相反がある** |
+| `S-04` | alphajinsei「Claude certification 全冠 #ClaudeCode」<br>[https://qiita.com/alphajinsei/items/b8e54e2c6a860df8808f](https://qiita.com/alphajinsei/items/b8e54e2c6a860df8808f) | 2026-08-26 | **Associate を含む4試験の受験体験**（スコア、難易度序列、他試験との出題範囲の違い） |
+| `S-05` | サーバーワークスエンジニアブログ「Claude認定資格が4種類に拡大 — Associate/Developer/Architect Foundations/Architect Professional を試験ガイドから比較する」（2026-07-09）<br>[https://blog.serverworks.co.jp/anthropic-claude-certification-overview-2026-07-09](https://blog.serverworks.co.jp/anthropic-claude-certification-overview-2026-07-09) | 2026-08-26 | 4試験の比較。**一次情報の再掲部分（配点・価格・階層加算）の照合に使用** |
+| `S-06` | 佐藤賢治「Anthropic公式資格「CCAO-F」の勉強を始めた話 ― Claudeと一緒に合格ロードマップを作った」（note・2026-07-13）<br>[https://note.com/horizon_it00/n/n1f377d65406d](https://note.com/horizon_it00/n/n1f377d65406d) | 2026-08-26 | **未合格者による学習計画の記録**（合格体験記ではない点に注意）。日本語話者にとっての英語の壁 |
 
 ### S-01 からの引用（二次）
 
@@ -250,12 +254,42 @@
 - *事実主張*：結果は通常7〜10日で届く
 - *意見*：「練習ツールが問題を使い回すなら、上がっていくスコアは理解ではなく**その問題プールの記憶**を測っている」
 
+### S-03 からの引用（二次・Associate）
+
+> ⚠ **利益相反の明示：** 著者は Claude 認定向けの模擬試験を自ら販売している。「準備を省くな」という趣旨の主張は、自社商品の販売動機と切り離せない。教材では**この点を明示したうえで**引用する。
+
+- *事実主張*：Associate に合格。スコア **967/1000**、所要**約60分**（制限120分）
+- *事実主張*：設問の多くが**非技術のペルソナ**を設定して提示される（"a knowledge worker"、"a marketing associate" など）
+- *意見*：「難しくはない — 967 を取って1時間で終えた — が、居眠りしながら通せる試験でもない」
+- *意見*：4試験のなかで Anthropic 公式の無償コースが**もっとも効く**のが Associate である
+- *意見*：技術者であっても、非技術の試験だからという理由で準備をまったく省くべきではない
+
+### S-04 からの引用（二次・Associate）
+
+- *事実主張*：CCAO-F のスコアは **901**。4試験のなかで**最高点**だった（2026-08-11 受験）
+- *事実主張*：模擬試験を使わずに受験した
+- *事実主張*：「他の資格は claude code、messages api 等が主題でしたが、**この資格だけ claude.ai が出題範囲に入っている**」
+- *意見*：体感難易度は `CCDV-F < CCAR-F, CCAO-F < CCAR-P`（CCAO-F は易しい側）
+- *意見*：「**判断に迷う問題が多かったです**」。設問がコンサルタント／セラー寄りの語彙で書かれている
+
+### S-05 からの引用（二次・Associate）
+
+- *意見*：Associate の重心は「プロンプトを書く技術そのものより、**Claude の出力をどう評価し、業務にどう組み込むか**にある」
+- **一次情報との照合結果**：配点（D2 21% / D4 16% / D6 15% / D1 14%）、価格 $99、60問・120分、合格 720、CPN 階層要件への加算対象外 — **いずれも `P-EXAM-01` / `P-EXAM-05` と一致**。二次情報だが一次情報の再掲として矛盾がないことを確認済み
+
+### S-06 からの引用（二次・Associate）
+
+> **注意：** 著者自身が「私はまだ合格していません。この記事は合格体験記ではなく、**試験開始直後の新資格にどう立ち向かうか**を記録した勉強開始の記録です」と明記している。合格実績の裏付けはない。
+
+- *意見*：日本語話者にとって**英語が最大の障壁**であり、「消去法の徹底」で対応しうる
+- *意見*：公式模試が存在しない時期のため、Claude に模擬問題を生成させて弱点ドメインを特定する進め方をとった
+
 ### 二次情報のうち、一次情報と矛盾するもの（教材で採用しない）
 
 | 二次情報の主張 | 出典 | 一次情報 | 判定 |
 |---|---|---|---|
 | 「Certification expires **six months** after passing（認定は6ヶ月で失効）」 | `S-02` | **12ヶ月**（`P-EXAM-01` §14 / `P-EXAM-02` / `P-EXAM-06`） | **誤り。**教材では 12ヶ月を採用し、この誤情報が流通していること自体を注意喚起する |
-| 「partial grading for some questions（一部の設問で部分点がある）」 | 検索結果の要約（出典不特定） | Architect：「Multiple choice; one correct answer and three incorrect options」（`P-EXAM-02`）／Associate：「each item states how many responses to select」（`P-EXAM-01`） | **裏付けなし。**Associate の複数回答形式を部分点と誤認した可能性。教材には採らない |
+| 「partial grading for some questions（一部の設問で部分点がある）」 | サードパーティ対策サイト `claudecertifiedarchitects.com`（2026-08-26 に発信元を特定。**S 番号は付与しない**＝教材で引用しない情報源） | Architect：「Multiple choice; one correct answer and three incorrect options」（`P-EXAM-02`）／Associate：「each item states how many responses to select」（`P-EXAM-01`） | **裏付けなし。**Associate の複数回答形式を部分点と誤認した可能性。教材には採らない |
 | Architect でドメイン別正答率が返却される | `S-02` | Architect 試験ガイドは「Result reporting: Pass or fail」のみ（`P-EXAM-02`） | **一次情報と不一致。**運用が変わった可能性はあるが確認できないため、教材では「二次情報による報告」と明示 |
 
 ---
